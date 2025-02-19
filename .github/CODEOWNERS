@@ -1,0 +1,6 @@
+# Ownership for specific files
+/.github/CODEOWNERS @Cogniscient-Business-Solutions/hr-eye-development-codeowners @Cogniscient-Business-Solutions/hr-eye-development-backend-codeowners 
+/.gitignore @Cogniscient-Business-Solutions/hr-eye-development-codeowners  @Cogniscient-Business-Solutions/hr-eye-development-backend-codeowners 
+
+# Ownership for all other files
+* @Cogniscient-Business-Solutions/hr-eye-development-codeowners  @Cogniscient-Business-Solutions/hr-eye-development-backend-codeowners 
