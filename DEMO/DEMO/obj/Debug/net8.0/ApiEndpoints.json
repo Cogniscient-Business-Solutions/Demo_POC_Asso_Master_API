@@ -1,23 +1,28 @@
 [
   {
-    "ContainingType": "DEMO.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "DEMO.Controllers.OrgChartController",
+    "Method": "EmployeeDetail",
+    "RelativePath": "api/OrgChart/OrgChartData",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[DEMO.WeatherForecast, DEMO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "ASSO_CODE",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "COMPANY_NO",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LOCATION_NO",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
   }
 ]

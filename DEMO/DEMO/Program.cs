@@ -1,3 +1,8 @@
+using DEMO.Models.BusinessDL;
+using DEMO.Models.DataDL.Classes;
+using DEMO.Models.DataDL.Interfaces;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<OrgChartInterface, SQLData>();
+builder.Services.AddScoped<OrgChartServices>();
+
 
 var app = builder.Build();
 
