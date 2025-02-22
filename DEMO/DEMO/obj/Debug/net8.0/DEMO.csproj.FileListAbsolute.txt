@@ -10,6 +10,12 @@ D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\DEMO.csproj.AssemblyReference.cache
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\DEMO.GeneratedMSBuildEditorConfig.editorconfig
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\DEMO.AssemblyInfoInputs.cache
@@ -35,9 +41,3 @@ D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\DEMO.pdb
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\DEMO.genruntimeconfig.cache
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\obj\Debug\net8.0\ref\DEMO.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\System.Data.SqlClient.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
-D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
