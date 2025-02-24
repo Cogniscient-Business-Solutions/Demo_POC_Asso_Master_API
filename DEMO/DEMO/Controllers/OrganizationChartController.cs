@@ -1,8 +1,10 @@
 ﻿using System.Collections;
+using System.Threading.Tasks;
 using DEMO.Models.BusinessDL;
 using DEMO.Models.DTO.OrgChartDetails;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace DEMO.Controllers
 {
@@ -12,13 +14,12 @@ namespace DEMO.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly OrgChartServices _OrgChart;
-        private readonly Hashtable objht = new Hashtable();
         private readonly ILogger<OrgChartController> _logger;
 
-        public OrgChartController(IConfiguration cnfg, OrgChartServices OrgChart, ILogger<OrgChartController> logger) // Inject logger
+        public OrgChartController(IConfiguration configuration, OrgChartServices orgChart, ILogger<OrgChartController> logger)
         {
-            _configuration = cnfg;
-            _OrgChart = OrgChart;
+            _configuration = configuration;
+            _OrgChart = orgChart;
             _logger = logger;
         }
 
@@ -27,64 +28,41 @@ namespace DEMO.Controllers
         {
             try
             {
-
-                objht.Clear();
-
-                objht.Add("ASSO_CODE", ASSO_CODE ?? "");
-                objht.Add("COMPANY_NO", COMPANY_NO ?? "");
-                objht.Add("LOCATION_NO", LOCATION_NO ?? "");
-
-
-                _OrgChart.ht = objht;
-
-
-                var response = await _OrgChart.GetEmpDetailAsync();
-
-
-                var finalResponse = new
+                var parameters = new Hashtable
                 {
-                    EmpDetailResult = new
-                    {
-                        Empdetails = response.Empdetails,
-                        EmpMessage = new
-                        {
-                            ErrorMsg = response.EmpMessage.ErrorMsg,
-                            Success = response.EmpMessage.Success
-                        }
-                    }
+                    { "ASSO_CODE", ASSO_CODE ?? "" },
+                    { "COMPANY_NO", COMPANY_NO ?? "" },
+                    { "LOCATION_NO", LOCATION_NO ?? "" }
                 };
 
+                var response = await _OrgChart.GetEmpDetailAsync(parameters);
 
-                if (response.EmpMessage.Success)
+                if (response.Status == "SUCCESS")
                 {
-                    return Ok(finalResponse);
+                    return Ok(response);
                 }
                 else
                 {
-                    return NotFound(finalResponse);
+                    return NotFound(response);
                 }
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Error in EmployeeDetail: {ex.Message}");
 
-                var errorResponse = new
+                var errorResponse = new ErrorResponse
                 {
-                    EmpDetailResult = new
+                    Status = "FAIL",
+                    Error = new ErrorDetails
                     {
-                        EDetails = new List<OrgChartData>(),
-                        EmpMessage = new LogMsg
-                        {
-                            ErrorMsg = ex.Message,
-                            Success = false
-                        }
+                        Code = "INTERNAL_ERROR",
+                        Message = "An error occurred while processing the request.",
+                        Details = ex.Message
                     }
                 };
-
 
                 return BadRequest(errorResponse);
             }
         }
-
     }
 }
-
