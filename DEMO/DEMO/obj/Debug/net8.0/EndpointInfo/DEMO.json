@@ -1,45 +1,122 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "DEMO",
-    "version": "1.0"
-  },
-  "paths": {
-    "/api/OrgChart/OrgChartData": {
-      "get": {
-        "tags": [
-          "OrgChart"
-        ],
-        "parameters": [
-          {
-            "name": "ASSO_CODE",
-            "in": "query",
-            "schema": {
-              "type": "string"
+    "openapi": "3.0.1",
+    "info": {
+        "title": "DEMO",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/GetEmployeeById/EmpDetail": {
+            "get": {
+                "tags": [
+                    "GetEmployeeById"
+                ],
+                "parameters": [
+                    {
+                        "name": "ASSO_CODE",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "COMPANY_NO",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "LOCATION_NO",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
-          },
-          {
-            "name": "COMPANY_NO",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        },
+        "/api/OrgChart/OrgChartData": {
+            "get": {
+                "tags": [
+                    "OrgChart"
+                ],
+                "parameters": [
+                    {
+                        "name": "ASSO_CODE",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "COMPANY_NO",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "LOCATION_NO",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
-          },
-          {
-            "name": "LOCATION_NO",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        },
+        "/api/Login": {
+            "get": {
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "name": "company",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
         }
-      }
-    }
-  },
-  "components": { }
+    },
+    "components": {}
 }
