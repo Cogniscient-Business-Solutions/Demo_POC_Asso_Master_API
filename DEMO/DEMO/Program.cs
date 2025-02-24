@@ -1,6 +1,7 @@
 using DEMO.Models.BusinessDL;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DataDL.Interfaces;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -29,6 +30,10 @@ builder.Services.AddSingleton<TokenService>();
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<OrgChartInterface, SQLData>();
+builder.Services.AddScoped<OrgChartServices>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
