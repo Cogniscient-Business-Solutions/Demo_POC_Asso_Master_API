@@ -1,36 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\empdetail\\empmsg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\empdetail\\empmsg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\sqldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\sqldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\getemployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\getemployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\empdetail\\getempdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\empdetail\\getempdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\empdetail\\empdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\empdetail\\empdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -38,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 331,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,97 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EmpMsg.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpMsg.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\EmpMsg.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpMsg.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\EmpMsg.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:58:06.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GetEmpData.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:57:31.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EmpDetail.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:57:32.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GetEmployeeByIdService.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
-              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
-              "ViewState": "AgIAABkBAAAANjMzMzMmwDQBAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:43:57.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IData.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Interfaces\\IData.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Interfaces\\IData.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Interfaces\\IData.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Interfaces\\IData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:43:20.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SQLData.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\SQLData.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\SQLData.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\SQLData.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\SQLData.cs",
-              "ViewState": "AgIAAN0AAAAAm5mZmZkMwOQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:42:51.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetEmployeeByIdController.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\GetEmployeeByIdController.cs",
-              "RelativeDocumentMoniker": "DEMO\\Controllers\\GetEmployeeByIdController.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\GetEmployeeByIdController.cs",
-              "RelativeToolTip": "DEMO\\Controllers\\GetEmployeeByIdController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAACA1wGYAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T09:41:37.51Z",
-              "EditorCaption": ""
             }
           ]
         }
