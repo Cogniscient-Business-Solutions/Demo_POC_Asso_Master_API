@@ -9,13 +9,13 @@ namespace DEMO.Models.BusinessDL
     {
         private readonly IData _dataLayer;
         public Hashtable ht = new Hashtable();
-        private readonly string _connectionString;
+       
         private readonly ILogger _logger;
 
-        public GetEmployeeByIdService(IData dataLayer, IConfiguration configuration, ILogger<GetEmployeeByIdService> logger)
+        public GetEmployeeByIdService(IData dataLayer, ILogger<GetEmployeeByIdService> logger)
         {
             _dataLayer = dataLayer;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+           
             _logger = logger;
         }
 

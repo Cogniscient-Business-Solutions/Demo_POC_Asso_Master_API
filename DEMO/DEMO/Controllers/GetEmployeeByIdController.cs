@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DEMO.Models.DataDL.Classes;
 using DEMO.Models.BusinessDL;
 using DEMO.Models.DTO.EmpDetail;
 using Microsoft.AspNetCore.Http;
@@ -10,14 +11,14 @@ namespace DEMO.Controllers
     [ApiController]
     public class GetEmployeeByIdController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        
         private readonly GetEmployeeByIdService _GetEmployeeByIdService;
         private readonly Hashtable objht = new Hashtable();
         private readonly ILogger<GetEmployeeByIdController> _logger;
 
-        public GetEmployeeByIdController(IConfiguration cnfg, GetEmployeeByIdService GetEmployeeByIdService, ILogger<GetEmployeeByIdController> logger) // Inject logger
+        public GetEmployeeByIdController( GetEmployeeByIdService GetEmployeeByIdService, ILogger<GetEmployeeByIdController> logger) // Inject logger
         {
-            _configuration = cnfg;
+            
             _GetEmployeeByIdService = GetEmployeeByIdService;
             _logger = logger; 
         }
@@ -104,47 +105,22 @@ namespace DEMO.Controllers
 
                 if (response.EmpMessage.Success)
                 {
-                    var successResponse = new
-                    {
-                        status = "SUCCESS",
-                        data = new
-                        {
-                            EDetails = response.EDetails
-                        }
-                    };
-
-                    return Ok(successResponse);
+                    return ApiResponseHelper.SuccessResponse(new { EDetails = response.EDetails });
                 }
                 else
                 {
-                    var errorResponse = new
-                    {
-                        status = "FAIL",
-                        error = new
-                        {
-                            code = "USER_NOT_FOUND",
-                            message = response.EmpMessage.ErrorMsg,
-                            details = "Please check the employee ID and try again."
-                        }
-                    };
-
-                    return NotFound(errorResponse);
+                    return ApiResponseHelper.ErrorResponse(
+                "USER_NOT_FOUND",
+                response.EmpMessage.ErrorMsg,
+                "Please check the employee ID and try again.");
                 }
             }
             catch (Exception ex)
             {
-                var errorResponse = new
-                {
-                    status = "FAIL",
-                    error = new
-                    {
-                        code = "SERVER_ERROR",
-                        message = "An unexpected error occurred.",
-                        details = ex.Message
-                    }
-                };
-
-                return BadRequest(errorResponse);
+                return ApiResponseHelper.ErrorResponse(
+            "SERVER_ERROR",
+            "An unexpected error occurred.",
+            ex.Message);
             }
         }
 
