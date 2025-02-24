@@ -5,6 +5,7 @@ using DEMO.Models.DTO.OrgChartDetails;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using DEMO.Models.DTO;
 
 namespace DEMO.Controllers
 {
@@ -23,46 +24,28 @@ namespace DEMO.Controllers
             _logger = logger;
         }
 
-        [HttpGet("OrgChartData")]
+        [HttpGet("OrgChartData")]        
         public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO, string LOCATION_NO)
         {
             try
             {
                 var parameters = new Hashtable
-                {
-                    { "ASSO_CODE", ASSO_CODE ?? "" },
-                    { "COMPANY_NO", COMPANY_NO ?? "" },
-                    { "LOCATION_NO", LOCATION_NO ?? "" }
-                };
+        {
+            { "ASSO_CODE", ASSO_CODE ?? "" },
+            { "COMPANY_NO", COMPANY_NO ?? "" },
+            { "LOCATION_NO", LOCATION_NO ?? "" }
+        };
 
                 var response = await _OrgChart.GetEmpDetailAsync(parameters);
 
-                if (response.Status == "SUCCESS")
-                {
-                    return Ok(response);
-                }
-                else
-                {
-                    return NotFound(response);
-                }
+                return response.Status == "SUCCESS" ? Ok(response) : NotFound(response);
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error in EmployeeDetail: {ex.Message}");
-
-                var errorResponse = new ErrorResponse
-                {
-                    Status = "FAIL",
-                    Error = new ErrorDetails
-                    {
-                        Code = "INTERNAL_ERROR",
-                        Message = "An error occurred while processing the request.",
-                        Details = ex.Message
-                    }
-                };
-
-                return BadRequest(errorResponse);
+                return BadRequest(ApiResponse<object>.Fail("INTERNAL_ERROR", "An error occurred while processing the request.", ex.Message));
             }
         }
+
     }
 }

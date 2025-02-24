@@ -5,6 +5,7 @@
         public string Status { get; set; } = "SUCCESS";
         public OrgChartData Data { get; set; }
         public ErrorDetails Error { get; set; }
+        public bool Success { get; internal set; }
     }
 
     public class OrgChartData

@@ -85,13 +85,13 @@ namespace DEMO.Models.BusinessDL
 
                 // Extract Managers
                 response.Data.Managers = managerTable.AsEnumerable()
-                    .Select(row => new ManagerDetails
+                    .Select((row, index) => new ManagerDetails
                     {
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
-                        Level = Convert.ToInt32(row["Level"])
+                        Level = index + 1
                     }).ToList();
             }
             catch (Exception ex)
