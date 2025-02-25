@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using DEMO.Models.DTO;
+using DEMO.Models.DataDL.Classes;
 
 namespace DEMO.Controllers
 {
@@ -24,7 +25,7 @@ namespace DEMO.Controllers
             _logger = logger;
         }
 
-        [HttpGet("OrgChartData")]        
+        [HttpGet("OrgChartData")]
         public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO, string LOCATION_NO)
         {
             try
@@ -38,12 +39,14 @@ namespace DEMO.Controllers
 
                 var response = await _OrgChart.GetEmpDetailAsync(parameters);
 
-                return response.Status == "SUCCESS" ? Ok(response) : NotFound(response);
+                return response.Status == "SUCCESS"
+                    ? ApiResponseHelper.SuccessResponse(response)
+                    : ApiResponseHelper.ErrorResponse("NOT_FOUND", "Employee details not found.");
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error in EmployeeDetail: {ex.Message}");
-                return BadRequest(ApiResponse<object>.Fail("INTERNAL_ERROR", "An error occurred while processing the request.", ex.Message));
+                return ApiResponseHelper.ErrorResponse("INTERNAL_ERROR", "An error occurred while processing the request.", ex.Message);
             }
         }
 

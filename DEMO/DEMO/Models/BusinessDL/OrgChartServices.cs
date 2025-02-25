@@ -13,11 +13,11 @@ namespace DEMO.Models.BusinessDL
 {
     public class OrgChartServices
     {
-        private readonly OrgChartInterface _dataLayer;
+        private readonly IData _dataLayer;
         private readonly string _connectionString;
         private readonly ILogger<OrgChartServices> _logger;
 
-        public OrgChartServices(OrgChartInterface dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
+        public OrgChartServices(IData dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
         {
             _dataLayer = dataLayer;
             _connectionString = configuration.GetConnectionString("DefaultConnection");
