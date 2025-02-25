@@ -31,7 +31,7 @@ builder.Services.AddSingleton<TokenService>();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<OrgChartInterface, SQLData>();
+builder.Services. AddScoped<OrgChartInterface, SQLData>();
 builder.Services.AddScoped<OrgChartServices>();
 
 builder.Services.AddEndpointsApiExplorer();
