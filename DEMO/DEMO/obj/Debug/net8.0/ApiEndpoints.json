@@ -57,6 +57,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LoginController",
+    "Method": "DecodeToken",
+    "RelativePath": "api/Login/decodeToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DEMO.Controllers.OrgChartController",
     "Method": "EmployeeDetail",
     "RelativePath": "api/OrgChart/OrgChartData",

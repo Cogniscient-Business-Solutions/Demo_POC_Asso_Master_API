@@ -1,8 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "DEMO",
-    "version": "1.0"
+    "title": "DEMO API",
+    "description": "This API provides employee details, authentication, and organization chart services.",
+    "version": "v1"
   },
   "paths": {
     "/api/GetEmployeeById/EmpDetail": {
@@ -10,10 +11,12 @@
         "tags": [
           "GetEmployeeById"
         ],
+        "summary": "Retrieves employee details based on the given parameters.",
         "parameters": [
           {
             "name": "ASSO_CODE",
             "in": "query",
+            "description": "The employee association code.",
             "schema": {
               "type": "string"
             }
@@ -21,6 +24,7 @@
           {
             "name": "COMPANY_NO",
             "in": "query",
+            "description": "The company number.",
             "schema": {
               "type": "string"
             }
@@ -28,6 +32,7 @@
           {
             "name": "LOCATION_NO",
             "in": "query",
+            "description": "The location number.",
             "schema": {
               "type": "string"
             }
@@ -35,7 +40,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Employee details retrieved successfully."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing JWT token."
+          },
+          "404": {
+            "description": "Employee not found."
+          },
+          "500": {
+            "description": "Internal server error."
           }
         }
       }
@@ -69,6 +83,27 @@
           },
           {
             "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login/decodeToken": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "parameters": [
+          {
+            "name": "token",
             "in": "query",
             "schema": {
               "type": "string"
@@ -118,5 +153,19 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer' followed by a space and your JWT token.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }
