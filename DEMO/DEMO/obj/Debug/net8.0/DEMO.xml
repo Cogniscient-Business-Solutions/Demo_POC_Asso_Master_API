@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DEMO</name>
+    </assembly>
+    <members>
+        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String,System.String,System.String)">
+            <summary>
+            Retrieves employee details based on the given parameters.
+            </summary>
+            <param name="ASSO_CODE">The employee association code.</param>
+            <param name="COMPANY_NO">The company number.</param>
+            <param name="LOCATION_NO">The location number.</param>
+            <returns>Returns employee details if found, otherwise an error response.</returns>
+            <response code="200">Employee details retrieved successfully.</response>
+            <response code="401">Unauthorized - Invalid or missing JWT token.</response>
+            <response code="404">Employee not found.</response>
+            <response code="500">Internal server error.</response>
+        </member>
+    </members>
+</doc>

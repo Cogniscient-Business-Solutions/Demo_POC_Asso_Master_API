@@ -1,122 +1,171 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "DEMO",
-        "version": "1.0"
-    },
-    "paths": {
-        "/api/GetEmployeeById/EmpDetail": {
-            "get": {
-                "tags": [
-                    "GetEmployeeById"
-                ],
-                "parameters": [
-                    {
-                        "name": "ASSO_CODE",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "COMPANY_NO",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "LOCATION_NO",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DEMO API",
+    "description": "This API provides employee details, authentication, and organization chart services.",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/GetEmployeeById/EmpDetail": {
+      "get": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "summary": "Retrieves employee details based on the given parameters.",
+        "parameters": [
+          {
+            "name": "ASSO_CODE",
+            "in": "query",
+            "description": "The employee association code.",
+            "schema": {
+              "type": "string"
             }
-        },
-        "/api/OrgChart/OrgChartData": {
-            "get": {
-                "tags": [
-                    "OrgChart"
-                ],
-                "parameters": [
-                    {
-                        "name": "ASSO_CODE",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "COMPANY_NO",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "LOCATION_NO",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
+          },
+          {
+            "name": "COMPANY_NO",
+            "in": "query",
+            "description": "The company number.",
+            "schema": {
+              "type": "string"
             }
-        },
-        "/api/Login": {
-            "get": {
-                "tags": [
-                    "Login"
-                ],
-                "parameters": [
-                    {
-                        "name": "company",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "location",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "userId",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
+          },
+          {
+            "name": "LOCATION_NO",
+            "in": "query",
+            "description": "The location number.",
+            "schema": {
+              "type": "string"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee details retrieved successfully."
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing JWT token."
+          },
+          "404": {
+            "description": "Employee not found."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
         }
+      }
     },
-    "components": {}
+    "/api/Login": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "parameters": [
+          {
+            "name": "company",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login/decodeToken": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/OrgChart/OrgChartData": {
+      "get": {
+        "tags": [
+          "OrgChart"
+        ],
+        "parameters": [
+          {
+            "name": "ASSO_CODE",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "COMPANY_NO",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LOCATION_NO",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer' followed by a space and your JWT token.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

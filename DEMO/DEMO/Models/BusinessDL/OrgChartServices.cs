@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DataDL.Interfaces;
 using DEMO.Models.DTO.OrgChartDetails;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -13,30 +15,19 @@ namespace DEMO.Models.BusinessDL
 {
     public class OrgChartServices
     {
-        private readonly OrgChartInterface _dataLayer;
+        private readonly IData _dataLayer;
         private readonly string _connectionString;
         private readonly ILogger<OrgChartServices> _logger;
 
-        public OrgChartServices(OrgChartInterface dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
+        public OrgChartServices(IData dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
         {
             _dataLayer = dataLayer;
             _connectionString = configuration.GetConnectionString("DefaultConnection");
             _logger = logger;
         }
 
-        public async Task<OrgChartResponse> GetEmpDetailAsync(Hashtable parameters)
+        public async Task<IActionResult> GetEmpDetailAsync(Hashtable parameters)
         {
-            var response = new OrgChartResponse
-            {
-                Status = "SUCCESS",
-                Data = new OrgChartData
-                {
-                    SelectedUser = new EmployeeDetails(),
-                    Reportees = new List<EmployeeDetails>(),
-                    Managers = new List<ManagerDetails>()
-                }
-            };
-
             try
             {
                 // Fetch data from stored procedure
@@ -45,14 +36,11 @@ namespace DEMO.Models.BusinessDL
                 // Ensure the dataset contains at least 3 tables
                 if (ds.Tables.Count < 3 || ds.Tables[0].Rows.Count == 0)
                 {
-                    response.Status = "FAIL";
-                    response.Error = new ErrorDetails
-                    {
-                        Code = "USER_NOT_FOUND",
-                        Message = "The employee ID provided does not exist in the system.",
-                        Details = "Please check the employee ID and try again."
-                    };
-                    return response;
+                    return ApiResponseHelper.ErrorResponse(
+                        "USER_NOT_FOUND",
+                        "The employee ID provided does not exist in the system.",
+                        "Please check the employee ID and try again."
+                    );
                 }
 
                 // Extract tables
@@ -60,55 +48,49 @@ namespace DEMO.Models.BusinessDL
                 DataTable reporteeTable = ds.Tables[1]; // Reportees
                 DataTable managerTable = ds.Tables[2];  // Managers
 
-                // Extract Selected User
-                if (empTable.Rows.Count > 0)
+                // Create response object
+                var responseData = new OrgChartData
                 {
-                    DataRow empRow = empTable.Rows[0];
-                    response.Data.SelectedUser = new EmployeeDetails
+                    SelectedUser = empTable.Rows.Count > 0 ? new EmployeeDetails
                     {
-                        UserName = empRow["Name"].ToString().Trim(),
-                        UserId = empRow["Asso_Code"].ToString().Trim(),
-                        Designation = empRow["Designation"].ToString().Trim(),
-                        Department = empRow["Department"].ToString().Trim()
-                    };
-                }
+                        UserName = empTable.Rows[0]["Name"].ToString().Trim(),
+                        UserId = empTable.Rows[0]["Asso_Code"].ToString().Trim(),
+                        Designation = empTable.Rows[0]["Designation"].ToString().Trim(),
+                        Department = empTable.Rows[0]["Department"].ToString().Trim()
+                    } : new EmployeeDetails(),
 
-                // Extract Reportees
-                response.Data.Reportees = reporteeTable.AsEnumerable()
-                    .Select(row => new EmployeeDetails
+                    Reportees = reporteeTable.AsEnumerable().Select(row => new EmployeeDetails
                     {
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim()
-                    }).ToList();
+                    }).ToList(),
 
-                // Extract Managers
-                response.Data.Managers = managerTable.AsEnumerable()
-                    .Select((row, index) => new ManagerDetails
+                    Managers = managerTable.AsEnumerable().Select((row, index) => new ManagerDetails
                     {
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
                         Level = index + 1
-                    }).ToList();
+                    }).ToList()
+                };
+
+                return ApiResponseHelper.SuccessResponse(responseData);
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error in GetEmpDetailAsync: {ex.Message}");
 
-                response.Status = "FAIL";
-                response.Error = new ErrorDetails
-                {
-                    Code = "INTERNAL_ERROR",
-                    Message = "An error occurred while fetching data.",
-                    Details = ex.Message
-                };
+                return ApiResponseHelper.ErrorResponse(
+                    "INTERNAL_ERROR",
+                    "An error occurred while fetching data.",
+                    ex.Message
+                );
             }
-
-            return response;
         }
+
 
     }
 }
