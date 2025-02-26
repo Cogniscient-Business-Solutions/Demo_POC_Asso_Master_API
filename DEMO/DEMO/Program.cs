@@ -78,6 +78,8 @@ builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
 
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

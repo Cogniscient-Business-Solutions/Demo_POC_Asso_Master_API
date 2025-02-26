@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
+
+
+using static DEMO.Models.BusinessDL.GetEmployeeByIdService;
+
 namespace DEMO.Controllers
 {
     [Authorize]
@@ -96,6 +100,93 @@ namespace DEMO.Controllers
             ex.Message);
             }
         }
+
+
+
+        /// <summary>
+        /// add emp resource.
+        /// </summary>
+        [HttpPost("AddEmployee")]
+        public IActionResult AddEmployee([FromBody] EmployeeRequestModel model)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(model.ASSO_CODE) || string.IsNullOrEmpty(model.COMPANY_NO) || string.IsNullOrEmpty(model.LOCATION_NO))
+                {
+                    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company, Location, and Employee Code are required.");
+                }
+
+                
+                model.EmployeeId = EmployeeDataStore.Employees.Count + 1;
+
+                
+                EmployeeDataStore.Employees.Add(model);
+
+                return ApiResponseHelper.SuccessResponse(new { Message = "Employee added successfully!", EmployeeId = model.EmployeeId });
+            }
+            catch (Exception ex)
+            {
+                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
+            }
+        }
+
+        [HttpGet("GetEmployees")]
+        public IActionResult GetEmployees()
+        {
+            return ApiResponseHelper.SuccessResponse(new { Employees = EmployeeDataStore.Employees });
+        }
+
+
+        [HttpGet("EmpDetailById/{employeeId}")]
+        public IActionResult EmployeeDetailById(int employeeId)
+        {
+            try
+            {
+                var employee = EmployeeDataStore.Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
+
+                if (employee != null)
+                {
+                    return ApiResponseHelper.SuccessResponse(new { EDetails = employee });
+                }
+
+                return ApiResponseHelper.ErrorResponse("USER_NOT_FOUND", "Employee not found.", "Please check the Employee ID and try again.");
+            }
+            catch (Exception ex)
+            {
+                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
+            }
+        }
+
+        [HttpPut("UpdateEmployee/{id}")]
+        public IActionResult UpdateEmployee(int id, [FromBody] EmployeeRequestModel updatedEmployee)
+        {
+            var employee = EmployeeDataStore.Employees.FirstOrDefault(e => e.EmployeeId == id);
+            if (employee == null)
+                return NotFound(new { Message = "Employee not found" });
+
+            
+            employee.ASSO_CODE = updatedEmployee.ASSO_CODE;
+            employee.COMPANY_NO = updatedEmployee.COMPANY_NO;
+            employee.LOCATION_NO = updatedEmployee.LOCATION_NO;
+            employee.EMP_NAME = updatedEmployee.EMP_NAME;
+            employee.EMP_EMAIL = updatedEmployee.EMP_EMAIL;
+            employee.EMP_PHONE = updatedEmployee.EMP_PHONE;
+
+            return Ok(employee);
+        }
+
+        
+        [HttpDelete("DeleteEmployee/{id}")]
+        public IActionResult DeleteEmployee(int id)
+        {
+            var employee = EmployeeDataStore.Employees.FirstOrDefault(e => e.EmployeeId == id);
+            if (employee == null)
+                return NotFound(new { Message = "Employee not found" });
+
+            EmployeeDataStore.Employees.Remove(employee);
+            return Ok(new { Message = "Employee deleted successfully" });
+        }
+
 
     }
 }

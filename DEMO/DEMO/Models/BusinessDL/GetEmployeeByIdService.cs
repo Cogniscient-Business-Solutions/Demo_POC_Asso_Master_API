@@ -335,7 +335,10 @@ namespace DEMO.Models.BusinessDL
         }
 
 
-
+        public static class EmployeeDataStore
+        {
+            public static List<EmployeeRequestModel> Employees = new List<EmployeeRequestModel>();
+        }
 
 
     }
