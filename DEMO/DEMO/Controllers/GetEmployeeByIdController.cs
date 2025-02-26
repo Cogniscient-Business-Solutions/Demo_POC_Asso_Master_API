@@ -17,12 +17,14 @@ namespace DEMO.Controllers
         private readonly GetEmployeeByIdService _GetEmployeeByIdService;
         private readonly Hashtable objht = new Hashtable();
         private readonly ILogger<GetEmployeeByIdController> _logger;
+        private readonly TokenService _tokenService;
 
-        public GetEmployeeByIdController( GetEmployeeByIdService GetEmployeeByIdService, ILogger<GetEmployeeByIdController> logger) // Inject logger
+        public GetEmployeeByIdController( GetEmployeeByIdService GetEmployeeByIdService, ILogger<GetEmployeeByIdController> logger, TokenService tokenService) // Inject logger
         {
             
             _GetEmployeeByIdService = GetEmployeeByIdService;
-            _logger = logger; 
+            _logger = logger;
+            _tokenService = tokenService;
         }
 
 
@@ -41,10 +43,30 @@ namespace DEMO.Controllers
         
         //[Produces("application/json")]
         [HttpGet("EmpDetail")]
-        public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO, string LOCATION_NO)
+        public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
         {
             try
             {
+
+                var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                var claims = _tokenService.DecodeToken(token);
+
+                if (claims == null)
+                {
+                    return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+                }
+
+
+                COMPANY_NO ??= claims.GetValueOrDefault("company");
+                LOCATION_NO ??= claims.GetValueOrDefault("location");
+
+
+
+                if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
+                {
+                    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
+                }
+
                 objht.Clear();
                 objht.Add("ASSO_CODE", ASSO_CODE ?? "");
                 objht.Add("COMPANY_NO", COMPANY_NO ?? "");

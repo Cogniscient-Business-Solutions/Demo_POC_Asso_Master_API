@@ -46,11 +46,8 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
                 }
 
-               
                 COMPANY_NO ??= claims.GetValueOrDefault("company");
                 LOCATION_NO ??= claims.GetValueOrDefault("location");
-
-              
 
                 if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
                 {
@@ -64,18 +61,67 @@ namespace DEMO.Controllers
             { "LOCATION_NO", LOCATION_NO }
         };
 
-                var response = await _OrgChart.GetEmpDetailAsync(parameters);
+                // Call the service method that returns IActionResult
+                IActionResult response = await _OrgChart.GetEmpDetailAsync(parameters);
 
-                return response.Status == "SUCCESS"
-                    ? ApiResponseHelper.SuccessResponse(response)
-                    : ApiResponseHelper.ErrorResponse("NOT_FOUND", "Employee details not found.");
+                return response;
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error in EmployeeDetail: {ex.Message}");
-                return ApiResponseHelper.ErrorResponse("INTERNAL_ERROR", "An error occurred while processing the request.", ex.Message);
+
+                return ApiResponseHelper.ErrorResponse(
+                    "INTERNAL_ERROR",
+                    "An error occurred while processing the request.",
+                    ex.Message
+                );
             }
         }
+
+
+
+        //public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
+        //{
+        //    try
+        //    {
+        //        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        //        var claims = _tokenService.DecodeToken(token);
+
+        //        if (claims == null)
+        //        {
+        //            return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+        //        }
+
+
+        //        COMPANY_NO ??= claims.GetValueOrDefault("company");
+        //        LOCATION_NO ??= claims.GetValueOrDefault("location");
+
+
+
+        //        if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
+        //        {
+        //            return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
+        //        }
+
+        //        var parameters = new Hashtable
+        //{
+        //    { "ASSO_CODE", ASSO_CODE },
+        //    { "COMPANY_NO", COMPANY_NO },
+        //    { "LOCATION_NO", LOCATION_NO }
+        //};
+
+        //        var response = await _OrgChart.GetEmpDetailAsync(parameters);
+
+        //        return response.Status == "SUCCESS"
+        //            ? ApiResponseHelper.SuccessResponse(response)
+        //            : ApiResponseHelper.ErrorResponse("NOT_FOUND", "Employee details not found.");
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return ApiResponseHelper.ErrorResponse("INTERNAL_ERROR", "An error occurred while processing the request.", ex.Message);
+        //    }
+        //}
 
 
 
