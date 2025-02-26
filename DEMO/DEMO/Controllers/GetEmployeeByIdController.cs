@@ -82,7 +82,7 @@ namespace DEMO.Controllers
 
                 if (response.EmpMessage.Success)
                 {
-                    return ApiResponseHelper.SuccessResponse(new { EDetails = response.EDetails });
+                    return ApiResponseHelper.SuccessResponse(response.EDetails);
                 }
                 else
                 {
