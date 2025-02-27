@@ -54,6 +54,138 @@
         }
       }
     },
+    "/api/GetEmployeeById/AddEmployee": {
+      "post": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "summary": "add emp resource.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GetEmployeeById/GetEmployees": {
+      "get": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GetEmployeeById/EmpDetailById/{employeeId}": {
+      "get": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GetEmployeeById/UpdateEmployee/{id}": {
+      "put": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/GetEmployeeById/DeleteEmployee/{id}": {
+      "delete": {
+        "tags": [
+          "GetEmployeeById"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Login": {
       "get": {
         "tags": [
@@ -95,6 +227,8 @@
           }
         }
       }
+<<<<<<< HEAD
+=======
     },
     "/api/Login/decodeToken": {
       "get": {
@@ -151,9 +285,46 @@
           }
         }
       }
+>>>>>>> 4f6e444ab452087d94fac4811296132370288939
     }
   },
   "components": {
+    "schemas": {
+      "EmployeeRequestModel": {
+        "type": "object",
+        "properties": {
+          "employeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assO_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "companY_NO": {
+            "type": "string",
+            "nullable": true
+          },
+          "locatioN_NO": {
+            "type": "string",
+            "nullable": true
+          },
+          "emP_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "emP_EMAIL": {
+            "type": "string",
+            "nullable": true
+          },
+          "emP_PHONE": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "securitySchemes": {
       "Bearer": {
         "type": "http",

@@ -30,6 +30,14 @@ builder.Services.AddAuthorization();
 builder.Services.AddSingleton<TokenService>();
 
 builder.Services.AddControllers();
+<<<<<<< HEAD
+builder.Services.AddSwaggerGen();
+
+builder.Services. AddScoped<OrgChartInterface, SQLData>();
+builder.Services.AddScoped<OrgChartServices>();
+
+=======
+>>>>>>> 4f6e444ab452087d94fac4811296132370288939
 builder.Services.AddEndpointsApiExplorer();
 
 // Configure Swagger with API descriptions
@@ -76,7 +84,8 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
-builder.Services.AddScoped<OrgChartServices>();
+
+
 
 var app = builder.Build();
 

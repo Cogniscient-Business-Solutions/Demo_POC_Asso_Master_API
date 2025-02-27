@@ -44,9 +44,9 @@ namespace DEMO.Models.BusinessDL
                 }
 
                 // Extract tables
-                DataTable empTable = ds.Tables[0];      // Selected Employee Details
-                DataTable reporteeTable = ds.Tables[1]; // Reportees
-                DataTable managerTable = ds.Tables[2];  // Managers
+                DataTable empTable = ds.Tables[0];      
+                DataTable reporteeTable = ds.Tables[1]; 
+                DataTable managerTable = ds.Tables[2];  
 
                 // Create response object
                 var responseData = new OrgChartData
@@ -81,7 +81,6 @@ namespace DEMO.Models.BusinessDL
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error in GetEmpDetailAsync: {ex.Message}");
 
                 return ApiResponseHelper.ErrorResponse(
                     "INTERNAL_ERROR",
