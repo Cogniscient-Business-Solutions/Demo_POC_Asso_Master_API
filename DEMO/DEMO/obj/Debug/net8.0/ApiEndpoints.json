@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
+    "Method": "AddEmployee",
+    "RelativePath": "api/GetEmployeeById/AddEmployee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DEMO.Models.DTO.EmpDetail.EmployeeRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
+    "Method": "DeleteEmployee",
+    "RelativePath": "api/GetEmployeeById/DeleteEmployee/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
     "Method": "EmployeeDetail",
     "RelativePath": "api/GetEmployeeById/EmpDetail",
     "HttpMethod": "GET",
@@ -21,6 +53,53 @@
         "Name": "LOCATION_NO",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
+    "Method": "EmployeeDetailById",
+    "RelativePath": "api/GetEmployeeById/EmpDetailById/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
+    "Method": "GetEmployees",
+    "RelativePath": "api/GetEmployeeById/GetEmployees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.GetEmployeeByIdController",
+    "Method": "UpdateEmployee",
+    "RelativePath": "api/GetEmployeeById/UpdateEmployee/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedEmployee",
+        "Type": "DEMO.Models.DTO.EmpDetail.EmployeeRequestModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -50,6 +129,22 @@
       },
       {
         "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoginController",
+    "Method": "DecodeToken",
+    "RelativePath": "api/Login/decodeToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": false
       }

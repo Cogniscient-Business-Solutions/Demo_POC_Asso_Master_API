@@ -37,4 +37,44 @@ public class TokenService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+    public Dictionary<string, string>? DecodeToken(string token)
+    {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+
+        try
+        {
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidateAudience = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+                ValidateLifetime = false
+            };
+
+            SecurityToken validatedToken;
+            var principal = tokenHandler.ValidateToken(token, validationParameters, out validatedToken);
+
+            if (principal == null) return null;
+
+            var claims = principal.Claims
+                .Where(c => c.Type == ClaimTypes.NameIdentifier || c.Type == "company" || c.Type == "location")
+                .ToDictionary(c => c.Type switch
+                {
+                    ClaimTypes.NameIdentifier => "nameidentifier", 
+                    _ => c.Type
+                }, c => c.Value);
+
+            return claims;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
 }
