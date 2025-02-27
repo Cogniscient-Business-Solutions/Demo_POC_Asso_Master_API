@@ -17,4 +17,7 @@
             public string EMP_EMAIL { get; set; }
             public string EMP_PHONE { get; set; }
         }
-    }
+
+
+ 
+}

@@ -44,8 +44,7 @@ namespace DEMO.Controllers
         /// <response code="401">Unauthorized - Invalid or missing JWT token.</response>
         /// <response code="404">Employee not found.</response>
         /// <response code="500">Internal server error.</response>
-        
-        //[Produces("application/json")]
+        [Produces("application/json")]
         [HttpGet("EmpDetail")]
         public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
         {
