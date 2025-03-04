@@ -31,7 +31,7 @@ namespace DEMO.Models.BusinessDL
             try
             {
                 // Fetch data from stored procedure
-                DataSet ds = await _dataLayer.GetDataSetAsync("Organisation_Chart_RTR", parameters);
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_Organisation_Chart_RTR", parameters);
 
                 // Ensure the dataset contains at least 3 tables
                 if (ds.Tables.Count < 3 || ds.Tables[0].Rows.Count == 0)
@@ -56,7 +56,8 @@ namespace DEMO.Models.BusinessDL
                         UserName = empTable.Rows[0]["Name"].ToString().Trim(),
                         UserId = empTable.Rows[0]["Asso_Code"].ToString().Trim(),
                         Designation = empTable.Rows[0]["Designation"].ToString().Trim(),
-                        Department = empTable.Rows[0]["Department"].ToString().Trim()
+                        Department = empTable.Rows[0]["Department"].ToString().Trim(),
+                        Status = empTable.Rows[0]["Status"].ToString().Trim()
                     } : new EmployeeDetails(),
 
                     Reportees = reporteeTable.AsEnumerable().Select(row => new EmployeeDetails
@@ -64,7 +65,8 @@ namespace DEMO.Models.BusinessDL
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
-                        Department = row["Department"].ToString().Trim()
+                        Department = row["Department"].ToString().Trim(),
+                        Status = row["Status"].ToString().Trim()
                     }).ToList(),
 
                     Managers = managerTable.AsEnumerable().Select((row, index) => new ManagerDetails
@@ -73,6 +75,7 @@ namespace DEMO.Models.BusinessDL
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
+                        Status = row["Status"].ToString().Trim(),
                         Level = index + 1
                     }).ToList()
                 };

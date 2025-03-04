@@ -22,5 +22,15 @@
             add emp resource.
             </summary>
         </member>
+        <member name="M:DEMO.Controllers.GetEmployeeByIdController.GetEmployees">
+            <summary>
+            get emp details.
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetailById(System.Int32)">
+            <summary>
+            get emp details by id.
+            </summary>
+        </member>
     </members>
 </doc>

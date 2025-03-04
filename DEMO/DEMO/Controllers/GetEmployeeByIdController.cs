@@ -50,7 +50,7 @@ namespace DEMO.Controllers
         {
             try
             {
-
+                // Extract token and decode claims
                 var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                 var claims = _tokenService.DecodeToken(token);
 
@@ -59,46 +59,95 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
                 }
 
-
+                // Assign company and location from claims if not provided
                 COMPANY_NO ??= claims.GetValueOrDefault("company");
                 LOCATION_NO ??= claims.GetValueOrDefault("location");
 
-
-
-                if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
+                if (string.IsNullOrWhiteSpace(COMPANY_NO) || string.IsNullOrWhiteSpace(LOCATION_NO))
                 {
                     return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
                 }
 
+                // Prepare parameters for the service call
                 objht.Clear();
-                objht.Add("ASSO_CODE", ASSO_CODE ?? "");
-                objht.Add("COMPANY_NO", COMPANY_NO ?? "");
-                objht.Add("LOCATION_NO", LOCATION_NO ?? "");
+                objht["ASSO_CODE"] = ASSO_CODE ?? "";
+                objht["COMPANY_NO"] = COMPANY_NO;
+                objht["LOCATION_NO"] = LOCATION_NO;
 
                 _GetEmployeeByIdService.ht = objht;
 
+                // Call the service to fetch employee details
                 var response = await _GetEmployeeByIdService.GetEmpDetailAsync();
 
-                if (response.EmpMessage.Success)
+                // If response is already an API response, return it directly
+                if (response is ObjectResult objectResult)
                 {
-                    return ApiResponseHelper.SuccessResponse(response.EDetails);
+                    return objectResult;
                 }
-                else
-                {
-                    return ApiResponseHelper.ErrorResponse(
-                "USER_NOT_FOUND",
-                response.EmpMessage.ErrorMsg,
-                "Please check the employee ID and try again.");
-                }
+
+                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
             }
             catch (Exception ex)
             {
-                return ApiResponseHelper.ErrorResponse(
-            "SERVER_ERROR",
-            "An unexpected error occurred.",
-            ex.Message);
+                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
             }
         }
+
+
+        //public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
+        //{
+        //    try
+        //    {
+
+        //        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        //        var claims = _tokenService.DecodeToken(token);
+
+        //        if (claims == null)
+        //        {
+        //            return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+        //        }
+
+
+        //        COMPANY_NO ??= claims.GetValueOrDefault("company");
+        //        LOCATION_NO ??= claims.GetValueOrDefault("location");
+
+
+
+        //        if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
+        //        {
+        //            return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
+        //        }
+
+
+        //        objht.Clear();
+        //        objht.Add("ASSO_CODE", ASSO_CODE ?? "");
+        //        objht.Add("COMPANY_NO", COMPANY_NO ?? "");
+        //        objht.Add("LOCATION_NO", LOCATION_NO ?? "");
+
+        //        _GetEmployeeByIdService.ht = objht;
+
+        //        var response = await _GetEmployeeByIdService.GetEmpDetailAsync();
+
+        //        if (response.EmpMessage.Success)
+        //        {
+        //            return ApiResponseHelper.SuccessResponse(response.EDetails);
+        //        }
+        //        else
+        //        {
+        //            return ApiResponseHelper.ErrorResponse(
+        //        "USER_NOT_FOUND",
+        //        response.EmpMessage.ErrorMsg,
+        //        "Please check the employee ID and try again.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ApiResponseHelper.ErrorResponse(
+        //    "SERVER_ERROR",
+        //    "An unexpected error occurred.",
+        //    ex.Message);
+        //    }
+        //}
 
 
 
@@ -129,13 +178,18 @@ namespace DEMO.Controllers
             }
         }
 
+        /// <summary>
+        /// get emp details.
+        /// </summary>
         [HttpGet("GetEmployees")]
         public IActionResult GetEmployees()
         {
             return ApiResponseHelper.SuccessResponse(new { Employees = EmployeeDataStore.Employees });
         }
 
-
+        /// <summary>
+        /// get emp details by id.
+        /// </summary>
         [HttpGet("EmpDetailById/{employeeId}")]
         public IActionResult EmployeeDetailById(int employeeId)
         {
