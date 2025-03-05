@@ -51,14 +51,15 @@ namespace DEMO.Models.BusinessDL
                 // Create response object
                 var responseData = new OrgChartData
                 {
-                    SelectedUser = empTable.Rows.Count > 0 ? new EmployeeDetails
+                    SelectedUser = empTable.Rows.Count > 0 ? new SelectedUserDetails
                     {
                         UserName = empTable.Rows[0]["Name"].ToString().Trim(),
                         UserId = empTable.Rows[0]["Asso_Code"].ToString().Trim(),
                         Designation = empTable.Rows[0]["Designation"].ToString().Trim(),
                         Department = empTable.Rows[0]["Department"].ToString().Trim(),
                         Status = empTable.Rows[0]["Status"].ToString().Trim()
-                    } : new EmployeeDetails(),
+                        
+                    } : new SelectedUserDetails(),
 
                     Reportees = reporteeTable.AsEnumerable().Select(row => new EmployeeDetails
                     {
@@ -66,7 +67,8 @@ namespace DEMO.Models.BusinessDL
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
-                        Status = row["Status"].ToString().Trim()
+                        Status = row["Status"].ToString().Trim(),
+                        Reportees = row["ReportingPerson_No"].ToString().Trim()
                     }).ToList(),
 
                     Managers = managerTable.AsEnumerable().Select((row, index) => new ManagerDetails
@@ -76,6 +78,7 @@ namespace DEMO.Models.BusinessDL
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
                         Status = row["Status"].ToString().Trim(),
+                        Reportees = row["ManagerList_No"].ToString().Trim(),
                         Level = index + 1
                     }).ToList()
                 };

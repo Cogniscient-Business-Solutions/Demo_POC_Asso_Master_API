@@ -77,7 +77,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
-
+//builder.Services.AddScoped<UserPictureService>();
 
 
 var app = builder.Build();
