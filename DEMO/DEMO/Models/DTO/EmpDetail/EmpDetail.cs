@@ -10,7 +10,7 @@
 
         public string Email { get; set; }
         public string Mobile_No { get; set; }
-        public UserPicture UserPictureId { get; set; } = new UserPicture();
+        //public UserPicture UserPictureId { get; set; } = new UserPicture();
 
         public PersonDetail ReportingPerson { get; set; }
         public PersonDetail Manager { get; set; }
@@ -27,17 +27,17 @@
 
         public string Status { get; set; }
 
-        public UserPicture UserPictureId { get; set; } = new UserPicture();
+        //public UserPicture UserPictureId { get; set; } = new UserPicture();
 
 
     }
 
-    public class UserPicture
-    {
-        public string FileId { get; set; } = "pictureuniqueId";
-        public string FileType { get; set; } = ".jpg";
-        public string FileName { get; set; } = "somename.jpg";
-    }
+    //public class UserPicture
+    //{
+    //    public string FileId { get; set; } = "pictureuniqueId";
+    //    public string FileType { get; set; } = ".jpg";
+    //    public string FileName { get; set; } = "somename.jpg";
+    //}
 
     //public class EmpMsg
     //{

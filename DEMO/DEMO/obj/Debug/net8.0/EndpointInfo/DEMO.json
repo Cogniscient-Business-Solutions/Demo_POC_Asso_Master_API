@@ -188,6 +188,18 @@
         }
       }
     },
+    "/api/LeaveStatus/GetLeaveStatusDetail": {
+      "get": {
+        "tags": [
+          "LeaveStatus"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Login": {
       "get": {
         "tags": [
@@ -209,7 +221,7 @@
             }
           },
           {
-            "name": "userId",
+            "name": "Asso_code",
             "in": "query",
             "schema": {
               "type": "string"

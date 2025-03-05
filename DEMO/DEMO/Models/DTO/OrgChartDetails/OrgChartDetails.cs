@@ -25,7 +25,7 @@ namespace DEMO.Models.DTO.OrgChartDetails
         public string Department { get; set; }
         public string Status { get; set; }
 
-        public UserPicture UserPictureId { get; set; } = new UserPicture();
+        //public UserPicture UserPictureId { get; set; } = new UserPicture();
         public string EmailId { get; set; }
         public string ContactNo { get; set; }
     }
@@ -37,15 +37,15 @@ namespace DEMO.Models.DTO.OrgChartDetails
         public string Department { get; set; }
         public string Status { get; set; }
         public string Reportees { get; set; }
-        public UserPicture UserPictureId { get; set; } = new UserPicture();
+        //public UserPicture UserPictureId { get; set; } = new UserPicture();
     }
 
-    public class UserPicture
-    {
-        public string FileId { get; set; } = "pictureuniqueId";
-        public string FileType { get; set; } = ".jpg";
-        public string FileName { get; set; } = "somename.jpg";
-    }
+    //public class UserPicture
+    //{
+    //    public string FileId { get; set; } = "pictureuniqueId";
+    //    public string FileType { get; set; } = ".jpg";
+    //    public string FileName { get; set; } = "somename.jpg";
+    //}
 
     public class ManagerDetails : EmployeeDetails
     {

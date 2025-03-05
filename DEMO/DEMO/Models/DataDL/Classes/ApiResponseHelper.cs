@@ -29,6 +29,23 @@ namespace DEMO.Models.DataDL.Classes
             return new ObjectResult(response) { StatusCode = 404 };
         }
 
-        
+
+        public static IActionResult AuthErrorResponse(string errorCode, string errorMessage, string details = "")
+        {
+            var response = new
+            {
+                status = "FAIL",
+                error = new
+                {
+                    code = errorCode,
+                    message = errorMessage,
+                    details
+                }
+            };
+
+            return new ObjectResult(response) { StatusCode = 401 }; 
+        }
+
+
     }
 }

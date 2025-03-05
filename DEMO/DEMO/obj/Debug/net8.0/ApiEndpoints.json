@@ -105,6 +105,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DEMO.Controllers.LeaveStatusController",
+    "Method": "GetLeaveStatusDetail",
+    "RelativePath": "api/LeaveStatus/GetLeaveStatusDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LoginController",
     "Method": "Login",
     "RelativePath": "api/Login",
@@ -123,7 +133,7 @@
         "IsRequired": false
       },
       {
-        "Name": "userId",
+        "Name": "Asso_code",
         "Type": "System.String",
         "IsRequired": false
       },

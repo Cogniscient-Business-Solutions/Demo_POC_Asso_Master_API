@@ -36,11 +36,11 @@ public class LoginController : ControllerBase
     //}
 
     [HttpGet]
-    public IActionResult Login([FromQuery] string company, [FromQuery] string location, [FromQuery] string userId, [FromQuery] string password)
+    public IActionResult Login([FromQuery] string company, [FromQuery] string location, [FromQuery] string Asso_code, [FromQuery] string password)
     {
         if (company == "cogni" && location == "noida")
         {
-            var token = _tokenService.GenerateToken(userId, company, location);
+            var token = _tokenService.GenerateToken(Asso_code, company, location);
 
             return Ok(new
             {
