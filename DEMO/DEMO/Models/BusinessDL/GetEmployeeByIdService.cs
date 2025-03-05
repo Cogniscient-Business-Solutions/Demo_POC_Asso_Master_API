@@ -13,15 +13,15 @@ namespace DEMO.Models.BusinessDL
         public Hashtable ht = new Hashtable();
        
         private readonly ILogger _logger;
-        private readonly UserPictureService _userPictureService;
+        //private readonly UserPictureService _userPictureService;
 
-        public GetEmployeeByIdService(IData dataLayer, ILogger<GetEmployeeByIdService> logger, UserPictureService userPictureService)
+        public GetEmployeeByIdService(IData dataLayer, ILogger<GetEmployeeByIdService> logger)
         {
             _dataLayer = dataLayer;
            
             _logger = logger;
 
-            _userPictureService = userPictureService;
+            //_userPictureService = userPictureService;
         }
 
 
