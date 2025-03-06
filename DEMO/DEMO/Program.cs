@@ -78,6 +78,8 @@ builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
 builder.Services.AddScoped<LeaveStatusService>();
+builder.Services.AddScoped<LeaveAppDetailService>(); // Register as Scoped
+
 
 
 var app = builder.Build();

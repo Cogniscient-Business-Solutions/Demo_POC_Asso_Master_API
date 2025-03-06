@@ -188,6 +188,37 @@
         }
       }
     },
+    "/api/LeaveAppDetail/GetLeaveAppDetails": {
+      "post": {
+        "tags": [
+          "LeaveAppDetail"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/LeaveStatus/GetLeaveStatusDetail": {
       "get": {
         "tags": [
@@ -329,6 +360,20 @@
             "nullable": true
           },
           "emP_PHONE": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetLeaveRequestDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
             "type": "string",
             "nullable": true
           }
