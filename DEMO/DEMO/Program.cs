@@ -1,4 +1,7 @@
+using DEMO.Models;
 using DEMO.Models.BusinessDL;
+using DEMO.Models.BusinessDL.Classes;
+using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DataDL.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
 using Swashbuckle.AspNetCore.Filters;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +87,9 @@ builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
 builder.Services.AddScoped<LeaveStatusService>();
 builder.Services.AddScoped<LeaveAppDetailService>(); // Register as Scoped
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<IUserInterface, UserLogin>();
+builder.Services.AddScoped<ApplyLeaveService>();
 
 
 

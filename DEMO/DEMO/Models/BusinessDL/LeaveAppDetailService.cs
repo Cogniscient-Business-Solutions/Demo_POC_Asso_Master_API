@@ -25,7 +25,7 @@ namespace DEMO.Models.BusinessDL
                 DataTable dt = await _dataLayer.GetDataTableAsync("CBS_HR_EYE_MOBILE_APP_APP_CODE_CCH_DATE_FILTER", ht);
 
                 // Check if data is empty
-                if (dt == null || dt.Rows.Count == 0)
+                if (dt == null)
                 {
                     return ApiResponseHelper.ErrorResponse("404", "No leave application records found.");
                 }
@@ -36,24 +36,27 @@ namespace DEMO.Models.BusinessDL
                 // Loop through each row and populate list
                 foreach (DataRow row in dt.Rows)
                 {
+                    int numericStatus = row.Table.Columns.Contains("leaveStatus") && row["leaveStatus"] != DBNull.Value
+                                                    ? Convert.ToInt32(row["leaveStatus"]) : 0;
+
+                    string leaveStatusText = StatusHelper.ConvertStatus(numericStatus).ToString();
+
                     LeaveAppDetail leave = new LeaveAppDetail
                     {
-                        LeaveType = row["LeaveType"].ToString().Trim(),
-                        //NoOfDays = Convert.ToInt32(row["NoOfDays"]),
-                        LeaveStatus = row["LeaveStatus"].ToString().Trim(),
-                        LeaveTransactionNo = Convert.ToInt32(row["LeaveTransactionNo"]),
-                        FromDate = row["FromDate"].ToString().Trim(),
-                        ToDate = row["ToDate"].ToString().Trim(),
-                        FromDateSession = row["FromDateSession"].ToString().Trim(),
-                        ToDateSession = row["ToDateSession"].ToString().Trim(),
-                        EmployeeReason = row["EmployeeReason"].ToString().Trim(),
-                        LeaveApplicationDate = row["LeaveApplicationDate"].ToString().Trim(),
+                        LeaveType = row["leaveType"].ToString().Trim(),
+                        NoOfDays =  Convert.ToInt32(row["noOfDays"]),
+                        LeaveStatus = leaveStatusText, //row["leaveStatus"].ToString().Trim(),
+                        LeaveTransactionNo = Convert.ToInt32(row["leaveTransactionNo"]),
+                        FromDate = row["fromDate"].ToString().Trim(),
+                        ToDate = row["toDate"].ToString().Trim(),
+                        FromDateSession = row["fromDateSession"].ToString().Trim(),
+                        ToDateSession = row["toDateSession"].ToString().Trim(),
+                        EmployeeReason = row["employeeReason"].ToString().Trim(),
+                        LeaveApplicationDate = row["leaveApplicationDate"].ToString().Trim(),
                         ApprovalDate = row.Table.Columns.Contains("ApprovalDate") && row["ApprovalDate"] != DBNull.Value
-                            ? row["ApprovalDate"].ToString().Trim()
-                            : null,
-                        ApprovalReason = row.Table.Columns.Contains("ApprovalReason") && row["ApprovalReason"] != DBNull.Value
-                            ? row["ApprovalReason"].ToString().Trim()
-                            : null
+                                                    ? row["ApprovalDate"].ToString().Trim() : null,
+                        ApprovalReason = row.Table.Columns.Contains("ApprovalReason") && row["ApprovalReason"] != DBNull.Value ?
+                                                    row["ApprovalReason"].ToString().Trim() : null
                     };
 
                     leaveDetails.Add(leave);
