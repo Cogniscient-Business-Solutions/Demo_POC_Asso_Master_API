@@ -57,7 +57,7 @@ namespace DEMO.Controllers
                 var parameters = new Hashtable
         {
             { "ASSO_CODE", ASSO_CODE },
-            { "COMPANY_NO", COMPANY_NO },
+            { "COMPANY_NO", COMPANY_NO } ,
             { "LOCATION_NO", LOCATION_NO }
         };
 

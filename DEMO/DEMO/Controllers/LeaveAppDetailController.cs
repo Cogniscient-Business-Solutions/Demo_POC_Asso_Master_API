@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using DEMO.Models.BusinessDL;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DTO.LeaveAppDetail;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,7 +25,7 @@ namespace DEMO.Controllers
             _leaveAppDetailService = leaveAppDetailService;
         }
 
-       
+        [Authorize]
         [HttpPost("GetLeaveAppDetails")]
         public async Task<IActionResult> GetLeaveAppDetails([FromBody] GetLeaveRequestDto request)
         {
@@ -53,24 +54,40 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
                 }
 
-                string fromDate = string.IsNullOrWhiteSpace(request.FromDate) ? null : request.FromDate;
-                string toDate = string.IsNullOrWhiteSpace(request.ToDate) ? null : request.ToDate;
+                string fromDate = string.IsNullOrWhiteSpace(request.FromDate) ? "" : request.FromDate;
+                string toDate = string.IsNullOrWhiteSpace(request.ToDate) ? "" : request.ToDate;               
 
-                if ((fromDate != null && !IsValidDateFormat(fromDate)) ||
-                    (toDate != null && !IsValidDateFormat(toDate)))
+                if ( !(fromDate=="" || IsValidDateFormat(fromDate)) ||  !(toDate == "" || IsValidDateFormat(toDate)))
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
                 }
 
+                
+                List<int> numericStatusList = request.LeaveStatus != null
+                    ? request.LeaveStatus
+                        .Select(status => StatusHelper.ConvertStatus(status))
+                        .Where(result => result is int)  // Ensure conversion was successful
+                        .Cast<int>()
+                        .ToList()
+                    : new List<int>();
+
+                // Ensure we only pass valid statuses to the procedure
+                if (numericStatusList.Count == 0)
+                {
+                    throw new ArgumentException("Invalid leave status values provided.");
+                }
+
+                string statusString = string.Join(",", numericStatusList);
 
                 Hashtable ht = new Hashtable
-        {
-            { "Emp_Code", empCode },
-            { "Company_No", companyNo },
-            { "Location_No", locationNo },
-            { "StartDate", request.FromDate },
-            { "EnddDate", request.ToDate }
-        };
+                {
+                    { "Emp_Code", empCode },
+                    { "Company_No", companyNo },
+                    { "Location_No", locationNo },
+                    { "StartDate", fromDate },
+                    { "EnddDate", toDate },
+                    { "Status", string.IsNullOrEmpty(statusString) ? (object)DBNull.Value : statusString }
+                };
 
                 // Fetch data from service
                 var result = await _leaveAppDetailService.GetLeaveAppDetailAsync(ht);
