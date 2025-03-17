@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,7 +73,10 @@ builder.Services.AddSwaggerGen(options =>
             new string[] {}
         }
     });
+    options.ExampleFilters();
 });
+
+builder.Services.AddSwaggerExamplesFromAssemblyOf<EmployeeMultipleExamples>();
 
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();

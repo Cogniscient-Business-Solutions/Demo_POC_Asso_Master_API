@@ -59,22 +59,48 @@
         "tags": [
           "GetEmployeeById"
         ],
-        "summary": "add emp resource.",
+        "summary": "Add Employee Resource.",
+        "description": "You can send different payloads for adding employees.",
         "requestBody": {
+          "description": "Employee request model",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             }
           }
@@ -144,16 +170,40 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             }
           }
