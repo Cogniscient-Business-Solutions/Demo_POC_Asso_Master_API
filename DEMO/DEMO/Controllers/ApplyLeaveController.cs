@@ -8,6 +8,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
 using DEMO.Models.DTO.ApplyLeave;
 using System.ComponentModel.Design;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace DEMO.Controllers
 {
@@ -27,7 +28,7 @@ namespace DEMO.Controllers
 
         [Authorize]
         [HttpPost("ApplyLeaveDetail")]
-
+        [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeave))]
         public async Task<IActionResult> ApplyLeaveDetail([FromBody] ApplyLeaveRequestDto request)
         {
             try

@@ -16,16 +16,58 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             }
           }
@@ -279,16 +321,40 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             }
           }
