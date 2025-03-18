@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using static DEMO.Models.DTO.UserLogin.UserLoginInfo;
 using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
+using DEMO.Models.DTO.ApplyLeave;
+using Swashbuckle.AspNetCore.Filters;
+using DEMO.SwaggerExamples;
 
 
 [Route("api/[controller]")]
@@ -19,9 +22,12 @@ public class UserLoginController : ControllerBase
         _tokenService = tokenService;
         _userService = userService;
     }
+
+
    
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    [SwaggerRequestExample(typeof(LoginRequest), typeof(LoginExamples))]
+    public async Task<IActionResult> Loginn([FromBody] LoginRequest request)
     {
         var user = await _userService.ValidateUserAsync(request.LOGIN_NAME, request.PASSWORD);
 

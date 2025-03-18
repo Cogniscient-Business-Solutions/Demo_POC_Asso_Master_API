@@ -2,7 +2,7 @@
 using DEMO.Models.DTO.LeaveAppDetail;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace DEMO.Models.DataDL.Classes
+namespace DEMO.SwaggerExamples
 {
     public class LeaveMultiple : IMultipleExamplesProvider<GetLeaveRequestDto>
     {

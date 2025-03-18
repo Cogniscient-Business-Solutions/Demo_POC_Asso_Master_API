@@ -3,7 +3,7 @@ using DEMO.Models.DTO.LeaveAppDetail;
 using Swashbuckle.AspNetCore.Filters;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace DEMO.Models.DataDL.Classes
+namespace DEMO.SwaggerExamples
 {
     public class ApplyLeave : IMultipleExamplesProvider<ApplyLeaveRequestDto>
     {
@@ -20,7 +20,7 @@ namespace DEMO.Models.DataDL.Classes
                 EmployeeReason = "DUE TO ......."
             });
 
-           
+
 
             yield return SwaggerExample.Create("PENDING APPROVAL", new ApplyLeaveRequestDto
             {
@@ -42,7 +42,7 @@ namespace DEMO.Models.DataDL.Classes
                 FromDateSession = "F",
                 ToDateSession = "F",
                 EmployeeReason = "DUE TO ......."
-            }) ;
+            });
 
             yield return SwaggerExample.Create("GRANTED [ERROR]", new ApplyLeaveRequestDto
             {
@@ -52,6 +52,17 @@ namespace DEMO.Models.DataDL.Classes
                 ToDate = "2025-03-20",
                 FromDateSession = "F",
                 ToDateSession = "F",
+                EmployeeReason = "DUE TO ......."
+            });
+
+            yield return SwaggerExample.Create("LWP FRESH", new ApplyLeaveRequestDto
+            {
+                LeaveType = "LWP",
+                LeaveStatus = "FRESH",
+                FromDate = "2025-03-21",
+                ToDate = "2025-03-21",
+                FromDateSession = "W",
+                ToDateSession = "W",
                 EmployeeReason = "DUE TO ......."
             });
 
