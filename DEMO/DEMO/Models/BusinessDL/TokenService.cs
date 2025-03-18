@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
+using static DEMO.Models.DTO.UserLogin.UserLoginInfo;
 
 public class TokenService
 {
@@ -14,18 +15,18 @@ public class TokenService
         _configuration = configuration;
     }
 
-    public string GenerateToken(string userId, string company, string location, string User_Id, string role)
+    public string GenerateToken(User user)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
         {
-        new Claim(JwtRegisteredClaimNames.Sub, userId),
-        new Claim("company", company),
-        new Claim("location", location),
-        new Claim("User_Id", User_Id),
-        new Claim("role", role),
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserId),
+        new Claim("company", user.Company),
+        new Claim("location", user.Location),
+        new Claim("User_Id", user.User_Id),
+        new Claim("role", user.Role),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // Unique identifier
     };
 

@@ -190,7 +190,7 @@
   },
   {
     "ContainingType": "UserLoginController",
-    "Method": "Login",
+    "Method": "Loginn",
     "RelativePath": "api/UserLogin/login",
     "HttpMethod": "POST",
     "IsController": true,

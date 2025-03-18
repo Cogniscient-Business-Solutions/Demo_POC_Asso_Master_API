@@ -33,9 +33,10 @@ public class UserLoginController : ControllerBase
 
         if (user != null)
         {
-            var token = _tokenService.GenerateToken(user.UserId, user.Company, user.Location, user.User_Id, user.Role);
+            var token = _tokenService.GenerateToken(user);
 
-            return ApiResponseHelper.SuccessResponse(new { status = "success", token });
+            return ApiResponseHelper.SuccessResponse(new LoginResponseDto { Status = "success", Token = token });
+
         }
 
         return ApiResponseHelper.AuthErrorResponse("401", "Invalid credentials", "The login name or password is incorrect.");

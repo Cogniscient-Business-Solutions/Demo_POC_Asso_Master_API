@@ -40,7 +40,7 @@ namespace DEMO.Models.BusinessDL.Classes
                 {
                     ApplyLeaveDetail leave = new ApplyLeaveDetail
                     {
-                        LeaveTransactionNo = Convert.ToInt32(row["@returnValue"])
+                        LeaveTransactionNo = Convert.ToInt32(row["returnValue"])
                     };
 
                     leaveDetails.Add(leave);

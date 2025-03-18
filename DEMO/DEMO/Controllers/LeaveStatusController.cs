@@ -57,11 +57,15 @@ namespace DEMO.Controllers
 
                 // Call the service method
                 var response = await _leaveService.GetLeaveStatusDetailAsync(ht);
-                if (response is ObjectResult objectResult)
-                {
-                    return objectResult;
-                }
-                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
+
+                return response;
+
+
+                //if (response is ObjectResult objectResult)
+                //{
+                //    return objectResult;
+                //}
+                //return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
             }
             catch (Exception ex)
             {

@@ -82,13 +82,15 @@ namespace DEMO.Controllers
                 // Call the service to fetch employee details
                 var response = await _GetEmployeeByIdService.GetEmpDetailAsync();
 
-                // If response is already an API response, return it directly
-                if (response is ObjectResult objectResult)
-                {
-                    return objectResult;
-                }
 
-                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
+                return response;
+                // If response is already an API response, return it directly
+                //if (response is ObjectResult objectResult)
+                //{
+                //    return objectResult;
+                //}
+
+                //return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
             }
             catch (Exception ex)
             {

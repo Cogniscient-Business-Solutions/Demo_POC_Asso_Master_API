@@ -97,12 +97,14 @@ namespace DEMO.Controllers
 
                 // Fetch data from service
                 var result = await _leaveService.GetLeaveAppDetailAsync(ht);
-                if (result is ObjectResult objectResult)
-                {
-                    return objectResult;
-                }
 
-                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
+                return result;
+                //if (result is ObjectResult objectResult)
+                //{
+                //    return objectResult;
+                //}
+
+                //return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
             }
             catch (Exception ex)
             {
