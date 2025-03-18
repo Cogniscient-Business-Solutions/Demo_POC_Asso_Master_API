@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 using static DEMO.Models.BusinessDL.GetEmployeeByIdService;
 using Swashbuckle.AspNetCore.Filters;
+using DEMO.SwaggerExamples;
 
 
 namespace DEMO.Controllers
@@ -96,89 +97,7 @@ namespace DEMO.Controllers
         }
 
 
-        //public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
-        //{
-        //    try
-        //    {
-
-        //        var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-        //        var claims = _tokenService.DecodeToken(token);
-
-        //        if (claims == null)
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
-        //        }
-
-
-        //        COMPANY_NO ??= claims.GetValueOrDefault("company");
-        //        LOCATION_NO ??= claims.GetValueOrDefault("location");
-
-
-
-        //        if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
-        //        }
-
-
-        //        objht.Clear();
-        //        objht.Add("ASSO_CODE", ASSO_CODE ?? "");
-        //        objht.Add("COMPANY_NO", COMPANY_NO ?? "");
-        //        objht.Add("LOCATION_NO", LOCATION_NO ?? "");
-
-        //        _GetEmployeeByIdService.ht = objht;
-
-        //        var response = await _GetEmployeeByIdService.GetEmpDetailAsync();
-
-        //        if (response.EmpMessage.Success)
-        //        {
-        //            return ApiResponseHelper.SuccessResponse(response.EDetails);
-        //        }
-        //        else
-        //        {
-        //            return ApiResponseHelper.ErrorResponse(
-        //        "USER_NOT_FOUND",
-        //        response.EmpMessage.ErrorMsg,
-        //        "Please check the employee ID and try again.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ApiResponseHelper.ErrorResponse(
-        //    "SERVER_ERROR",
-        //    "An unexpected error occurred.",
-        //    ex.Message);
-        //    }
-        //}
-
-
-
-        ///// <summary>
-        ///// add emp resource.
-        ///// </summary>
-        //[HttpPost("AddEmployee")]
-        //public IActionResult AddEmployee([FromBody] EmployeeRequestModel model)
-        //{
-        //    try
-        //    {
-        //        if (string.IsNullOrEmpty(model.ASSO_CODE) || string.IsNullOrEmpty(model.COMPANY_NO) || string.IsNullOrEmpty(model.LOCATION_NO))
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company, Location, and Employee Code are required.");
-        //        }
-
-
-        //        model.EmployeeId = EmployeeDataStore.Employees.Count + 1;
-
-
-        //        EmployeeDataStore.Employees.Add(model);
-
-        //        return ApiResponseHelper.SuccessResponse(new { Message = "Employee added successfully!", EmployeeId = model.EmployeeId });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
-        //    }
-        //}
+      
 
         /// <summary>
         /// Add Employee Resource.

@@ -1,7 +1,7 @@
 ﻿using DEMO.Models.DTO.EmpDetail;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace DEMO.Models.DataDL.Classes
+namespace DEMO.SwaggerExamples
 {
     public class EmployeeMultipleExamples : IMultipleExamplesProvider<EmployeeRequestModel>
     {

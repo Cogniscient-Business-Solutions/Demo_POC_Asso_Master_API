@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using DEMO.Models.DTO.ApplyLeave;
 using System.ComponentModel.Design;
 using Swashbuckle.AspNetCore.Filters;
+using DEMO.SwaggerExamples;
+using DEMO.Models.BusinessDL.Interfaces;
 
 namespace DEMO.Controllers
 {
@@ -18,12 +20,15 @@ namespace DEMO.Controllers
     {
         private readonly Hashtable objht = new Hashtable();
         private readonly TokenService _tokenService;
-        private readonly ApplyLeaveService _applyLeaveDetailService;
+        
+        private readonly ILeaveService _leaveService;
 
-        public ApplyLeaveController(ApplyLeaveService applyLeaveDetailService, TokenService tokenService)
+
+        public ApplyLeaveController(TokenService tokenService, ILeaveService leaveService)
         {
             _tokenService = tokenService;
-            _applyLeaveDetailService = applyLeaveDetailService;
+           
+            _leaveService = leaveService;
         }
 
         [Authorize]
@@ -42,10 +47,10 @@ namespace DEMO.Controllers
                 var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                 var claims = _tokenService.DecodeToken(token);
 
-                if (claims == null || claims.Count == 0)
-                {
-                    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
-                }
+                //if (claims == null || claims.Count == 0)
+                //{
+                //    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
+                //}
 
                 // Extract required claims from token
                 if (!claims.TryGetValue("company", out string companyNo) ||
@@ -64,20 +69,13 @@ namespace DEMO.Controllers
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid ToDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
                 }
-                //if (!string.IsNullOrWhiteSpace(request.LeaveStatus))
-                //{
-                //    int leaveStatusNumeric = (int)StatusHelper.ConvertStatus(request.LeaveStatus);
-                //    if (leaveStatusNumeric == -1)
-                //    {
-                //        return ApiResponseHelper.ErrorResponse("400", "Invalid leave status value provided.");
-                //    }
-                //}
+               
                
                 Hashtable ht = new Hashtable
                 {
-                    { "CompanyId", companyNo },
-                    { "LocationId", locationNo },
-                    { "TRANSACTION_MODE", "0" },
+                    { "Company_No", companyNo },
+                    { "Location_No", locationNo },
+                  
                     { "User_id", User_Id },
                     { "emp_code", empCode },
                     { "App_code", "" },
@@ -90,38 +88,22 @@ namespace DEMO.Controllers
                     { "Status", request.LeaveStatus },
                     { "employee_reason", request.EmployeeReason },
                     { "employer_reason", "" }
-                    //{ "returnValue", Empty.ToString() }
+                 
                 };
-
-//                @CompanyId varchar(10), 
-//@LocationId varchar(16),                              
-//@TRANSACTION_MODE CHAR(1),          
-//@User_id   int  ,
-//@emp_code   varchar(10),                                   
-//@App_code   int,
-//@Leave_type   varchar(8),                                   
-//@Notified_date datetime,
-//@From_date   datetime,                                   
-//@To_date datetime,
-//@From_session  varchar(20),                                   
-//@To_session varchar(20),                                                                     
-//@Status    char(2),                                   
-//@employee_reason varchar(500),                                   
-//@employer_reason varchar(500),        
-//@returnValue varchar(18) out    
-                                // Fetch data from service
-                                var result = await _applyLeaveDetailService.ApplyLeaveDetailAsync(ht);
+ 
+                // Fetch data from service
+                var result = await _leaveService.ApplyLeaveDetailAsync(ht);
                 if (result is ObjectResult objectResult)
                 {
                     return objectResult;
                 }
 
                 return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "Unexpected response format.");
-            }
-            catch (Exception ex)
-            {
-                return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
-            }
+                 }
+                 catch (Exception ex)
+                {
+                return ApiResponseHelper.ErrorResponse("500", ex.Message, "An unexpected error occurred.");
+                }
         }
 
         private bool IsValidDateFormat(string dateStr)

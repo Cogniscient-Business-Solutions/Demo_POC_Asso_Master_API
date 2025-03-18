@@ -3,56 +3,100 @@
   "WorkspaceRootPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\leavemultiple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\leavemultiple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\applyleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\applyleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\applyleavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\applyleavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\classes\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\classes\\leaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\userlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\userlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\applyleave\\applyleavedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\applyleave\\applyleavedetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\leaveappdetail\\leaveappdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\leaveappdetail\\leaveappdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\leavestatusdetail\\leavestatusdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\leavestatusdetail\\leavestatusdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\leavestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\leavestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\interfaces\\ileaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\interfaces\\ileaveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\apiresponsehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\apiresponsehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\leaveappdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\leaveappdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\leaveappdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\leaveappdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\employeerequestexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\employeerequestexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\interfaces\\iuserinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\interfaces\\iuserinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\classes\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\classes\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\userlogin\\userlogininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\userlogin\\userlogininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\swaggerexamples\\loginexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\swaggerexamples\\loginexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\organizationchartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\organizationchartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\getemployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\getemployeebyidservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\empdetail\\getempdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\empdetail\\getempdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\empdetail\\empdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\empdetail\\empdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\getemployeebyidcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\orgchartdetails\\orgchartdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\orgchartdetails\\orgchartdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\swaggerexamples\\applyleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\swaggerexamples\\applyleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\swaggerexamples\\leavemultiple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\swaggerexamples\\leavemultiple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\swaggerexamples\\employeerequestexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\swaggerexamples\\employeerequestexamples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\leaveappdetail\\leaveappdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\leaveappdetail\\leaveappdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -63,24 +107,8 @@
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\controllers\\organizationchartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\controllers\\organizationchartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\orgchartservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\orgchartservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\businessdl\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\businessdl\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\datadl\\classes\\apiresponsehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\datadl\\classes\\apiresponsehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|d:\\data repository team wise\\abhay tomar\\demo_poc_asso_master_api\\demo\\demo\\models\\dto\\orgchartdetails\\orgchartdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{879D00C0-85D8-42BB-851E-5B4470DC5F48}|DEMO\\DEMO.csproj|solutionrelative:demo\\models\\dto\\orgchartdetails\\orgchartdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,173 +118,176 @@
       "DocumentGroups": [
         {
           "DockedHeight": 331,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "GetEmployeeByIdService.cs",
               "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
               "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
               "RelativeToolTip": "DEMO\\Models\\BusinessDL\\GetEmployeeByIdService.cs",
-              "ViewState": "AgIAAAEAAAAAZ2ZmZqYkwAkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAYwBsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T11:47:34.059Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Program.cs",
               "RelativeDocumentMoniker": "DEMO\\Program.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Program.cs",
               "RelativeToolTip": "DEMO\\Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAiwHAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAMwFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T09:31:06.273Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginExamples.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\LoginExamples.cs",
+              "RelativeDocumentMoniker": "DEMO\\SwaggerExamples\\LoginExamples.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\LoginExamples.cs",
+              "RelativeToolTip": "DEMO\\SwaggerExamples\\LoginExamples.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T05:31:59.949Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "LeaveService.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Classes\\LeaveService.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\Classes\\LeaveService.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Classes\\LeaveService.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\Classes\\LeaveService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T07:58:34.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ApplyLeaveController.cs",
               "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\ApplyLeaveController.cs",
               "RelativeDocumentMoniker": "DEMO\\Controllers\\ApplyLeaveController.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\ApplyLeaveController.cs",
               "RelativeToolTip": "DEMO\\Controllers\\ApplyLeaveController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAwBkAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAMwEwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T10:38:34.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LeaveMultiple.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\LeaveMultiple.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\LeaveMultiple.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\LeaveMultiple.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\LeaveMultiple.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "LeaveStatusDetail.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveStatusDetail\\LeaveStatusDetail.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\LeaveStatusDetail\\LeaveStatusDetail.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveStatusDetail\\LeaveStatusDetail.cs",
+              "RelativeToolTip": "DEMO\\Models\\DTO\\LeaveStatusDetail\\LeaveStatusDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T10:23:49.557Z",
+              "WhenOpened": "2025-03-18T06:48:23.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplyLeave.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApplyLeave.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\ApplyLeave.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApplyLeave.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\ApplyLeave.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserLoginController.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\UserLoginController.cs",
+              "RelativeDocumentMoniker": "DEMO\\Controllers\\UserLoginController.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\UserLoginController.cs",
+              "RelativeToolTip": "DEMO\\Controllers\\UserLoginController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAD4vx0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T10:34:55.114Z",
+              "WhenOpened": "2025-03-18T05:33:48.254Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "LeaveAppDetail.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAUwBEAAAAhAAAAAAAAAA==",
+              "Title": "LeaveStatusController.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\LeaveStatusController.cs",
+              "RelativeDocumentMoniker": "DEMO\\Controllers\\LeaveStatusController.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\LeaveStatusController.cs",
+              "RelativeToolTip": "DEMO\\Controllers\\LeaveStatusController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAADgvzQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T07:32:32.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ApplyLeaveDetail.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T10:37:15.796Z",
+              "WhenOpened": "2025-03-18T06:25:13.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "ILeaveService.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Interfaces\\ILeaveService.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\Interfaces\\ILeaveService.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Interfaces\\ILeaveService.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\Interfaces\\ILeaveService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T07:58:11.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiResponseHelper.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
+              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T11:39:54.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "LeaveAppDetailController.cs",
               "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\LeaveAppDetailController.cs",
               "RelativeDocumentMoniker": "DEMO\\Controllers\\LeaveAppDetailController.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\LeaveAppDetailController.cs",
               "RelativeToolTip": "DEMO\\Controllers\\LeaveAppDetailController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAqwB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAIAwwBkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T07:31:33.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LeaveAppDetailService.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\LeaveAppDetailService.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\LeaveAppDetailService.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\LeaveAppDetailService.cs",
-              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\LeaveAppDetailService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADEAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T07:24:19.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EmployeeRequestExamples.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\EmployeeRequestExamples.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\EmployeeRequestExamples.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\EmployeeRequestExamples.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\EmployeeRequestExamples.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T09:28:32.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "GetEmpData.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\GetEmpData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\TokenService.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\TokenService.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\TokenService.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\TokenService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwEkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T04:42:41.319Z",
+              "WhenOpened": "2025-03-17T05:26:41.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "EmpDetail.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAeAAAAAAAAAA==",
+              "Title": "IUserInterface.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Interfaces\\IUserInterface.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\Interfaces\\IUserInterface.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Interfaces\\IUserInterface.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\Interfaces\\IUserInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T07:53:04.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T07:52:03.088Z"
             },
             {
               "$type": "Document",
@@ -266,88 +297,58 @@
               "RelativeDocumentMoniker": "DEMO\\Controllers\\GetEmployeeByIdController.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\GetEmployeeByIdController.cs",
               "RelativeToolTip": "DEMO\\Controllers\\GetEmployeeByIdController.cs",
-              "ViewState": "AgIAAPUAAAAAAAAAAIA6wL8AAABfAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAwGMAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T11:39:34.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T11:39:34.553Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrgChartServices.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
-              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAD4vzwAAAAYAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "UserLogin.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Classes\\UserLogin.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\Classes\\UserLogin.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\Classes\\UserLogin.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\Classes\\UserLogin.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T07:55:34.425Z",
+              "WhenOpened": "2025-03-18T06:22:01.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplyLeaveDetail.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
+              "RelativeToolTip": "DEMO\\Models\\DTO\\ApplyLeave\\ApplyLeaveDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T10:37:15.796Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\appsettings.json",
-              "RelativeDocumentMoniker": "DEMO\\appsettings.json",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\appsettings.json",
-              "RelativeToolTip": "DEMO\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-04T10:12:05.161Z",
-              "EditorCaption": ""
+              "Title": "UserLoginInfo.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\UserLogin\\UserLoginInfo.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\UserLogin\\UserLoginInfo.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\UserLogin\\UserLoginInfo.cs",
+              "RelativeToolTip": "DEMO\\Models\\DTO\\UserLogin\\UserLoginInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T05:32:42.149Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "DEMO\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Properties\\launchSettings.json",
-              "RelativeToolTip": "DEMO\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-17T10:06:35.349Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "OrganizationChartController.cs",
               "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\OrganizationChartController.cs",
               "RelativeDocumentMoniker": "DEMO\\Controllers\\OrganizationChartController.cs",
               "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Controllers\\OrganizationChartController.cs",
               "RelativeToolTip": "DEMO\\Controllers\\OrganizationChartController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAkwCcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAowCcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T11:59:57.496Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\TokenService.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\TokenService.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\TokenService.cs",
-              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\TokenService.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T05:26:41.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ApiResponseHelper.cs",
-              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
-              "RelativeDocumentMoniker": "DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
-              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
-              "RelativeToolTip": "DEMO\\Models\\DataDL\\Classes\\ApiResponseHelper.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAkwDMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T11:39:54.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T11:59:57.496Z"
             },
             {
               "$type": "Document",
@@ -359,8 +360,103 @@
               "RelativeToolTip": "DEMO\\Models\\DTO\\OrgChartDetails\\OrgChartDetails.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAswCsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T07:54:56.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T07:54:56.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EmpDetail.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
+              "RelativeToolTip": "DEMO\\Models\\DTO\\EmpDetail\\EmpDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T07:53:04.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ApplyLeave.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\ApplyLeave.cs",
+              "RelativeDocumentMoniker": "DEMO\\SwaggerExamples\\ApplyLeave.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\ApplyLeave.cs",
+              "RelativeToolTip": "DEMO\\SwaggerExamples\\ApplyLeave.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T10:34:55.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LeaveMultiple.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\LeaveMultiple.cs",
+              "RelativeDocumentMoniker": "DEMO\\SwaggerExamples\\LeaveMultiple.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\LeaveMultiple.cs",
+              "RelativeToolTip": "DEMO\\SwaggerExamples\\LeaveMultiple.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T10:23:49.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "EmployeeRequestExamples.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\EmployeeRequestExamples.cs",
+              "RelativeDocumentMoniker": "DEMO\\SwaggerExamples\\EmployeeRequestExamples.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\SwaggerExamples\\EmployeeRequestExamples.cs",
+              "RelativeToolTip": "DEMO\\SwaggerExamples\\EmployeeRequestExamples.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T09:28:32.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LeaveAppDetail.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
+              "RelativeToolTip": "DEMO\\Models\\DTO\\LeaveAppDetail\\LeaveAppDetail.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA0wBEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T07:32:32.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OrgChartServices.cs",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
+              "RelativeDocumentMoniker": "DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
+              "RelativeToolTip": "DEMO\\Models\\BusinessDL\\OrgChartServices.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAD4vzwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T07:55:34.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\appsettings.json",
+              "RelativeDocumentMoniker": "DEMO\\appsettings.json",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\appsettings.json",
+              "RelativeToolTip": "DEMO\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-04T10:12:05.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "DEMO\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\Properties\\launchSettings.json",
+              "RelativeToolTip": "DEMO\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-17T10:06:35.349Z"
             }
           ]
         }

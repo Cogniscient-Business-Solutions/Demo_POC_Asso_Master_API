@@ -2,9 +2,11 @@
 using System.Globalization;
 using System.Reflection.Emit;
 using DEMO.Models.BusinessDL;
+using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DTO.EmpDetail;
 using DEMO.Models.DTO.LeaveAppDetail;
+using DEMO.SwaggerExamples;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,12 +21,13 @@ namespace DEMO.Controllers
 
         private readonly Hashtable objht = new Hashtable();
         private readonly TokenService _tokenService;
-        private readonly LeaveAppDetailService _leaveAppDetailService;
-
-        public LeaveAppDetailController(LeaveAppDetailService leaveAppDetailService, TokenService tokenService)
+       
+        private readonly ILeaveService _leaveService;
+        public LeaveAppDetailController(TokenService tokenService, ILeaveService leaveService)
         {
             _tokenService = tokenService;
-            _leaveAppDetailService = leaveAppDetailService;
+            
+            _leaveService = leaveService;
         }
 
         [Authorize]
@@ -93,7 +96,7 @@ namespace DEMO.Controllers
                 };
 
                 // Fetch data from service
-                var result = await _leaveAppDetailService.GetLeaveAppDetailAsync(ht);
+                var result = await _leaveService.GetLeaveAppDetailAsync(ht);
                 if (result is ObjectResult objectResult)
                 {
                     return objectResult;

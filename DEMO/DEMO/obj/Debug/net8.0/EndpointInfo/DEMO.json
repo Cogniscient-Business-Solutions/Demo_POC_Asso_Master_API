@@ -29,6 +29,9 @@
                 },
                 "GRANTED [ERROR]": {
                   "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "LWP FRESH": {
+                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
                 }
               }
             },
@@ -48,6 +51,9 @@
                 },
                 "GRANTED [ERROR]": {
                   "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "LWP FRESH": {
+                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
                 }
               }
             },
@@ -67,6 +73,9 @@
                 },
                 "GRANTED [ERROR]": {
                   "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "LWP FRESH": {
+                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
                 }
               }
             }
@@ -413,62 +422,6 @@
         }
       }
     },
-    "/api/UserLogin": {
-      "get": {
-        "tags": [
-          "UserLogin"
-        ],
-        "parameters": [
-          {
-            "name": "company",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "location",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Asso_code",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "User_Id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Role",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/UserLogin/login": {
       "post": {
         "tags": [
@@ -479,16 +432,40 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
               }
             }
           }

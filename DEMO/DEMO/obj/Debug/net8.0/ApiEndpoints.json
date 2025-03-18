@@ -174,47 +174,6 @@
   },
   {
     "ContainingType": "UserLoginController",
-    "Method": "Login",
-    "RelativePath": "api/UserLogin",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "company",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "location",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Asso_code",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "User_Id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserLoginController",
     "Method": "DecodeToken",
     "RelativePath": "api/UserLogin/decodeToken",
     "HttpMethod": "GET",

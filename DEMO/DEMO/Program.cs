@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
 using Swashbuckle.AspNetCore.Filters;
+using DEMO.SwaggerExamples;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -85,11 +86,12 @@ builder.Services.AddSwaggerExamplesFromAssemblyOf<EmployeeMultipleExamples>();
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
-builder.Services.AddScoped<LeaveStatusService>();
-builder.Services.AddScoped<LeaveAppDetailService>(); // Register as Scoped
+
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<IUserInterface, UserLogin>();
-builder.Services.AddScoped<ApplyLeaveService>();
+
+builder.Services.AddScoped<ILeaveService, LeaveService>();
+
 
 
 
