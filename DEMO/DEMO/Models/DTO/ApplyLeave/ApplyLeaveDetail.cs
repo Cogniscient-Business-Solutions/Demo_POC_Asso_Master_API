@@ -20,7 +20,7 @@
         public string FromDateSession { get; set; }
         public string ToDateSession { get; set; }
         public string EmployeeReason { get; set; }
-        
+
     }
 
 }

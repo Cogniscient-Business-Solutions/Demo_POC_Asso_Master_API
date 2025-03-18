@@ -63,19 +63,19 @@ namespace DEMO.Controllers
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid ToDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
                 }
-                //if (!string.IsNullOrWhiteSpace(request.LeaveStatus))
-                //{
-                //    int leaveStatusNumeric = (int)StatusHelper.ConvertStatus(request.LeaveStatus);
-                //    if (leaveStatusNumeric == -1)
-                //    {
-                //        return ApiResponseHelper.ErrorResponse("400", "Invalid leave status value provided.");
-                //    }
-                //}
-               
+
+                List<int> statusList = StatusHelper.ConvertStatusList(request.LeaveStatus);
+
+                // Ensure we only pass valid statuses to the procedure
+                if (statusList.Count == 0)
+                {
+                    throw new ArgumentException("Invalid leave status values provided.");
+                }
+
                 Hashtable ht = new Hashtable
                 {
-                    { "CompanyId", companyNo },
-                    { "LocationId", locationNo },
+                    { "COMPANY_NO", companyNo },
+                    { "LOCATION_NO", locationNo },
                     { "TRANSACTION_MODE", "0" },
                     { "User_id", User_Id },
                     { "emp_code", empCode },
@@ -86,30 +86,15 @@ namespace DEMO.Controllers
                     { "To_date", request.ToDate },
                     { "From_session", request.FromDateSession },
                     { "To_session", request.ToDateSession },
-                    { "Status", request.LeaveStatus },
+                    { "Status", statusList.Count == 0 ? (object)DBNull.Value : string.Join(",", statusList) },
                     { "employee_reason", request.EmployeeReason },
-                    { "employer_reason", "" }
-                    //{ "returnValue", Empty.ToString() }
+                    { "employer_reason", "" },
+                  
+              
                 };
 
-//                @CompanyId varchar(10), 
-//@LocationId varchar(16),                              
-//@TRANSACTION_MODE CHAR(1),          
-//@User_id   int  ,
-//@emp_code   varchar(10),                                   
-//@App_code   int,
-//@Leave_type   varchar(8),                                   
-//@Notified_date datetime,
-//@From_date   datetime,                                   
-//@To_date datetime,
-//@From_session  varchar(20),                                   
-//@To_session varchar(20),                                                                     
-//@Status    char(2),                                   
-//@employee_reason varchar(500),                                   
-//@employer_reason varchar(500),        
-//@returnValue varchar(18) out    
                                 // Fetch data from service
-                                var result = await _applyLeaveDetailService.ApplyLeaveDetailAsync(ht);
+                var result = await _applyLeaveDetailService.ApplyLeaveDetailAsync(ht);
                 if (result is ObjectResult objectResult)
                 {
                     return objectResult;

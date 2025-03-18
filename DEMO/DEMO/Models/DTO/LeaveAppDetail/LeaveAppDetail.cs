@@ -57,12 +57,22 @@
         }
 
 
-        public static List<int> ConvertStatusList(IEnumerable<object> inputs)
+        public static List<int> ConvertStatusList(object input)
         {
-            return inputs.Select(input => ConvertStatus(input))
-                         .Where(result => result is int)
-                         .Cast<int>()
-                         .ToList();
+            if (input is string singleStatus) // Handle case where leaveStatus is a single string
+            {
+                var converted = ConvertStatus(singleStatus);
+                return converted is int validStatus ? new List<int> { validStatus } : new List<int>();
+            }
+            else if (input is IEnumerable<object> statusList) // Handle case where leaveStatus is an array
+            {
+                return statusList.Select(ConvertStatus)
+                                 .Where(result => result is int)
+                                 .Cast<int>()
+                                 .ToList();
+            }
+
+            return new List<int>(); // Return empty list if invalid type
         }
     }
 

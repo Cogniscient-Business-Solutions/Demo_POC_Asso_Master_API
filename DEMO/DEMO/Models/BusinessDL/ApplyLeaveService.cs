@@ -23,7 +23,7 @@ namespace DEMO.Models.BusinessDL
             try
             {
                 // Fetch data from database
-                DataTable dt = await _dataLayer.GetDataTableAsync("CBS_LEAVE_APPLICATION_PRI", ht);
+                DataTable dt = await _dataLayer.GetDataTableAsync("CBS_HR_ADD_LEAVE_APPLICATION_PRV_PRI", ht);
 
                 // Check if data is empty
                 if (dt == null)

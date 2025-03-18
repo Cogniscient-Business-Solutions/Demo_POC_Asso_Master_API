@@ -19,31 +19,9 @@ public class UserLoginController : ControllerBase
         _tokenService = tokenService;
         _userService = userService;
     }
-
-    [HttpGet]
-    public IActionResult Login([FromQuery] string company, [FromQuery] string location, [FromQuery] string Asso_code, [FromQuery] string User_Id, [FromQuery] string Role, [FromQuery] string password)
-    {
-        if (company == "cogni" && location == "noida")
-        {
-            var token = _tokenService.GenerateToken(Asso_code, company, location, User_Id, Role);
-
-            return Ok(new
-            {
-                status = "success",
-                token
-            });
-        }
-
-
-        return Unauthorized(new
-        {
-            status = "fail",
-            message = "Invalid credentials"
-        });
-    }
-
+   
     [HttpPost("login")]
-    public async Task<IActionResult> Loginn([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         var user = await _userService.ValidateUserAsync(request.LOGIN_NAME, request.PASSWORD);
 
