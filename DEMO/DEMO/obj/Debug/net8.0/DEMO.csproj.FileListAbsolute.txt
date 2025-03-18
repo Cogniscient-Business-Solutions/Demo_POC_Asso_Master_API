@@ -98,6 +98,7 @@ D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Identity.Client.dll
@@ -110,6 +111,10 @@ D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Scrutor.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Data Repository Team Wise\Abhay Tomar\Demo_POC_Asso_Master_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -190,6 +195,7 @@ D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Mi
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.Identity.Client.dll
@@ -202,6 +208,10 @@ D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Mi
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Scrutor.dll
+D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Data Repository Team Wise\Ayush Nagar\TOKEN_API\DEMO\DEMO\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

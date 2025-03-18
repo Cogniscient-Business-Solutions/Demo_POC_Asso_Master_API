@@ -3,10 +3,12 @@ using System.Globalization;
 using System.Reflection.Emit;
 using DEMO.Models.BusinessDL;
 using DEMO.Models.DataDL.Classes;
+using DEMO.Models.DTO.EmpDetail;
 using DEMO.Models.DTO.LeaveAppDetail;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace DEMO.Controllers
 {
@@ -27,6 +29,7 @@ namespace DEMO.Controllers
 
         [Authorize]
         [HttpPost("GetLeaveAppDetails")]
+        [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveMultiple))]
         public async Task<IActionResult> GetLeaveAppDetails([FromBody] GetLeaveRequestDto request)
         {
             try

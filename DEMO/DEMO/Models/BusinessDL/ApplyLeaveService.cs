@@ -40,7 +40,7 @@ namespace DEMO.Models.BusinessDL
 
                     ApplyLeaveDetail leave = new ApplyLeaveDetail
                     {
-                        LeaveTransactionNo = Convert.ToInt32(row["@returnValue"])
+                        LeaveTransactionNo = Convert.ToInt32(row["returnValue"])
                     };
 
                     leaveDetails.Add(leave);
@@ -53,7 +53,7 @@ namespace DEMO.Models.BusinessDL
             }
             catch (Exception ex)
             {
-                return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
+                return ApiResponseHelper.ErrorResponse("500", ex.Message, "An unexpected error occurred.");
             }
         }
 

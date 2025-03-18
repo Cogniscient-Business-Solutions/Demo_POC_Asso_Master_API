@@ -19,8 +19,13 @@
         </member>
         <member name="M:DEMO.Controllers.GetEmployeeByIdController.AddEmployee(DEMO.Models.DTO.EmpDetail.EmployeeRequestModel)">
             <summary>
-            add emp resource.
+            Add Employee Resource.
             </summary>
+            <remarks>
+            You can send different payloads for adding employees.
+            </remarks>
+            <param name="model">Employee request model</param>
+            <returns>Success or error message</returns>
         </member>
         <member name="M:DEMO.Controllers.GetEmployeeByIdController.GetEmployees">
             <summary>

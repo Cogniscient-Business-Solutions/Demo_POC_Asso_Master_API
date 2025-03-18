@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 
 
 using static DEMO.Models.BusinessDL.GetEmployeeByIdService;
+using Swashbuckle.AspNetCore.Filters;
+
 
 namespace DEMO.Controllers
 {
@@ -151,30 +153,60 @@ namespace DEMO.Controllers
 
 
 
+        ///// <summary>
+        ///// add emp resource.
+        ///// </summary>
+        //[HttpPost("AddEmployee")]
+        //public IActionResult AddEmployee([FromBody] EmployeeRequestModel model)
+        //{
+        //    try
+        //    {
+        //        if (string.IsNullOrEmpty(model.ASSO_CODE) || string.IsNullOrEmpty(model.COMPANY_NO) || string.IsNullOrEmpty(model.LOCATION_NO))
+        //        {
+        //            return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company, Location, and Employee Code are required.");
+        //        }
+
+
+        //        model.EmployeeId = EmployeeDataStore.Employees.Count + 1;
+
+
+        //        EmployeeDataStore.Employees.Add(model);
+
+        //        return ApiResponseHelper.SuccessResponse(new { Message = "Employee added successfully!", EmployeeId = model.EmployeeId });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
+        //    }
+        //}
+
         /// <summary>
-        /// add emp resource.
+        /// Add Employee Resource.
         /// </summary>
+        /// <remarks>
+        /// You can send different payloads for adding employees.
+        /// </remarks>
+        /// <param name="model">Employee request model</param>
+        /// <returns>Success or error message</returns>
         [HttpPost("AddEmployee")]
+        [SwaggerRequestExample(typeof(EmployeeRequestModel), typeof(EmployeeMultipleExamples))]
         public IActionResult AddEmployee([FromBody] EmployeeRequestModel model)
         {
             try
             {
                 if (string.IsNullOrEmpty(model.ASSO_CODE) || string.IsNullOrEmpty(model.COMPANY_NO) || string.IsNullOrEmpty(model.LOCATION_NO))
                 {
-                    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company, Location, and Employee Code are required.");
+                    return BadRequest(new { Error = "Company, Location, and Employee Code are required." });
                 }
 
-                
                 model.EmployeeId = EmployeeDataStore.Employees.Count + 1;
-
-                
                 EmployeeDataStore.Employees.Add(model);
 
-                return ApiResponseHelper.SuccessResponse(new { Message = "Employee added successfully!", EmployeeId = model.EmployeeId });
+                return Ok(new { Message = "Employee added successfully!", EmployeeId = model.EmployeeId });
             }
             catch (Exception ex)
             {
-                return ApiResponseHelper.ErrorResponse("SERVER_ERROR", "An unexpected error occurred.", ex.Message);
+                return StatusCode(500, new { Error = "An unexpected error occurred.", Details = ex.Message });
             }
         }
 

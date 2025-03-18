@@ -8,6 +8,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
 using DEMO.Models.DTO.ApplyLeave;
 using System.ComponentModel.Design;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace DEMO.Controllers
 {
@@ -27,7 +28,7 @@ namespace DEMO.Controllers
 
         [Authorize]
         [HttpPost("ApplyLeaveDetail")]
-
+        [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeave))]
         public async Task<IActionResult> ApplyLeaveDetail([FromBody] ApplyLeaveRequestDto request)
         {
             try
@@ -76,7 +77,6 @@ namespace DEMO.Controllers
                 {
                     { "COMPANY_NO", companyNo },
                     { "LOCATION_NO", locationNo },
-                    { "TRANSACTION_MODE", "0" },
                     { "User_id", User_Id },
                     { "emp_code", empCode },
                     { "App_code", "" },
@@ -88,9 +88,8 @@ namespace DEMO.Controllers
                     { "To_session", request.ToDateSession },
                     { "Status", statusList.Count == 0 ? (object)DBNull.Value : string.Join(",", statusList) },
                     { "employee_reason", request.EmployeeReason },
-                    { "employer_reason", "" },
-                  
-              
+                    { "employer_reason", "" }
+
                 };
 
                                 // Fetch data from service

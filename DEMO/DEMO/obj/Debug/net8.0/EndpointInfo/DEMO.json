@@ -16,16 +16,58 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                }
               }
             }
           }
@@ -90,22 +132,48 @@
         "tags": [
           "GetEmployeeById"
         ],
-        "summary": "add emp resource.",
+        "summary": "Add Employee Resource.",
+        "description": "You can send different payloads for adding employees.",
         "requestBody": {
+          "description": "Employee request model",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             }
           }
@@ -175,16 +243,40 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EmployeeRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
+                },
+                "Example 2": {
+                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
+                }
               }
             }
           }
@@ -229,16 +321,40 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             },
             "text/json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             },
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                }
               }
             }
           }
