@@ -10,7 +10,9 @@
 
         public class User
         {
-            public string UserId { get; set; }
+
+
+            public string ASSO_CODE { get; set; }
             public string Company { get; set; }
             public string Location { get; set; }
             public string User_Id { get; set; }

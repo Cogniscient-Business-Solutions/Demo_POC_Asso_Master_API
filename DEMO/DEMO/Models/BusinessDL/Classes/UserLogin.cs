@@ -38,7 +38,7 @@ namespace DEMO.Models.BusinessDL.Classes
 
                 return new User
                 {
-                    UserId = row["LOGIN_NAME"].ToString().Trim(),
+                    ASSO_CODE = row["LOGIN_NAME"].ToString().Trim(),
                     Company = row["COMPANY_NO"].ToString().Trim(),
                     Location = row["LOCATION_NO"].ToString().Trim(),
                     User_Id = row["User_Id"].ToString().Trim(),

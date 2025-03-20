@@ -121,6 +121,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DEMO.Controllers.GetLeaveDetailsController",
+    "Method": "GetLeaveDetails",
+    "RelativePath": "api/GetLeaveDetails/GetLeaveDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DEMO.Models.DTO.LeaveGrantReject.LeaveRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DEMO.Controllers.LeaveAppDetailController",
     "Method": "GetLeaveAppDetails",
     "RelativePath": "api/LeaveAppDetail/GetLeaveAppDetails",

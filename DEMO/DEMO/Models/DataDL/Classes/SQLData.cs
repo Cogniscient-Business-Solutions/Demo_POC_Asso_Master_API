@@ -323,8 +323,88 @@ namespace DEMO.Models.DataDL.Classes
         }
 
 
+        public string[] data_procStringTwoOutput(string procedureName, Hashtable rec)
+        {
+            try
+            {
+                string[] result = new string[2];
 
+                Conn = Connect();
+                SqlCommand cmd = BuildQueryCommandStringTwoOutput(procedureName, rec);
+                cmd.ExecuteNonQuery();
+                sqlTransaction.Commit();
+                result[0] = (string)cmd.Parameters["@returnValue"].Value;
+                result[1] = (string)cmd.Parameters["@returnValue2"].Value;
 
+                Conn.Close();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                sqlTransaction.Rollback();
+                Conn.Close(); throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public SqlCommand BuildQueryCommandStringTwoOutput(string storedProcName, Hashtable rec)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(storedProcName, Conn, sqlTransaction);
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandTimeout = 0;
+                SqlParameter sprm = command.Parameters.Add("@returnValue", SqlDbType.VarChar, 60);
+                sprm.Direction = ParameterDirection.Output;
+                SqlParameter sprm2 = command.Parameters.Add("@returnValue2", SqlDbType.VarChar, 60);
+                sprm2.Direction = ParameterDirection.Output;
+
+                IDictionaryEnumerator myEnumerator = rec.GetEnumerator();
+                while (myEnumerator.MoveNext())
+                {
+
+                    if (myEnumerator.Key.ToString().ToUpper() == "IMAGE")
+                    {
+                        SqlParameter pm = new SqlParameter();
+                        pm = command.Parameters.Add("@Image", SqlDbType.Image);
+                        pm.Value = myEnumerator.Value;
+                    }
+                    else if (myEnumerator.Key.ToString() == "timestamp")
+                    {
+                        //command.Parameters.Add(new SqlParameter("@" + (myEnumerator.Key).ToString(), myEnumerator.Value));
+                        SqlParameter pm = new SqlParameter();
+                        pm = command.Parameters.Add("@timestamp", SqlDbType.Timestamp);
+                        pm.Value = myEnumerator.Value;
+                    }
+                    else if (myEnumerator.Key.ToString() == "output")
+                    {
+                        SqlParameter pm = new SqlParameter();
+                        pm = command.Parameters.Add("@output", SqlDbType.VarChar);
+                        pm.Direction = ParameterDirection.Output;
+                        pm.Value = myEnumerator.Value;
+                    }
+                    else
+                    {
+                        command.Parameters.Add(new SqlParameter("@" + (myEnumerator.Key).ToString(), myEnumerator.Value.ToString()));
+                    }
+                }
+
+                return command;
+            }
+            catch (SqlException ex)
+            {
+                sqlTransaction.Rollback();
+                Conn.Close(); throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

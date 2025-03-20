@@ -10,5 +10,9 @@ namespace DEMO.Models.BusinessDL.Interfaces
         Task<IActionResult> GetLeaveAppDetailAsync(Hashtable ht);
 
         Task<IActionResult> GetLeaveStatusDetailAsync(Hashtable ht);
+
+        Task<IActionResult> GetEmployeeLeaveDetailsAsync(Hashtable ht);
+
+
     }
 }

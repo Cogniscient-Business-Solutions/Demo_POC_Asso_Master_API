@@ -83,7 +83,6 @@ namespace DEMO.Controllers
                 {
                     { "COMPANY_NO", companyNo },
                     { "LOCATION_NO", locationNo },
-
                     { "User_id", User_Id },
                     { "emp_code", empCode },
                     { "App_code", "" },
