@@ -137,16 +137,32 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DEMO.Controllers.LeaveGrantRejectDetailsController",
-    "Method": "GetLeaveGrantRejectDetails",
-    "RelativePath": "api/LeaveGrantRejectDetails/GetLeaveDetails",
+    "ContainingType": "DEMO.Controllers.LeaveApprovalDetailsController",
+    "Method": "LeaveApprovalDetails",
+    "RelativePath": "api/LeaveApprovalDetails/GetLeaveApprovalDetails",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "DEMO.Models.DTO.LeaveGrantReject.LeaveRequestDto",
+        "Type": "DEMO.Models.DTO.LeaveApproval.LeaveRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DEMO.Controllers.LeaveGrantRejectController",
+    "Method": "LeaveGrantReject",
+    "RelativePath": "api/LeaveGrantReject/GetLeaveGrantRejectDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DEMO.Models.DTO.LeaveGrantReject.LeaveGrantReject\u002BLeaveGrantRejectRequest",
         "IsRequired": true
       }
     ],

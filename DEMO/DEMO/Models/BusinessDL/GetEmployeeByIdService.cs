@@ -24,9 +24,6 @@ namespace DEMO.Models.BusinessDL
             //_userPictureService = userPictureService;
         }
 
-
-       
-
         public async Task<IActionResult> GetEmpDetailAsync()
         {
             try

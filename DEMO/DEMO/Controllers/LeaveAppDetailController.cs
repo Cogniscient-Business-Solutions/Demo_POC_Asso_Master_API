@@ -69,7 +69,17 @@ namespace DEMO.Controllers
                 }
 
 
-                string statusString = string.Join(",", FilterHelper.ConvertLeaveStatusToNumber(request.LeaveStatus));
+                //string statusString = string.Join(",", FilterHelper.ConvertEnumToNumber(request.LeaveStatus));
+
+                string statusString = request.LeaveStatus != null && request.LeaveStatus.Any()
+                ? string.Join(",", request.LeaveStatus.Select(s => FilterHelper.ConvertEnumToNumber(s)))
+                : "";
+
+
+                //           string statusString1 = string.Join(",",
+                //FilterHelper.ConvertNumberToLeaveStatus(FilterHelper.ConvertLeaveStatusToNumber(request.LeaveStatus)));
+
+
 
                 Hashtable ht = new Hashtable
                 {

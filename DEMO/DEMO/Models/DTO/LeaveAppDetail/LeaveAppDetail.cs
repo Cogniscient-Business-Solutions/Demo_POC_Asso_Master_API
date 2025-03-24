@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using static DEMO.Models.Generic.Enums;
+﻿using static DEMO.Models.Generic.Enums;
 
 namespace DEMO.Models.DTO.LeaveAppDetail
 {
@@ -36,55 +35,6 @@ namespace DEMO.Models.DTO.LeaveAppDetail
         public List<LeaveAppDetailEnum> LeaveStatus { get; set; }
     }
 
-    //public static class StatusHelper
-    //{
-    //    private static readonly Dictionary<string, int> StatusMapping = new()
-    //{
-    //    { "FRESH", 0 },
-    //    { "LEAVE CANCELLED", 1 },
-    //    { "PENDING APPROVAL", 2 },
-    //    { "GRANTED", 3 },
-    //    { "APPROVAL REJECTED", 4 },
-    //    { "PENDING CANCELLATION", 5 },
-    //    { "CANCELLATION REJECTED", 6 }
-    //};
-
-    //    private static readonly Dictionary<int, string> ReverseStatusMapping = StatusMapping.ToDictionary(kv => kv.Value, kv => kv.Key);
-
-    //    public static object ConvertStatus(object input)
-    //    {
-    //        if (input is string status && StatusMapping.TryGetValue(status.ToUpper(), out int numericValue))
-    //        {
-    //            return numericValue;
-    //        }
-    //        else if (input is int numericStatus && ReverseStatusMapping.TryGetValue(numericStatus, out string statusValue))
-    //        {
-    //            return statusValue;
-    //        }
-
-    //        return null;
-    //    }
-
-
-    //    public static List<int> ConvertStatusList(object input)
-    //    {
-    //        if (input is string singleStatus) // Handle case where leaveStatus is a single string
-    //        {
-    //            var converted = ConvertStatus(singleStatus);
-    //            return converted is int validStatus ? new List<int> { validStatus } : new List<int>();
-    //        }
-    //        else if (input is IEnumerable<object> statusList) // Handle case where leaveStatus is an array
-    //        {
-    //            return statusList.Select(ConvertStatus)
-    //                             .Where(result => result is int)
-    //                             .Cast<int>()
-    //                             .ToList();
-    //        }
-
-    //        return new List<int>(); // Return empty list if invalid type
-    //    }
-    //}
-
-
+ 
 
 }

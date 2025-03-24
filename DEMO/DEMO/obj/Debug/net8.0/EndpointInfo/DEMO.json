@@ -335,11 +335,17 @@
                 "LEAVE - Fresh": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "LEAVE - Rejected": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                "LEAVE - Leave_Cancelled": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                },
+                "LEAVE - Pending_Approval": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
                 },
                 "LEAVE - Grant": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                },
+                "LEAVE - Approval_Reject": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
                 }
               }
             },
@@ -351,11 +357,17 @@
                 "LEAVE - Fresh": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "LEAVE - Rejected": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                "LEAVE - Leave_Cancelled": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                },
+                "LEAVE - Pending_Approval": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
                 },
                 "LEAVE - Grant": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                },
+                "LEAVE - Approval_Reject": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
                 }
               }
             },
@@ -367,11 +379,17 @@
                 "LEAVE - Fresh": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "LEAVE - Rejected": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                "LEAVE - Leave_Cancelled": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                },
+                "LEAVE - Pending_Approval": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
                 },
                 "LEAVE - Grant": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                },
+                "LEAVE - Approval_Reject": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
                 }
               }
             }
@@ -384,10 +402,10 @@
         }
       }
     },
-    "/api/LeaveGrantRejectDetails/GetLeaveDetails": {
+    "/api/LeaveApprovalDetails/GetLeaveApprovalDetails": {
       "post": {
         "tags": [
-          "LeaveGrantRejectDetails"
+          "LeaveApprovalDetails"
         ],
         "requestBody": {
           "content": {
@@ -396,6 +414,12 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
+                },
                 "LEAVE - APPROVAL_REQUEST": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
                 },
@@ -412,6 +436,12 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
+                },
                 "LEAVE - APPROVAL_REQUEST": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
                 },
@@ -428,6 +458,12 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
+                },
                 "LEAVE - APPROVAL_REQUEST": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
                 },
@@ -436,6 +472,79 @@
                 },
                 "LEAVE - CANCELLATION_REQUEST": {
                   "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LeaveGrantReject/GetLeaveGrantRejectDetails": {
+      "post": {
+        "tags": [
+          "LeaveGrantReject"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "GRANTED": {
+                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                },
+                "APPROVAL REJECTED": {
+                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                },
+                "CANCELLATION REJECTED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
+                },
+                "LEAVE CANCELLED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "GRANTED": {
+                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                },
+                "APPROVAL REJECTED": {
+                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                },
+                "CANCELLATION REJECTED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
+                },
+                "LEAVE CANCELLED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "GRANTED": {
+                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                },
+                "APPROVAL REJECTED": {
+                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                },
+                "CANCELLATION REJECTED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
+                },
+                "LEAVE CANCELLED": {
+                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
                 }
               }
             }
@@ -689,10 +798,38 @@
       "LeaveAppDetailEnum": {
         "enum": [
           "Fresh",
-          "Rejected",
-          "Grant"
+          "Leave_Cancelled",
+          "Pending_Approval",
+          "Grant",
+          "Approval_Reject"
         ],
         "type": "string"
+      },
+      "LeaveGrantRejectRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveType": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveTransactionNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "approvalReason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LeaveRequestDto": {
         "type": "object",
@@ -712,6 +849,8 @@
       },
       "LeaveStatusEnum": {
         "enum": [
+          "DIRECT",
+          "ALREADY_APPROVED",
           "APPROVAL_REQUEST",
           "ALREADY_REJECTED",
           "CANCELLATION_REQUEST"

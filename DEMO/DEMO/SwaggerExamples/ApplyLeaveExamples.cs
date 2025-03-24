@@ -5,7 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DEMO.SwaggerExamples
 {
-    public class ApplyLeave : IMultipleExamplesProvider<ApplyLeaveRequestDto>
+    public class ApplyLeaveExamples : IMultipleExamplesProvider<ApplyLeaveRequestDto>
     {
         public IEnumerable<SwaggerExample<ApplyLeaveRequestDto>> GetExamples()
         {

@@ -1,34 +1,34 @@
-﻿using System.Collections;
-using DEMO.Models.BusinessDL.Interfaces;
-using DEMO.Models.DataDL.Classes;
-using DEMO.Models.DTO.ApplyLeave;
-using DEMO.Models.DTO.LeaveGrantReject;
+﻿using DEMO.Models.DataDL.Classes;
 using DEMO.Models.Generic;
-using DEMO.SwaggerExamples;
+using System.Collections;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using DEMO.Models.BusinessDL.Interfaces;
+using static DEMO.Models.DTO.LeaveGrantReject.LeaveGrantReject;
+using DEMO.SwaggerExamples;
 using Swashbuckle.AspNetCore.Filters;
-using static DEMO.Models.Generic.Enums;
 
 namespace DEMO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LeaveGrantRejectDetailsController : ControllerBase
+    public class LeaveGrantRejectController : ControllerBase
     {
 
         private readonly TokenService _tokenService;
         private readonly ILeaveService _leaveService;
 
-        public LeaveGrantRejectDetailsController(TokenService tokenService, ILeaveService leaveService)
+        public LeaveGrantRejectController(TokenService tokenService, ILeaveService leaveService)
         {
             _tokenService = tokenService;
             _leaveService = leaveService;
         }
 
-        [HttpPost("GetLeaveDetails")]
-        [SwaggerRequestExample(typeof(LeaveRequestDto), typeof(LeaveDetailExamples))]
-        public async Task<IActionResult> GetLeaveGrantRejectDetails([FromBody] LeaveRequestDto request)
+
+
+        [HttpPost("GetLeaveGrantRejectDetails")]
+        [SwaggerRequestExample(typeof(LeaveGrantRejectRequest), typeof(LeaveGrantRejectExamples))]
+        public async Task<IActionResult> LeaveGrantReject([FromBody] LeaveGrantRejectRequest request)
         {
             try
             {
@@ -49,46 +49,21 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("400", "Missing required data in token.");
                 }
 
-                if (request == null )
+                if (request == null)
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
                 }
 
-                string fromDate = request.DateRange?.FromDate ?? "";
-                string toDate = request.DateRange?.ToDate ?? "";
-                if (!(fromDate == "" || IsValidDateFormat(fromDate)) || !(toDate == "" || IsValidDateFormat(toDate)))
-                {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
-                }
-
-                //string filters = FilterHelper.ConvertStatusToNumber(request.Status).ToString();
-
-                string filters = string.Join(",", FilterHelper.ConvertStatusToNumber(request.Status));
-
-
-                //string filters = string.Join(",", FilterHelper.ConvertStatusesToNumbers(request.status));
-
-
-                //string filters = string.Join(",", request.status.Select(s => FilterHelper.ConvertStatusToNumber(s)));
-
-
-
-
-
                 Hashtable ht = new Hashtable
-            {
+                {
                 { "Asso_code", empCode },
                 { "USER_ID", User_Id },
                 { "Company_No", companyNo },
                 { "Location_No", locationNo },
-                { "STARTDATE", fromDate },
-                { "ENDDATE", toDate },
-                { "STATUS", string.IsNullOrEmpty(filters) ? (object)DBNull.Value : filters }
-                 
-            };
+                };
 
                 // Fetch data from service
-                var result = await _leaveService.GetEmployeeLeaveDetailsAsync(ht);
+                var result = await _leaveService.GetEmployeeLeaveApprovalDetailsAsync(ht);
 
                 if (result == null)
                 {
@@ -101,13 +76,6 @@ namespace DEMO.Controllers
             {
                 return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
             }
-        }
-
-        private bool IsValidDateFormat(string date)
-        {
-            return DateTime.TryParseExact(date, new[] { "yyyy-MM-dd", "MM/dd/yyyy" },
-                System.Globalization.CultureInfo.InvariantCulture,
-                System.Globalization.DateTimeStyles.None, out _);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace DEMO.Controllers
 
         [Authorize]
         [HttpPost("ApplyLeaveDetail")]
-        [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeave))]
+        [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeaveExamples))]
         public async Task<IActionResult> ApplyLeaveDetail([FromBody] ApplyLeaveRequestDto request)
         {
             try

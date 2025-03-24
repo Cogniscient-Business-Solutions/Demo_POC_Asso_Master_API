@@ -3,8 +3,8 @@ using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DataDL.Interfaces;
 using DEMO.Models.DTO.ApplyLeave;
 using DEMO.Models.DTO.LeaveAppDetail;
+using DEMO.Models.DTO.LeaveApproval;
 using DEMO.Models.DTO.LeaveDetail;
-using DEMO.Models.DTO.LeaveGrantReject;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Data;
@@ -62,76 +62,7 @@ namespace DEMO.Models.BusinessDL.Classes
         }
 
 
-        //public async Task<IActionResult> ApplyLeaveDetailAsync(Hashtable ht)
-        //{
-        //    try
-        //    {
-        //        // Fetch data from database
-        //        //DataTable dt = await _dataLayer.GetDataTableAsync("CBS_HR_ADD_LEAVE_APPLICATION_PRV_PRI", ht);
-        //        DataTable dt = await _dataLayer.GetDataTableAsync("CBS_HR_ADD_LEAVE_APPLICATION_PRV_PRI", ht);
-        //        // Check if data is empty
-        //        if (dt == null || dt.Rows.Count == 0)
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("404", "No leave application records found.");
-        //        }
-
-        //        // Initialize list to store leave details
-        //        List<ApplyLeaveDetail> leaveDetails = new List<ApplyLeaveDetail>();
-
-        //        // Loop through each row and populate list
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            ApplyLeaveDetail leave = new ApplyLeaveDetail
-        //            {
-        //                LeaveTransactionNo = Convert.ToInt32(row["@returnValue"])
-        //            };
-
-        //            leaveDetails.Add(leave);
-        //        }
-
-        //        var response = new ApplyLeaveResponseDto { Leaves = leaveDetails };
-
-        //        return ApiResponseHelper.SuccessResponse(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
-        //    }
-        //}
-
-        //public async Task<IActionResult> ApplyLeaveDetailAsync(Hashtable ht)
-        //{
-        //    try
-        //    {
-        //        // Call the data_procStringTwoOutput method
-        //        string[] result = await Task.Run(() => _dataLayer.data_procStringTwoOutput("CBS_HR_ADD_LEAVE_APPLICATION_PRV_PRI", ht));
-
-        //        // Check if result is empty or null
-        //        if (result == null || result.Length == 0)
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("404", "No leave application records found.");
-        //        }
-
-        //        // Process each result separately
-        //        List<ApplyLeaveDetail> leaveDetails = new List<ApplyLeaveDetail>();
-        //        foreach (string value in result)
-        //        {
-        //            leaveDetails.Add(new ApplyLeaveDetail
-        //            {
-        //                LeaveTransactionNo = int.TryParse(value, out int parsedValue) ? parsedValue : 0
-        //            });
-        //        }
-
-        //        var response = new ApplyLeaveResponseDto { Leaves = leaveDetails };
-        //        return ApiResponseHelper.SuccessResponse(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
-        //    }
-        //}
-
-
+      
         public async Task<IActionResult> GetLeaveAppDetailAsync(Hashtable ht)
         {
             try
@@ -144,6 +75,8 @@ namespace DEMO.Models.BusinessDL.Classes
                 }
 
                 var leaveDetails = new List<LeaveAppDetail>();
+
+
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -224,80 +157,16 @@ namespace DEMO.Models.BusinessDL.Classes
             }
         }
 
-        //public async Task<IActionResult> GetEmployeeLeaveDetailsAsync(Hashtable ht)
-        //{
-        //    try
-        //    {
-        //        // Fetch data from database using DataSet
-        //        DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL_19_march_2025", ht);
+        
 
-        //        // Check if DataSet is null, empty, or has no rows
-        //        if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
-        //        {
-        //            return ApiResponseHelper.ErrorResponse("404", "No leave data found.");
-        //        }
-
-        //        // Get the first DataTable from DataSet
-        //        DataTable dt = ds.Tables[0];
-        //        DataTable dt1 = ds.Tables[1];
-        //        DataTable dt2 = ds.Tables[2];
-
-        //        var employees = new Dictionary<string, EmployeeDto>();
-
-        //        foreach (DataRow row in dt.Rows)
-        //        {
-        //            string empId = row["empCode"].ToString().Trim();
-
-        //            if (!employees.ContainsKey(empId))
-        //            {
-        //                employees[empId] = new EmployeeDto
-        //                {
-        //                    UserId = empId,
-        //                    ASSO_CODE = row["empName"].ToString().Trim(),
-        //                    Designation = row["designation"].ToString().Trim(),
-        //                    Department = row["department"].ToString().Trim(),
-        //                    Status = row["status"].ToString().Trim(),
-        //                    OpenLeaves = Convert.ToInt32(row["openLeaves"]),
-        //                    Leaves = new List<LeaveDto>()
-        //                };
-        //            }
-
-        //            employees[empId].Leaves.Add(new LeaveDto
-        //            {
-        //                LeaveType = row["leaveType"].ToString().Trim(),
-        //                NoOfDays = Convert.ToInt32(row["noOfDays"]),
-        //                LeaveStatus = row["leaveStatus"].ToString().Trim(),
-        //                LeaveTransactionNo = Convert.ToInt32(row["leaveTransactionNo"]),
-        //                FromDate = row["fromDate"].ToString().Trim(),
-        //                ToDate = row["toDate"].ToString().Trim(),
-        //                FromDateSession = row["fromDateSession"].ToString().Trim(),
-        //                ToDateSession = row["toDateSession"].ToString().Trim(),
-        //                EmployeeReason = row["employeeReason"].ToString().Trim(),
-        //                LeaveApplicationDate = row["leaveApplicationDate"].ToString().Trim(),
-        //                ApprovalDate = row.Table.Columns.Contains("ApprovalDate") && row["ApprovalDate"] != DBNull.Value ? row["ApprovalDate"].ToString().Trim() : null,
-        //                ApprovalReason = row.Table.Columns.Contains("ApprovalReason") && row["ApprovalReason"] != DBNull.Value ? row["ApprovalReason"].ToString().Trim() : null,
-        //                Status = row["status"].ToString().Trim(),
-        //                DueDays = row.Table.Columns.Contains("DueDays") && row["DueDays"] != DBNull.Value ? Convert.ToInt32(row["DueDays"]) : (int?)null
-        //            });
-        //        }
-
-        //        var response = new LeaveResponseDataDto { Employees = employees.Values.ToList() };
-        //        return ApiResponseHelper.SuccessResponse(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
-        //    }
-        //}
-
-        public async Task<IActionResult> GetEmployeeLeaveDetailsAsync(Hashtable parameters)
+        public async Task<IActionResult> GetEmployeeLeaveApprovalDetailsAsync(Hashtable parameters)
         {
             try
             {
                 // Fetch data from the database using DataSet
-                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL_21_march", parameters);
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL", parameters);
 
-                // Validate dataset
+               // Validate dataset
                 if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
                 {
                     return ApiResponseHelper.ErrorResponse("404", "No leave data found.");
@@ -344,6 +213,7 @@ namespace DEMO.Models.BusinessDL.Classes
                 {
                     string empId = row["Emp_code"].ToString().Trim();
 
+
                     if (employees.ContainsKey(empId))
                     {
                         //employees[empId].Status = row["STATUS"].ToString().Trim(); // Update status
@@ -378,6 +248,59 @@ namespace DEMO.Models.BusinessDL.Classes
             }
         }
 
+        public async Task<IActionResult> LeaveGrantRejectDetailAsync(Hashtable parameters)
+        {
+            try
+            {
+                // Fetch data from the database using DataSet
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_GRANT_REJECT", parameters);
+
+                // Check if DataSet is null or contains no valid data
+                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                {
+                    return ApiResponseHelper.ErrorResponse("404", "No leave records found.");
+                }
+
+                // Get the first DataTable from DataSet
+                DataTable dt = ds.Tables[0];
+
+                // Initialize counters
+                int requestApproved = 0;
+                int requestRejected = 0;
+
+                // Loop through each row and count approvals and rejections
+                foreach (DataRow row in dt.Rows)
+                {
+                    string leaveStatus = row["leaveStatus"].ToString();
+
+                    if (leaveStatus == "GRANTED" || leaveStatus == "LEAVE CANCELLED")
+                    {
+                        requestApproved++;
+                    }
+                    else if (leaveStatus == "APPROVAL REJECTED" || leaveStatus == "CANCELLATION REJECTED")
+                    {
+                        requestRejected++;
+                    }
+                }
+
+                // Create response object
+                var response = new
+                {
+                    status = "SUCCESS",
+                    data = new
+                    {
+                        requestApproved = requestApproved,
+                        requestRejected = requestRejected
+                    }
+                };
+
+                return ApiResponseHelper.SuccessResponse(response);
+            }
+            catch (Exception ex)
+            {
+                return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
+            }
+        }
 
     }
 }
