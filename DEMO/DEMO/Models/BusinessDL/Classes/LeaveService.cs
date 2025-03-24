@@ -147,15 +147,15 @@ namespace DEMO.Models.BusinessDL.Classes
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    int numericStatus = row.Table.Columns.Contains("leaveStatus") && row["leaveStatus"] != DBNull.Value
-                        ? Convert.ToInt32(row["leaveStatus"])
-                        : 0;
+                    //int numericStatus = row.Table.Columns.Contains("leaveStatus") && row["leaveStatus"] != DBNull.Value
+                    //    ? Convert.ToInt32(row["leaveStatus"])
+                    //    : 0;
 
                     leaveDetails.Add(new LeaveAppDetail
                     {
                         LeaveType = row["leaveType"].ToString().Trim(),
                         NoOfDays = Convert.ToInt32(row["noOfDays"]),
-                        LeaveStatus = StatusHelper.ConvertStatus(numericStatus).ToString(),
+                        LeaveStatus = row["LeaveStatus"].ToString().Trim(),
                         LeaveTransactionNo = Convert.ToInt32(row["leaveTransactionNo"]),
                         FromDate = row["fromDate"].ToString().Trim(),
                         ToDate = row["toDate"].ToString().Trim(),
@@ -295,7 +295,7 @@ namespace DEMO.Models.BusinessDL.Classes
             try
             {
                 // Fetch data from the database using DataSet
-                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL", parameters);
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL_21_march", parameters);
 
                 // Validate dataset
                 if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
@@ -304,8 +304,8 @@ namespace DEMO.Models.BusinessDL.Classes
                 }
 
                 // Extract tables
-                DataTable dt1 = ds.Tables.Count > 1 ? ds.Tables[1] : null; // Employee General Details
-                DataTable dt2 = ds.Tables.Count > 2 ? ds.Tables[2] : null; // Leave & Open Leaves Data
+                DataTable dt1 = ds.Tables.Count > 1 ? ds.Tables[1] : null; 
+                DataTable dt2 = ds.Tables.Count > 2 ? ds.Tables[2] : null; 
 
                 if (dt1 == null || dt1.Rows.Count == 0)
                 {
@@ -329,12 +329,11 @@ namespace DEMO.Models.BusinessDL.Classes
                         employees[empId] = new EmployeeDto
                         {
                             UserId = empId,
-                            ASSO_CODE = row["ASSO_CODE"].ToString().Trim(),
-                          
+                            Name = row["NAME"].ToString().Trim(),
                             Designation = row["designation"].ToString().Trim(),
                             Department = row["department"].ToString().Trim(),
-                            Status = "",  // Will be updated from dt2
-                            OpenLeaves = 0, // Will be updated from dt2
+                            Status = row["STATUS"].ToString().Trim(), 
+                            OpenLeaves = 0, 
                             Leaves = new List<LeaveDto>()
                         };
                     }
@@ -347,7 +346,7 @@ namespace DEMO.Models.BusinessDL.Classes
 
                     if (employees.ContainsKey(empId))
                     {
-                        employees[empId].Status = row["status"].ToString().Trim(); // Update status
+                        //employees[empId].Status = row["STATUS"].ToString().Trim(); // Update status
                         //employees[empId].OpenLeaves = Convert.ToInt32(row["openLeaves"]); // Update openLeaves count
 
                         employees[empId].Leaves.Add(new LeaveDto
@@ -364,8 +363,8 @@ namespace DEMO.Models.BusinessDL.Classes
                             LeaveApplicationDate = row["Notified_date"].ToString().Trim(),
                             //ApprovalDate = row.Table.Columns.Contains("approvalDate") && row["approvalDate"] != DBNull.Value ? row["approvalDate"].ToString().Trim() : null,
                             ApprovalReason = row.Table.Columns.Contains("employer_reason") && row["employer_reason"] != DBNull.Value ? row["employer_reason"].ToString().Trim() : null,
-                            //Status = row["status"].ToString().Trim(),
-                            //DueDays = row.Table.Columns.Contains("dueDays") && row["dueDays"] != DBNull.Value ? Convert.ToInt32(row["dueDays"]) : (int?)null
+                            Status = row["Status"].ToString().Trim(),
+                            DueDays = row.Table.Columns.Contains("DUEDAYS") && row["DUEDAYS"] != DBNull.Value ? Convert.ToInt32(row["DUEDAYS"]) : (int?)null
                         });
                     }
                 }

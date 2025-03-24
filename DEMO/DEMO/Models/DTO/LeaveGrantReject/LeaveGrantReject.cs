@@ -1,12 +1,21 @@
-﻿namespace DEMO.Models.DTO.LeaveGrantReject
+﻿using System.Text.Json.Serialization;
+using static DEMO.Models.Generic.Enums;
+
+namespace DEMO.Models.DTO.LeaveGrantReject
 {
     
-
-    public class LeaveRequestDto
+    public class DateRangeDto
     {
         public string FromDate { get; set; }
         public string ToDate { get; set; }
-        public List<string> Filters { get; set; }
+    }
+    public class LeaveRequestDto
+    {
+       
+        public DateRangeDto DateRange { get; set; } = new DateRangeDto();
+
+        public List<LeaveStatusEnum> Status { get; set; } = new List<LeaveStatusEnum>(); 
+
     }
 
     public class LeaveDto
@@ -28,7 +37,9 @@
     }
     public class EmployeeDto
     {
-        public string ASSO_CODE { get; set; }
+        //public string ASSO_CODE { get; set; }
+
+        public string Name { get; set; }
         public string UserId { get; set; }
         public string Designation { get; set; }
         public string Department { get; set; }
@@ -41,6 +52,15 @@
     {
         public List<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
     }
+
+   
+      
+
+       
+
+
+    
+
 
 }
 

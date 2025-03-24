@@ -22,8 +22,9 @@ namespace DEMO.Models.DataDL.Classes
                 error = new
                 {
                     code = errorCode,
+                    details,
                     message = errorMessage,
-                    details
+                    
                 }
             };
             return new ObjectResult(response) { StatusCode = 404 };

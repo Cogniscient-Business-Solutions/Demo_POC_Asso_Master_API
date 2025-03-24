@@ -3,22 +3,24 @@ using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DTO.ApplyLeave;
 using DEMO.Models.DTO.LeaveGrantReject;
+using DEMO.Models.Generic;
 using DEMO.SwaggerExamples;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
+using static DEMO.Models.Generic.Enums;
 
 namespace DEMO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetLeaveDetailsController : ControllerBase
+    public class LeaveGrantRejectDetailsController : ControllerBase
     {
 
         private readonly TokenService _tokenService;
         private readonly ILeaveService _leaveService;
 
-        public GetLeaveDetailsController(TokenService tokenService, ILeaveService leaveService)
+        public LeaveGrantRejectDetailsController(TokenService tokenService, ILeaveService leaveService)
         {
             _tokenService = tokenService;
             _leaveService = leaveService;
@@ -26,7 +28,7 @@ namespace DEMO.Controllers
 
         [HttpPost("GetLeaveDetails")]
         [SwaggerRequestExample(typeof(LeaveRequestDto), typeof(LeaveDetailExamples))]
-        public async Task<IActionResult> GetLeaveDetails([FromBody] LeaveRequestDto request)
+        public async Task<IActionResult> GetLeaveGrantRejectDetails([FromBody] LeaveRequestDto request)
         {
             try
             {
@@ -52,18 +54,26 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
                 }
 
-                string fromDate = string.IsNullOrWhiteSpace(request.FromDate) ? "" : request.FromDate;
-                string toDate = string.IsNullOrWhiteSpace(request.ToDate) ? "" : request.ToDate;
-
+                string fromDate = request.DateRange?.FromDate ?? "";
+                string toDate = request.DateRange?.ToDate ?? "";
                 if (!(fromDate == "" || IsValidDateFormat(fromDate)) || !(toDate == "" || IsValidDateFormat(toDate)))
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
                 }
 
-                // Prepare filters
-                string filters = request.Filters != null && request.Filters.Any()
-                    ? string.Join(",", request.Filters)
-                    : null;
+                //string filters = FilterHelper.ConvertStatusToNumber(request.Status).ToString();
+
+                string filters = string.Join(",", FilterHelper.ConvertStatusToNumber(request.Status));
+
+
+                //string filters = string.Join(",", FilterHelper.ConvertStatusesToNumbers(request.status));
+
+
+                //string filters = string.Join(",", request.status.Select(s => FilterHelper.ConvertStatusToNumber(s)));
+
+
+
+
 
                 Hashtable ht = new Hashtable
             {
@@ -74,6 +84,7 @@ namespace DEMO.Controllers
                 { "STARTDATE", fromDate },
                 { "ENDDATE", toDate },
                 { "STATUS", string.IsNullOrEmpty(filters) ? (object)DBNull.Value : filters }
+                 
             };
 
                 // Fetch data from service

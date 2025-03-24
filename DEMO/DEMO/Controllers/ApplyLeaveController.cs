@@ -71,13 +71,13 @@ namespace DEMO.Controllers
                 }
 
 
-                List<int> statusList = StatusHelper.ConvertStatusList(request.LeaveStatus);
+                //List<int> statusList = StatusHelper.ConvertStatusList(request.LeaveStatus);
 
                 // Ensure we only pass valid statuses to the procedure
-                if (statusList.Count == 0)
-                {
-                    throw new ArgumentException("Invalid leave status values provided.");
-                }
+                //if (statusList.Count == 0)
+                //{
+                //    throw new ArgumentException("Invalid leave status values provided.");
+                //}
 
                 Hashtable ht = new Hashtable
                 {
@@ -92,7 +92,7 @@ namespace DEMO.Controllers
                     { "To_date", request.ToDate },
                     { "From_session", request.FromDateSession },
                     { "To_session", request.ToDateSession },
-                    { "Status", statusList.Count == 0 ? (object)DBNull.Value : string.Join(",", statusList) },
+                    { "Status", request.LeaveStatus },
                     { "employee_reason", request.EmployeeReason },
                     { "employer_reason", "" }
 

@@ -6,6 +6,7 @@ using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DTO.EmpDetail;
 using DEMO.Models.DTO.LeaveAppDetail;
+using DEMO.Models.Generic;
 using DEMO.SwaggerExamples;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace DEMO.Controllers
 
         [Authorize]
         [HttpPost("GetLeaveAppDetails")]
-        [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveMultiple))]
+        [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveAppDetailExamples))]
         public async Task<IActionResult> GetLeaveAppDetails([FromBody] GetLeaveRequestDto request)
         {
             try
@@ -60,30 +61,15 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
                 }
 
-                string fromDate = string.IsNullOrWhiteSpace(request.FromDate) ? "" : request.FromDate;
-                string toDate = string.IsNullOrWhiteSpace(request.ToDate) ? "" : request.ToDate;               
-
+                string fromDate = request.DateRange?.FromDate ?? "";
+                string toDate = request.DateRange?.ToDate ?? "";
                 if ( !(fromDate=="" || IsValidDateFormat(fromDate)) ||  !(toDate == "" || IsValidDateFormat(toDate)))
                 {
                     return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
                 }
 
-                
-                List<int> numericStatusList = request.LeaveStatus != null
-                    ? request.LeaveStatus
-                        .Select(status => StatusHelper.ConvertStatus(status))
-                        .Where(result => result is int)  // Ensure conversion was successful
-                        .Cast<int>()
-                        .ToList()
-                    : new List<int>();
 
-                // Ensure we only pass valid statuses to the procedure
-                if (numericStatusList.Count == 0)
-                {
-                    throw new ArgumentException("Invalid leave status values provided.");
-                }
-
-                string statusString = string.Join(",", numericStatusList);
+                string statusString = string.Join(",", FilterHelper.ConvertLeaveStatusToNumber(request.LeaveStatus));
 
                 Hashtable ht = new Hashtable
                 {

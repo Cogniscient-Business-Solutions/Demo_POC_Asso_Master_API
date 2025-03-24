@@ -320,61 +320,6 @@
         }
       }
     },
-    "/api/GetLeaveDetails/GetLeaveDetails": {
-      "post": {
-        "tags": [
-          "GetLeaveDetails"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeaveRequestDto"
-              },
-              "examples": {
-                "Leave detail 1": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                },
-                "Leave detail 2": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeaveRequestDto"
-              },
-              "examples": {
-                "Leave detail 1": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                },
-                "Leave detail 2": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeaveRequestDto"
-              },
-              "examples": {
-                "Leave detail 1": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                },
-                "Leave detail 2": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","filters":[""]}
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/LeaveAppDetail/GetLeaveAppDetails": {
       "post": {
         "tags": [
@@ -387,11 +332,14 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "FRESH CL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                "LEAVE - Fresh": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "PENDING APPROVAL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                "LEAVE - Rejected": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                },
+                "LEAVE - Grant": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
                 }
               }
             },
@@ -400,11 +348,14 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "FRESH CL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                "LEAVE - Fresh": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "PENDING APPROVAL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                "LEAVE - Rejected": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                },
+                "LEAVE - Grant": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
                 }
               }
             },
@@ -413,11 +364,78 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "FRESH CL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["FRESH"]}
+                "LEAVE - Fresh": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
                 },
-                "PENDING APPROVAL": {
-                  "value": {"fromDate":"2020-01-01","toDate":"2025-03-20","leaveStatus":["GRANTED"]}
+                "LEAVE - Rejected": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Rejected"]}
+                },
+                "LEAVE - Grant": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LeaveGrantRejectDetails/GetLeaveDetails": {
+      "post": {
+        "tags": [
+          "LeaveGrantRejectDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
                 }
               }
             }
@@ -590,6 +608,34 @@
         },
         "additionalProperties": false
       },
+      "DateRange": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateRangeDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EmployeeRequestModel": {
         "type": "object",
         "properties": {
@@ -627,44 +673,50 @@
       "GetLeaveRequestDto": {
         "type": "object",
         "properties": {
-          "fromDate": {
-            "type": "string",
-            "nullable": true
-          },
-          "toDate": {
-            "type": "string",
-            "nullable": true
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRange"
           },
           "leaveStatus": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/LeaveAppDetailEnum"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
+      "LeaveAppDetailEnum": {
+        "enum": [
+          "Fresh",
+          "Rejected",
+          "Grant"
+        ],
+        "type": "string"
+      },
       "LeaveRequestDto": {
         "type": "object",
         "properties": {
-          "fromDate": {
-            "type": "string",
-            "nullable": true
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRangeDto"
           },
-          "toDate": {
-            "type": "string",
-            "nullable": true
-          },
-          "filters": {
+          "status": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/LeaveStatusEnum"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "LeaveStatusEnum": {
+        "enum": [
+          "APPROVAL_REQUEST",
+          "ALREADY_REJECTED",
+          "CANCELLATION_REQUEST"
+        ],
+        "type": "string"
       },
       "LoginRequest": {
         "type": "object",
