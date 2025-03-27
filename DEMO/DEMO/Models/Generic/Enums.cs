@@ -4,36 +4,57 @@ namespace DEMO.Models.Generic
 {
     public class Enums
     {
-        public enum LeaveStatusEnum
+
+        public enum LeaveApprovalEnum
         {
+            [Description("2")]
+            APPROVAL_REQUEST,
 
-            [Description("Approval Request")]
-            APPROVAL_REQUEST = 2,
+            [Description("-1")]
+            DIRECT,
 
-            DIRECT = 0,
+            [Description("5")]
+            CANCELLATION_REQUEST,
 
-            [Description("Cancellation Request")]
-            CANCELLATION_REQUEST = 5,
+            [Description("4")]
+            ALREADY_REJECTED,
 
-            [Description("Already Rejected")]
-            ALREADY_REJECTED = 4,
-
-            [Description("Already Approved")]
-            ALREADY_APPROVED = 1
-
-            
-
+            [Description("1,3")]
+            ALREADY_APPROVED
         }
         public enum LeaveAppDetailEnum
         {
 
-            Fresh = 0,
-            Leave_Cancelled=1,
-            Pending_Approval=2,
-            Grant = 3,
-            Approval_Reject = 4,
-            Cancellation_Rejected=3
+            [Description("0")]
+            FRESH,
 
+            [Description("1")]
+            LEAVE_CANCELLED ,
+
+            [Description("2")]
+            PENDING_APPROVAL,
+
+            [Description("3")]
+            GRANTED ,
+
+            [Description("4")]
+            APPROVAL_REJECTED,
+
+            [Description("3")]
+            PENDING_CANCELLATION 
+
+        }
+
+        public enum SessionEnum
+        {
+            [Description("W")]
+            WHOLE_DAY ,
+
+            [Description("F")]
+            FIRST_HALF ,
+
+            [Description("S")]
+            SECOND_HALF 
         }
 
        

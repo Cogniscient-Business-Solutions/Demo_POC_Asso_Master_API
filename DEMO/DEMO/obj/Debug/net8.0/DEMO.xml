@@ -4,6 +4,11 @@
         <name>DEMO</name>
     </assembly>
     <members>
+        <member name="M:DEMO.Controllers.ApplyLeaveController.ApplyLeaveDetail(DEMO.Models.DTO.ApplyLeave.ApplyLeaveRequestDto)">
+            <summary>
+            Apply Leave Api 
+            </summary>
+        </member>
         <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String,System.String,System.String)">
             <summary>
             Retrieves employee details based on the given parameters.

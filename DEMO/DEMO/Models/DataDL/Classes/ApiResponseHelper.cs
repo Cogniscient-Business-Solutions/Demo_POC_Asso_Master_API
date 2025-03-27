@@ -33,14 +33,18 @@ namespace DEMO.Models.DataDL.Classes
 
         public static IActionResult AuthErrorResponse(string errorCode, string errorMessage, string details = "")
         {
+
+            string expirationTime = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+
             var response = new
             {
                 status = "FAIL",
                 error = new
                 {
                     code = errorCode,
-                    message = errorMessage,
-                    details
+                    details = $"Token expired at: {expirationTime}. Please obtain a new token.",
+                    message = errorMessage
+                    
                 }
             };
 

@@ -11,6 +11,7 @@
         "tags": [
           "ApplyLeave"
         ],
+        "summary": "Apply Leave Api",
         "requestBody": {
           "content": {
             "application/json": {
@@ -19,19 +20,19 @@
               },
               "examples": {
                 "FRESH CL": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "PENDING APPROVAL": {
-                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "FRESH Half CL [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
                 "GRANTED [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
-                "LWP FRESH": {
-                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 }
               }
             },
@@ -41,19 +42,19 @@
               },
               "examples": {
                 "FRESH CL": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "PENDING APPROVAL": {
-                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "FRESH Half CL [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
                 "GRANTED [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
-                "LWP FRESH": {
-                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 }
               }
             },
@@ -63,19 +64,19 @@
               },
               "examples": {
                 "FRESH CL": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "PENDING APPROVAL": {
-                  "value": {"leaveType":"SPL","leaveStatus":"PENDING APPROVAL","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
                 },
                 "FRESH Half CL [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
                 "GRANTED [ERROR]": {
-                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-20","toDate":"2025-03-20","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO ......."}
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 },
-                "LWP FRESH": {
-                  "value": {"leaveType":"LWP","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO ......."}
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
                 }
               }
             }
@@ -332,20 +333,23 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "LEAVE - Fresh": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
                 },
-                "LEAVE - Leave_Cancelled": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
                 },
-                "LEAVE - Pending_Approval": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
                 },
-                "LEAVE - Grant": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
                 },
-                "LEAVE - Approval_Reject": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
                 }
               }
             },
@@ -354,20 +358,23 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "LEAVE - Fresh": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
                 },
-                "LEAVE - Leave_Cancelled": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
                 },
-                "LEAVE - Pending_Approval": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
                 },
-                "LEAVE - Grant": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
                 },
-                "LEAVE - Approval_Reject": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
                 }
               }
             },
@@ -376,20 +383,23 @@
                 "$ref": "#/components/schemas/GetLeaveRequestDto"
               },
               "examples": {
-                "LEAVE - Fresh": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Fresh"]}
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
                 },
-                "LEAVE - Leave_Cancelled": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Leave_Cancelled"]}
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
                 },
-                "LEAVE - Pending_Approval": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Pending_Approval"]}
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
                 },
-                "LEAVE - Grant": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Grant"]}
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
                 },
-                "LEAVE - Approval_Reject": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["Approval_Reject"]}
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
                 }
               }
             }
@@ -414,20 +424,20 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
-                "LEAVE - DIRECT": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
-                },
-                "LEAVE - ALREADY_APPROVED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
-                },
                 "LEAVE - APPROVAL_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
                 },
-                "LEAVE - ALREADY_REJECTED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
                 },
                 "LEAVE - CANCELLATION_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
                 }
               }
             },
@@ -436,20 +446,20 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
-                "LEAVE - DIRECT": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
-                },
-                "LEAVE - ALREADY_APPROVED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
-                },
                 "LEAVE - APPROVAL_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
                 },
-                "LEAVE - ALREADY_REJECTED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
                 },
                 "LEAVE - CANCELLATION_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
                 }
               }
             },
@@ -458,20 +468,20 @@
                 "$ref": "#/components/schemas/LeaveRequestDto"
               },
               "examples": {
-                "LEAVE - DIRECT": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["DIRECT"]}
-                },
-                "LEAVE - ALREADY_APPROVED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_APPROVED"]}
-                },
                 "LEAVE - APPROVAL_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["APPROVAL_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
                 },
-                "LEAVE - ALREADY_REJECTED": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["ALREADY_REJECTED"]}
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
                 },
                 "LEAVE - CANCELLATION_REQUEST": {
-                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"status":["CANCELLATION_REQUEST"]}
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
                 }
               }
             }
@@ -496,17 +506,14 @@
                 "$ref": "#/components/schemas/LeaveGrantRejectRequest"
               },
               "examples": {
-                "GRANTED": {
-                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
                 },
-                "APPROVAL REJECTED": {
-                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
                 },
-                "CANCELLATION REJECTED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
-                },
-                "LEAVE CANCELLED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
                 }
               }
             },
@@ -515,17 +522,14 @@
                 "$ref": "#/components/schemas/LeaveGrantRejectRequest"
               },
               "examples": {
-                "GRANTED": {
-                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
                 },
-                "APPROVAL REJECTED": {
-                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
                 },
-                "CANCELLATION REJECTED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
-                },
-                "LEAVE CANCELLED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
                 }
               }
             },
@@ -534,17 +538,14 @@
                 "$ref": "#/components/schemas/LeaveGrantRejectRequest"
               },
               "examples": {
-                "GRANTED": {
-                  "value": {"userId":"EMP001","leaveType":"CL","leaveStatus":"GRANTED","leaveTransactionNo":234,"approvalReason":"I am approving because ..."}
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
                 },
-                "APPROVAL REJECTED": {
-                  "value": {"userId":"EMP002","leaveType":"CL","leaveStatus":"APPROVAL REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting because ..."}
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
                 },
-                "CANCELLATION REJECTED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"CANCELLATION REJECTED","leaveTransactionNo":234,"approvalReason":"I am rejecting cancellation because ..."}
-                },
-                "LEAVE CANCELLED": {
-                  "value": {"userId":"EMP003","leaveType":"CL","leaveStatus":"LEAVE CANCELLED","leaveTransactionNo":234,"approvalReason":"I am canceling because ..."}
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
                 }
               }
             }
@@ -691,8 +692,7 @@
             "nullable": true
           },
           "leaveStatus": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/LeaveAppDetailEnum"
           },
           "fromDate": {
             "type": "string",
@@ -703,12 +703,10 @@
             "nullable": true
           },
           "fromDateSession": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/SessionEnum"
           },
           "toDateSession": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/SessionEnum"
           },
           "employeeReason": {
             "type": "string",
@@ -797,22 +795,29 @@
       },
       "LeaveAppDetailEnum": {
         "enum": [
-          "Fresh",
-          "Leave_Cancelled",
-          "Pending_Approval",
-          "Grant",
-          "Approval_Reject"
+          "FRESH",
+          "LEAVE_CANCELLED",
+          "PENDING_APPROVAL",
+          "GRANTED",
+          "APPROVAL_REJECTED",
+          "PENDING_CANCELLATION"
         ],
         "type": "string"
       },
-      "LeaveGrantRejectRequest": {
+      "LeaveApprovalEnum": {
+        "enum": [
+          "APPROVAL_REQUEST",
+          "DIRECT",
+          "CANCELLATION_REQUEST",
+          "ALREADY_REJECTED",
+          "ALREADY_APPROVED"
+        ],
+        "type": "string"
+      },
+      "LeaveDetail": {
         "type": "object",
         "properties": {
           "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "leaveType": {
             "type": "string",
             "nullable": true
           },
@@ -831,31 +836,34 @@
         },
         "additionalProperties": false
       },
-      "LeaveRequestDto": {
+      "LeaveGrantRejectRequest": {
         "type": "object",
         "properties": {
-          "dateRange": {
-            "$ref": "#/components/schemas/DateRangeDto"
-          },
-          "status": {
+          "leaves": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LeaveStatusEnum"
+              "$ref": "#/components/schemas/LeaveDetail"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "LeaveStatusEnum": {
-        "enum": [
-          "DIRECT",
-          "ALREADY_APPROVED",
-          "APPROVAL_REQUEST",
-          "ALREADY_REJECTED",
-          "CANCELLATION_REQUEST"
-        ],
-        "type": "string"
+      "LeaveRequestDto": {
+        "type": "object",
+        "properties": {
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRangeDto"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaveApprovalEnum"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "LoginRequest": {
         "type": "object",
@@ -870,6 +878,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "SessionEnum": {
+        "enum": [
+          "WHOLE_DAY",
+          "FIRST_HALF",
+          "SECOND_HALF"
+        ],
+        "type": "string"
       }
     },
     "securitySchemes": {

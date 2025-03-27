@@ -11,6 +11,7 @@ using System.ComponentModel.Design;
 using Swashbuckle.AspNetCore.Filters;
 using DEMO.SwaggerExamples;
 using DEMO.Models.BusinessDL.Interfaces;
+using DEMO.Models.Generic;
 
 namespace DEMO.Controllers
 {
@@ -31,6 +32,10 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
+
+        /// <summary>
+        /// Apply Leave Api 
+        /// </summary>
         [Authorize]
         [HttpPost("ApplyLeaveDetail")]
         [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeaveExamples))]
@@ -40,7 +45,7 @@ namespace DEMO.Controllers
             {
                 if (request == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
+                    return ApiResponseHelper.ErrorResponse("Invalid request", "Invalid request payload.");
                 }
 
                 // Extract token from request headers
@@ -58,26 +63,24 @@ namespace DEMO.Controllers
                     !claims.TryGetValue("nameidentifier", out string empCode) ||
                     !claims.TryGetValue("User_Id", out string User_Id))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Missing required data in token.");
+                    return ApiResponseHelper.ErrorResponse("Data Missing", "Missing required data in token.");
                 }
 
                 if (!string.IsNullOrWhiteSpace(request.FromDate) && !IsValidDateFormat(request.FromDate))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid FromDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
+                    return ApiResponseHelper.ErrorResponse("Invalid FromDate format", "Invalid FromDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
                 }
                 if (!string.IsNullOrWhiteSpace(request.ToDate) && !IsValidDateFormat(request.ToDate))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid ToDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
+                    return ApiResponseHelper.ErrorResponse("Invalid ToDate format", "Invalid ToDate format. Expected format: yyyy-MM-dd, MM/dd/yyyy, or dd/MM/yyyy.");
                 }
 
+                string Status = FilterHelper.ConvertStatusToValue(request.LeaveStatus);
 
-                //List<int> statusList = StatusHelper.ConvertStatusList(request.LeaveStatus);
+                string FromDateSession = FilterHelper.ConvertStatusToValue(request.FromDateSession);
+                string ToDateSession = FilterHelper.ConvertStatusToValue(request.ToDateSession);
 
-                // Ensure we only pass valid statuses to the procedure
-                //if (statusList.Count == 0)
-                //{
-                //    throw new ArgumentException("Invalid leave status values provided.");
-                //}
+
 
                 Hashtable ht = new Hashtable
                 {
@@ -90,9 +93,9 @@ namespace DEMO.Controllers
                     { "Notified_date", DateTime.Now.ToString() },                                       
                     { "From_date", request.FromDate },
                     { "To_date", request.ToDate },
-                    { "From_session", request.FromDateSession },
-                    { "To_session", request.ToDateSession },
-                    { "Status", request.LeaveStatus },
+                    { "From_session",FromDateSession },
+                    { "To_session", ToDateSession },
+                    { "Status", Status },
                     { "employee_reason", request.EmployeeReason },
                     { "employer_reason", "" }
 

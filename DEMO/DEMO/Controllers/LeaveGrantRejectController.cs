@@ -7,6 +7,8 @@ using DEMO.Models.BusinessDL.Interfaces;
 using static DEMO.Models.DTO.LeaveGrantReject.LeaveGrantReject;
 using DEMO.SwaggerExamples;
 using Swashbuckle.AspNetCore.Filters;
+using Newtonsoft.Json;
+
 
 namespace DEMO.Controllers
 {
@@ -24,8 +26,6 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
-
-
         [HttpPost("GetLeaveGrantRejectDetails")]
         [SwaggerRequestExample(typeof(LeaveGrantRejectRequest), typeof(LeaveGrantRejectExamples))]
         public async Task<IActionResult> LeaveGrantReject([FromBody] LeaveGrantRejectRequest request)
@@ -38,7 +38,7 @@ namespace DEMO.Controllers
 
                 if (claims == null || claims.Count == 0)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("Invalid token", "Unauthorized access. Invalid token.");
                 }
 
                 // Extract required claims from token
@@ -46,13 +46,24 @@ namespace DEMO.Controllers
                     !claims.TryGetValue("location", out string locationNo) || !claims.TryGetValue("User_Id", out string User_Id) ||
                     !claims.TryGetValue("nameidentifier", out string empCode))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Missing required data in token.");
+                    return ApiResponseHelper.ErrorResponse("Missing Data", "Missing required data in token.");
                 }
 
                 if (request == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
+                    return ApiResponseHelper.ErrorResponse("Invalid request", "Invalid request payload.");
                 }
+
+                foreach (var leave in request.Leaves)
+                {
+                    if (FilterHelper.LeaveStatusMapping.TryGetValue(leave.leaveStatus, out string statusValue))
+                    {
+                        leave.leaveStatus = statusValue; 
+                    }
+                }
+
+
+                string leaveDataJson = JsonConvert.SerializeObject(request.Leaves);
 
                 Hashtable ht = new Hashtable
                 {
@@ -60,14 +71,15 @@ namespace DEMO.Controllers
                 { "USER_ID", User_Id },
                 { "Company_No", companyNo },
                 { "Location_No", locationNo },
+                {"API_INPUT_JASON_DATA",leaveDataJson },
                 };
 
                 // Fetch data from service
-                var result = await _leaveService.GetEmployeeLeaveApprovalDetailsAsync(ht);
+                var result = await _leaveService.LeaveGrantRejectDetailAsync(ht);
 
                 if (result == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No leave data found.");
+                    return ApiResponseHelper.ErrorResponse("No Data", "No leave data found.");
                 }
 
                 return result;

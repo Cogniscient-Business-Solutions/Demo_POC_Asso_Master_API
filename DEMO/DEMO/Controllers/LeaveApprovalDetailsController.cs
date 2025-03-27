@@ -38,27 +38,28 @@ namespace DEMO.Controllers
 
                 if (claims == null || claims.Count == 0)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
                 }
 
                 // Extract required claims from token
                 if (!claims.TryGetValue("company", out string companyNo) ||
-                    !claims.TryGetValue("location", out string locationNo) || !claims.TryGetValue("User_Id", out string User_Id) ||
+                    !claims.TryGetValue("location", out string locationNo) || 
+                    !claims.TryGetValue("User_Id", out string User_Id) ||
                     !claims.TryGetValue("nameidentifier", out string empCode))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Missing required data in token.");
+                    return ApiResponseHelper.ErrorResponse("Missing data", "Missing required data in token.");
                 }
 
                 if (request == null )
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
+                    return ApiResponseHelper.ErrorResponse("Invalid request", "Invalid request payload.");
                 }
 
                 string fromDate = request.DateRange?.FromDate ?? "";
                 string toDate = request.DateRange?.ToDate ?? "";
                 if (!(fromDate == "" || IsValidDateFormat(fromDate)) || !(toDate == "" || IsValidDateFormat(toDate)))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
+                    return ApiResponseHelper.ErrorResponse("Invalid date format", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
                 }
 
                 //string filters = FilterHelper.ConvertStatusToNumber(request.Status).ToString();
@@ -66,9 +67,9 @@ namespace DEMO.Controllers
                 string filters = "";
                 string directValue = "";
 
-                if (request.Status != null)
+                if (request.filters != null)
                 {
-                    foreach (var status in request.Status)
+                    foreach (var status in request.filters)
                     {
                         
                         if (status.ToString() == "DIRECT")
@@ -78,7 +79,7 @@ namespace DEMO.Controllers
                         else
                         {
                             
-                            string statusValue = FilterHelper.ConvertEnumToNumber(status).ToString();
+                            string statusValue = FilterHelper.ConvertStatusToValue(status).ToString();
 
                             if (filters == "")
                             {
@@ -92,22 +93,7 @@ namespace DEMO.Controllers
                     }
                 }
 
-
-                //string filters = request.Status != null && request.Status.Any()
-                //? string.Join(",", request.Status.Select(s => FilterHelper.ConvertEnumToNumber(s)))
-                //: "";
-
-                // string filters = string.Join(",", FilterHelper.ConvertStatusToNumber(request.Status));
-
-
-                //string filters = string.Join(",", FilterHelper.ConvertStatusesToNumbers(request.status));
-
-
-                //string filters = string.Join(",", request.status.Select(s => FilterHelper.ConvertStatusToNumber(s)));
-
-
-
-
+                //string statusValue1 = FilterHelper.ConvertNumberToEnum(statusValue).ToString();
 
                 Hashtable ht = new Hashtable
             {
@@ -119,7 +105,6 @@ namespace DEMO.Controllers
                 { "ENDDATE", toDate },
                 { "DIRECT", directValue },
                 { "STATUS", string.IsNullOrEmpty(filters) ? (object)DBNull.Value : filters }
-                
 
             };
 
@@ -132,6 +117,7 @@ namespace DEMO.Controllers
                 }
 
                 return result;
+
             }
             catch (Exception ex)
             {

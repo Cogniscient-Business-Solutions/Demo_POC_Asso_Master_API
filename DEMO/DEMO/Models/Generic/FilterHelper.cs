@@ -16,81 +16,95 @@ namespace DEMO.Models.Generic
 
         //}
 
-        public static int ConvertEnumToNumber<TEnum>(TEnum enumValue) where TEnum : struct, Enum
-        {
-            return Convert.ToInt32(enumValue);
-        }
-
-        public static TEnum ConvertNumberToEnum<TEnum>(int number) where TEnum : struct, Enum
-        {
-            if (Enum.IsDefined(typeof(TEnum), number))
-            {
-                return (TEnum)Enum.ToObject(typeof(TEnum), number);
-            }
-            throw new ArgumentException($"Invalid value '{number}' for enum type {typeof(TEnum).Name}");
-        }
-
-        public static int ConvertStatusToNumber(LeaveStatusEnum status)
-        {
-            LeaveStatusEnum enm = (LeaveStatusEnum)Enum.Parse(typeof(LeaveStatusEnum), status.ToString());
-            return (int)enm;
-        }
-
-        //public static List<int> ConvertStatusToNumber(List<LeaveStatusEnum> statuses)
+        //public static int ConvertEnumToNumber<TEnum>(TEnum enumValue) where TEnum : struct, Enum
         //{
-        //    List<int> statusNumbers = new List<int>();
-
-        //    foreach (var status in statuses)
-        //    {
-        //        statusNumbers.Add((int)status);
-        //    }
-
-        //    return statusNumbers;
+        //    return Convert.ToInt32(enumValue);
         //}
 
-        public static List<int> ConvertLeaveStatusToNumber(List<LeaveAppDetailEnum> statuses)
+        public static string ConvertStatusToValue<TEnum>(TEnum enumValue) where TEnum : struct, Enum
         {
-            List<int> statusNumbers = new List<int>();
+            // Get the enum type
+            Type type = typeof(TEnum);
+            FieldInfo field = type.GetField(enumValue.ToString());
 
-            foreach (var status in statuses)
+            // Check if the enum has a [Description] attribute
+            var attribute = field.GetCustomAttribute<DescriptionAttribute>();
+
+            if (attribute != null)
             {
-                statusNumbers.Add((int)status);
+                return attribute.Description; // Return the description string
             }
 
-            return statusNumbers;
+            return Convert.ToInt32(enumValue).ToString(); // Return the explicit integer value
         }
 
 
+        public static TEnum ConvertValueToStatus<TEnum>(string value) where TEnum : struct, Enum
+        {
+            // Get the enum type
+            Type type = typeof(TEnum);
 
-        //public static List<string> ConvertNumberToLeaveStatus(List<int> statusNumbers)
+            // Try to find an enum field with the given description
+            foreach (var field in type.GetFields())
+            {
+                var attribute = field.GetCustomAttribute<DescriptionAttribute>();
+                if (attribute != null && attribute.Description == value)
+                {
+                    return (TEnum)field.GetValue(null); // Return the enum value that matches the description
+                }
+            }
+
+
+            // If no description matches, try parsing it as an integer value
+            if (int.TryParse(value, out int intValue))
+            {
+                if (Enum.IsDefined(typeof(TEnum), intValue))
+                {
+                    return (TEnum)(object)intValue; // Convert integer to enum
+                }
+            }
+
+            throw new ArgumentException($"Invalid value '{value}' for enum {typeof(TEnum).Name}");
+        }
+
+        //public static TEnum ConvertNumberToEnum<TEnum>(int number) where TEnum : struct, Enum
         //{
-        //    List<string> statusStrings = new List<string>();
-
-        //    foreach (var number in statusNumbers)
+        //    if (Enum.IsDefined(typeof(TEnum), number))
         //    {
-        //        if (Enum.IsDefined(typeof(LeaveAppDetailEnum), number))
-        //        {
-        //            statusStrings.Add(((LeaveAppDetailEnum)number).ToString());
-        //        }
-        //        else
-        //        {
-        //            statusStrings.Add("InvalidStatus"); 
-        //        }
+        //        return (TEnum)Enum.ToObject(typeof(TEnum), number);
         //    }
-
-        //    return statusStrings;
+        //    throw new ArgumentException($"Invalid value '{number}' for enum type {typeof(TEnum).Name}");
         //}
 
-        public static string ConvertNumberToStatus(int statusNumber)
+        //public static string ConvertNumberToStatus(int statusNumber)
+        //{
+        //    if (Enum.IsDefined(typeof(LeaveStatusEnum), statusNumber))
+        //    {
+        //        return ((LeaveStatusEnum)statusNumber).ToString();
+        //    }
+        //    return "UNKNOWN_STATUS"; 
+        //}
+
+        public static readonly Dictionary<string, string> LeaveStatusMapping = new Dictionary<string, string>
         {
-            if (Enum.IsDefined(typeof(LeaveStatusEnum), statusNumber))
-            {
-                return ((LeaveStatusEnum)statusNumber).ToString();
-            }
-            return "UNKNOWN_STATUS"; 
+         
+         { "LEAVE_CANCELLED", "1" },
+         { "CANCELLATION_REJECTED", "2" },
+         { "GRANTED", "3" },
+         { "APPROVAL_REJECTED", "4" },
+         
+        };
+
+
+        public static string GetDescription(this Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+            var attribute = (DescriptionAttribute)field.GetCustomAttribute(typeof(DescriptionAttribute));
+            return attribute?.Description ?? value.ToString();
         }
 
     }
+
 
     //public static class EnumHelper
     //{

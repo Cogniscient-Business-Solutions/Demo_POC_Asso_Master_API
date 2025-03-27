@@ -6,40 +6,88 @@ public class LeaveGrantRejectExamples : IMultipleExamplesProvider<LeaveGrantReje
 {
     public IEnumerable<SwaggerExample<LeaveGrantRejectRequest>> GetExamples()
     {
-        yield return SwaggerExample.Create("GRANTED", new LeaveGrantRejectRequest
+        yield return SwaggerExample.Create("LEAVES LIST FOR LEAVE CANCELLED", new LeaveGrantRejectRequest
         {
-            UserId = "EMP001",
-            LeaveType = "CL",
-            LeaveStatus = "GRANTED",
-            LeaveTransactionNo = 234,
-            ApprovalReason = "I am approving because ..."
+            Leaves = new List<LeaveDetail>
+            {
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "GRANTED",
+                    leaveTransactionNo = 4,
+                    approvalReason = "Leave granted as per company policy."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "APPROVAL_REJECTED",
+                    leaveTransactionNo = 5,
+                    approvalReason = "Rejected due to insufficient leave balance."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT125",
+                    leaveStatus = "GRANTED",
+                    leaveTransactionNo = 13,
+                    approvalReason = "Cancellation not permitted after approval."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT125",
+                    leaveStatus = "LEAVE_CANCELLED",
+                    leaveTransactionNo = 12,
+                    approvalReason = "Leave cancelled due to project urgency."
+                }
+            }
         });
 
-        yield return SwaggerExample.Create("APPROVAL REJECTED", new LeaveGrantRejectRequest
+        yield return SwaggerExample.Create("LEAVES LIST FOR APPROVAL REJECTED AND GRANTED", new LeaveGrantRejectRequest
         {
-            UserId = "EMP002",
-            LeaveType = "CL",
-            LeaveStatus = "APPROVAL REJECTED",
-            LeaveTransactionNo = 234,
-            ApprovalReason = "I am rejecting because ..."
+            Leaves = new List<LeaveDetail>
+            {
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "GRANTED",
+                    leaveTransactionNo =4,
+                    approvalReason = "Leave granted as per company policy."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "APPROVAL_REJECTED",
+                    leaveTransactionNo = 5,
+                    approvalReason = "Rejected due to insufficient leave balance."
+                }
+            }
         });
 
-        yield return SwaggerExample.Create("CANCELLATION REJECTED", new LeaveGrantRejectRequest
+        yield return SwaggerExample.Create("LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED", new LeaveGrantRejectRequest
         {
-            UserId = "EMP003",
-            LeaveType = "CL",
-            LeaveStatus = "CANCELLATION REJECTED",
-            LeaveTransactionNo = 234,
-            ApprovalReason = "I am rejecting cancellation because ..."
-        });
-
-        yield return SwaggerExample.Create("LEAVE CANCELLED", new LeaveGrantRejectRequest
-        {
-            UserId = "EMP003",
-            LeaveType = "CL",
-            LeaveStatus = "LEAVE CANCELLED",
-            LeaveTransactionNo = 234,
-            ApprovalReason = "I am canceling because ..."
+            Leaves = new List<LeaveDetail>
+            {
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "GRANTED",
+                    leaveTransactionNo = 4,
+                    approvalReason = "Leave granted as per company policy."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "APPROVAL_REJECTED",
+                    leaveTransactionNo = 5,
+                    approvalReason = "Rejected due to insufficient leave balance."
+                },
+                new LeaveDetail
+                {
+                    userId = "DT124",
+                    leaveStatus = "LEAVE_CANCELLED",
+                    leaveTransactionNo = 4,
+                    approvalReason = "Leave cancelled due to project urgency."
+                }
+            }
         });
     }
 }

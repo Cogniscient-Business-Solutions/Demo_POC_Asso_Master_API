@@ -2,6 +2,7 @@
 using DEMO.Models.DTO.LeaveAppDetail;
 using Swashbuckle.AspNetCore.Filters;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static DEMO.Models.Generic.Enums;
 
 namespace DEMO.SwaggerExamples
 {
@@ -11,63 +12,63 @@ namespace DEMO.SwaggerExamples
         {
             yield return SwaggerExample.Create("FRESH CL", new ApplyLeaveRequestDto
             {
-                LeaveType = "CL",
-                LeaveStatus = "FRESH",
-                FromDate = "2025-03-20",
-                ToDate = "2025-03-20",
-                FromDateSession = "W",
-                ToDateSession = "W",
+                LeaveType = "CL",  
+                LeaveStatus = LeaveAppDetailEnum.FRESH, 
+                FromDate = "2025-03-21",
+                ToDate = "2025-03-21",
+                FromDateSession = SessionEnum.WHOLE_DAY,
+                ToDateSession = SessionEnum.WHOLE_DAY,
                 EmployeeReason = "DUE TO ......."
             });
-
-
 
             yield return SwaggerExample.Create("PENDING APPROVAL", new ApplyLeaveRequestDto
             {
                 LeaveType = "SPL",
-                LeaveStatus = "PENDING APPROVAL",
-                FromDate = "2025-03-20",
-                ToDate = "2025-03-20",
-                FromDateSession = "F",
-                ToDateSession = "F",
+                LeaveStatus = LeaveAppDetailEnum.PENDING_APPROVAL,
+                FromDate = "2025-03-21",
+                ToDate = "2025-03-21",
+                FromDateSession = SessionEnum.WHOLE_DAY,
+                ToDateSession = SessionEnum.WHOLE_DAY,
                 EmployeeReason = "DUE TO ......."
             });
 
             yield return SwaggerExample.Create("FRESH Half CL [ERROR]", new ApplyLeaveRequestDto
             {
                 LeaveType = "CL",
-                LeaveStatus = "FRESH",
-                FromDate = "2025-03-20",
-                ToDate = "2025-03-20",
-                FromDateSession = "F",
-                ToDateSession = "F",
+                LeaveStatus = LeaveAppDetailEnum.FRESH,
+                FromDate = "2025-03-21",
+                ToDate = "2025-03-21",
+                FromDateSession = SessionEnum.FIRST_HALF,
+                ToDateSession = SessionEnum.FIRST_HALF,
                 EmployeeReason = "DUE TO ......."
             });
 
             yield return SwaggerExample.Create("GRANTED [ERROR]", new ApplyLeaveRequestDto
             {
                 LeaveType = "CL",
-                LeaveStatus = "GRANTED",
-                FromDate = "2025-03-20",
-                ToDate = "2025-03-20",
-                FromDateSession = "F",
-                ToDateSession = "F",
+                LeaveStatus = LeaveAppDetailEnum.GRANTED,
+                FromDate = "2025-03-21",
+                ToDate = "2025-03-21",
+                FromDateSession = SessionEnum.FIRST_HALF,
+                ToDateSession = SessionEnum.FIRST_HALF,
                 EmployeeReason = "DUE TO ......."
             });
 
-            yield return SwaggerExample.Create("LWP FRESH", new ApplyLeaveRequestDto
+            yield return SwaggerExample.Create("PENDING CANCELLATION", new ApplyLeaveRequestDto
             {
-                LeaveType = "LWP",
-                LeaveStatus = "FRESH",
+                LeaveType = "CL",
+                LeaveStatus = LeaveAppDetailEnum.GRANTED,
                 FromDate = "2025-03-21",
                 ToDate = "2025-03-21",
-                FromDateSession = "W",
-                ToDateSession = "W",
+                FromDateSession = SessionEnum.FIRST_HALF,
+                ToDateSession = SessionEnum.FIRST_HALF,
                 EmployeeReason = "DUE TO ......."
             });
+
 
         }
     }
+
 
 
 }

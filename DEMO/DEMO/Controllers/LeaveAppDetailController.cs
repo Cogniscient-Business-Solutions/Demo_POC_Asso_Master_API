@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
-
+using DEMO.Models.Generic;
+using static DEMO.Models.Generic.Enums;
 namespace DEMO.Controllers
 {
     [Route("api/[controller]")]
@@ -44,7 +45,7 @@ namespace DEMO.Controllers
 
                 if (claims == null || claims.Count == 0)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
                 }
 
                 // Extract required claims from token
@@ -52,33 +53,27 @@ namespace DEMO.Controllers
                     !claims.TryGetValue("location", out string locationNo) ||
                     !claims.TryGetValue("nameidentifier", out string empCode)) 
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Missing required data in token.");
+                    return ApiResponseHelper.ErrorResponse("Invalid Data", "Missing required data in token.");
                 }
 
                 
                 if (request == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid request payload.");
+                    return ApiResponseHelper.ErrorResponse("Invalid request", "Invalid request payload.");
                 }
 
                 string fromDate = request.DateRange?.FromDate ?? "";
                 string toDate = request.DateRange?.ToDate ?? "";
                 if ( !(fromDate=="" || IsValidDateFormat(fromDate)) ||  !(toDate == "" || IsValidDateFormat(toDate)))
                 {
-                    return ApiResponseHelper.ErrorResponse("400", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
+                    return ApiResponseHelper.ErrorResponse("Invalid date format", "Invalid date format. Expected format: yyyy-MM-dd or MM/dd/yyyy.");
                 }
 
 
-                //string statusString = string.Join(",", FilterHelper.ConvertEnumToNumber(request.LeaveStatus));
 
                 string statusString = request.LeaveStatus != null && request.LeaveStatus.Any()
-                ? string.Join(",", request.LeaveStatus.Select(s => FilterHelper.ConvertEnumToNumber(s)))
+                ? string.Join(",", request.LeaveStatus.Select(s => FilterHelper.ConvertStatusToValue(s)))
                 : "";
-
-
-                //           string statusString1 = string.Join(",",
-                //FilterHelper.ConvertNumberToLeaveStatus(FilterHelper.ConvertLeaveStatusToNumber(request.LeaveStatus)));
-
 
 
                 Hashtable ht = new Hashtable
@@ -95,6 +90,7 @@ namespace DEMO.Controllers
                 var result = await _leaveService.GetLeaveAppDetailAsync(ht);
 
                 return result;
+
                 //if (result is ObjectResult objectResult)
                 //{
                 //    return objectResult;

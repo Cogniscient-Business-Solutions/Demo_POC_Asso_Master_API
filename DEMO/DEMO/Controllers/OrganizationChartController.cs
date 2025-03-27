@@ -43,7 +43,7 @@ namespace DEMO.Controllers
 
                 if (claims == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
                 }
 
                 COMPANY_NO ??= claims.GetValueOrDefault("company");

@@ -1,4 +1,6 @@
-﻿namespace DEMO.Models.DTO.ApplyLeave
+﻿using static DEMO.Models.Generic.Enums;
+
+namespace DEMO.Models.DTO.ApplyLeave
 {
     public class ApplyLeaveDetail
     {
@@ -14,11 +16,11 @@
     {
 
         public string LeaveType { get; set; }
-        public string LeaveStatus { get; set; }       
-        public string FromDate { get; set; }
-        public string ToDate { get; set; }
-        public string FromDateSession { get; set; }
-        public string ToDateSession { get; set; }
+        public LeaveAppDetailEnum LeaveStatus { get; set; }       
+        public string? FromDate { get; set; }
+        public string? ToDate { get; set; }
+        public SessionEnum FromDateSession { get; set; }
+        public SessionEnum ToDateSession { get; set; }
         public string EmployeeReason { get; set; }
 
     }

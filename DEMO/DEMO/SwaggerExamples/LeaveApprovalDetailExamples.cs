@@ -12,7 +12,7 @@ namespace DEMO.SwaggerExamples
         public IEnumerable<SwaggerExample<LeaveRequestDto>> GetExamples()
         {
 
-            foreach (LeaveStatusEnum status in Enum.GetValues(typeof(LeaveStatusEnum)))
+            foreach (LeaveApprovalEnum status in Enum.GetValues(typeof(LeaveApprovalEnum)))
             {
 
                 //string description = EnumHelper.GetDescription(status);
@@ -24,7 +24,7 @@ namespace DEMO.SwaggerExamples
                         FromDate = "2020-01-01",
                         ToDate = "2025-03-20"
                     },
-                    Status = new List<LeaveStatusEnum> { status }
+                    filters = new List<LeaveApprovalEnum> { status }
                 });
             }
         }

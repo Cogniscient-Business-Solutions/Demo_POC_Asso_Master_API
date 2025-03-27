@@ -5,9 +5,11 @@ using DEMO.Models.DTO.ApplyLeave;
 using DEMO.Models.DTO.LeaveAppDetail;
 using DEMO.Models.DTO.LeaveApproval;
 using DEMO.Models.DTO.LeaveDetail;
+using DEMO.Models.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Data;
+using static DEMO.Models.Generic.Enums;
 
 namespace DEMO.Models.BusinessDL.Classes
 {
@@ -30,7 +32,7 @@ namespace DEMO.Models.BusinessDL.Classes
                 // Check if DataSet is null or contains no tables
                 if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No leave application records found.");
+                    return ApiResponseHelper.ErrorResponse("No Record Found", "No leave application records found.");
                 }
 
                 // Get the first DataTable from DataSet
@@ -71,7 +73,7 @@ namespace DEMO.Models.BusinessDL.Classes
 
                 if (dt == null || dt.Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No leave application records found.");
+                    return ApiResponseHelper.ErrorResponse("No leave data found", "No leave application records found.");
                 }
 
                 var leaveDetails = new List<LeaveAppDetail>();
@@ -96,12 +98,12 @@ namespace DEMO.Models.BusinessDL.Classes
                         ToDateSession = row["toDateSession"].ToString().Trim(),
                         EmployeeReason = row["employeeReason"].ToString().Trim(),
                         LeaveApplicationDate = row["leaveApplicationDate"].ToString().Trim(),
-                        ApprovalDate = row.Table.Columns.Contains("ApprovalDate") && row["ApprovalDate"] != DBNull.Value
-                            ? row["ApprovalDate"].ToString().Trim()
-                            : null,
-                        ApprovalReason = row.Table.Columns.Contains("ApprovalReason") && row["ApprovalReason"] != DBNull.Value
-                            ? row["ApprovalReason"].ToString().Trim()
-                            : null
+                        //ApprovalDate = row.Table.Columns.Contains("ApprovalDate") && row["ApprovalDate"] != DBNull.Value
+                        //    ? row["ApprovalDate"].ToString().Trim()
+                        //    : null,
+                        //ApprovalReason = row.Table.Columns.Contains("ApprovalReason") && row["ApprovalReason"] != DBNull.Value
+                        //    ? row["ApprovalReason"].ToString().Trim()
+                        //    : null
                     });
                 }
 
@@ -126,7 +128,7 @@ namespace DEMO.Models.BusinessDL.Classes
                 // Check if data is empty
                 if (dt == null || dt.Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No records found");
+                    return ApiResponseHelper.ErrorResponse("No Data", "No records found");
                 }
 
                 // Initialize list to store leave details
@@ -167,9 +169,9 @@ namespace DEMO.Models.BusinessDL.Classes
                 DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_APPROVAL", parameters);
 
                // Validate dataset
-                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                if (ds == null || ds.Tables.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No leave data found.");
+                    return ApiResponseHelper.ErrorResponse("No data", "No leave data found.");
                 }
 
                 // Extract tables
@@ -178,12 +180,12 @@ namespace DEMO.Models.BusinessDL.Classes
 
                 if (dt1 == null || dt1.Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No employee details found.");
+                    return ApiResponseHelper.ErrorResponse("No data", "No employee details found.");
                 }
 
                 if (dt2 == null || dt2.Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse("404", "No leave data found.");
+                    return ApiResponseHelper.ErrorResponse("No data", "No leave data found.");
                 }
 
                 var employees = new Dictionary<string, EmployeeDto>();
@@ -197,8 +199,8 @@ namespace DEMO.Models.BusinessDL.Classes
                     {
                         employees[empId] = new EmployeeDto
                         {
-                            UserId = empId,
-                            Name = row["NAME"].ToString().Trim(),
+                            userId = empId,
+                            userName = row["NAME"].ToString().Trim(),
                             Designation = row["designation"].ToString().Trim(),
                             Department = row["department"].ToString().Trim(),
                             Status = row["STATUS"].ToString().Trim(), 
@@ -216,26 +218,37 @@ namespace DEMO.Models.BusinessDL.Classes
 
                     if (employees.ContainsKey(empId))
                     {
+
+                        //var leaveStatus = ConvertNumberToEnum<LeaveApprovalEnum>(row["STATUS1"].ToString()).ToString(); // Convert Status
+
                         //employees[empId].Status = row["STATUS"].ToString().Trim(); // Update status
                         //employees[empId].OpenLeaves = Convert.ToInt32(row["openLeaves"]); // Update openLeaves count
+
+                        var leaveStatus = row["STATUS1"].ToString().Trim();
 
                         employees[empId].Leaves.Add(new LeaveDto
                         {
                             LeaveType = row["leave_Type"].ToString().Trim(),
-                            NoOfDays = Convert.ToInt32(row["DUEDAYS"]),
-                            LeaveStatus = row["STATUS1"].ToString().Trim(),
+                            //NoOfDays = Convert.ToInt32(row["DUEDAYS"]),
+                            LeaveStatus = leaveStatus,
                             //LeaveTransactionNo = Convert.ToInt32(row["leaveTransactionNo"]),
-                            FromDate = row["From_date"].ToString().Trim(),
-                            ToDate = row["To_date"].ToString().Trim(),
+                            FromDate = Convert.ToDateTime(row["From_date"]).ToString("yyyy-MM-dd"),
+                            ToDate = Convert.ToDateTime(row["To_date"]).ToString("yyyy-MM-dd"),
                             FromDateSession = row["From_session"].ToString().Trim(),
                             ToDateSession = row["To_session"].ToString().Trim(),
                             EmployeeReason = row["employee_Reason"].ToString().Trim(),
-                            LeaveApplicationDate = row["Notified_date"].ToString().Trim(),
+                            //LeaveApplicationDate = row["Notified_date"].ToString().Trim(),
+                            LeaveApplicationDate = Convert.ToDateTime(row["Notified_date"]).ToString("yyyy-MM-dd"),
                             //ApprovalDate = row.Table.Columns.Contains("approvalDate") && row["approvalDate"] != DBNull.Value ? row["approvalDate"].ToString().Trim() : null,
                             ApprovalReason = row.Table.Columns.Contains("employer_reason") && row["employer_reason"] != DBNull.Value ? row["employer_reason"].ToString().Trim() : null,
                             Status = row["Status"].ToString().Trim(),
                             DueDays = row.Table.Columns.Contains("DUEDAYS") && row["DUEDAYS"] != DBNull.Value ? Convert.ToInt32(row["DUEDAYS"]) : (int?)null
                         });
+
+                        if (leaveStatus.Equals("Open", StringComparison.OrdinalIgnoreCase)) 
+                        {
+                            employees[empId].OpenLeaves++; // Increment OpenLeaves count if status is "Open"
+                        }
                     }
                 }
 
@@ -253,16 +266,17 @@ namespace DEMO.Models.BusinessDL.Classes
             try
             {
                 // Fetch data from the database using DataSet
-                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_LEAVE_GRANT_REJECT", parameters);
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_GRANT_REJECT_LEAVES", parameters);
+                
 
                 // Check if DataSet is null or contains no valid data
-                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                if (ds == null || ds.Tables.Count == 0)
                 {
                     return ApiResponseHelper.ErrorResponse("404", "No leave records found.");
                 }
 
                 // Get the first DataTable from DataSet
-                DataTable dt = ds.Tables[0];
+                DataTable dt = ds.Tables[1];
 
                 // Initialize counters
                 int requestApproved = 0;
@@ -271,30 +285,28 @@ namespace DEMO.Models.BusinessDL.Classes
                 // Loop through each row and count approvals and rejections
                 foreach (DataRow row in dt.Rows)
                 {
-                    string leaveStatus = row["leaveStatus"].ToString();
+                    string leaveStatus = row["TRANSACTION_MODE"].ToString();
 
-                    if (leaveStatus == "GRANTED" || leaveStatus == "LEAVE CANCELLED")
+                    leaveStatus = FilterHelper.LeaveStatusMapping.FirstOrDefault(x => x.Value == leaveStatus).Key ?? leaveStatus;
+
+                    if (leaveStatus == "GRANTED" || leaveStatus == "LEAVE_CANCELLED")
                     {
                         requestApproved++;
                     }
-                    else if (leaveStatus == "APPROVAL REJECTED" || leaveStatus == "CANCELLATION REJECTED")
+                    else if (leaveStatus == "APPROVAL_REJECTED" || leaveStatus == "PENDING_APPROVAL")
                     {
                         requestRejected++;
                     }
                 }
 
                 // Create response object
-                var response = new
+                var result = new
                 {
-                    status = "SUCCESS",
-                    data = new
-                    {
-                        requestApproved = requestApproved,
-                        requestRejected = requestRejected
-                    }
+                    requestApproved,
+                    requestRejected
                 };
 
-                return ApiResponseHelper.SuccessResponse(response);
+                return ApiResponseHelper.SuccessResponse(result);
             }
             catch (Exception ex)
             {
