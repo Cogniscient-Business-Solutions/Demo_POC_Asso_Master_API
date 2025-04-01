@@ -92,6 +92,14 @@ namespace DEMO.Models.Generic
          { "CANCELLATION_REJECTED", "2" },
          { "GRANTED", "3" },
          { "APPROVAL_REJECTED", "4" },
+        };
+
+        public static readonly Dictionary<string, string> LeaveActionMapping = new Dictionary<string, string>
+        {
+
+         { "MODIFY", "1" },
+         { "CANCEL", "2" },
+         { "AUTHORIZE", "3" },
          
         };
 

@@ -4,6 +4,7 @@ using DEMO.Models.DataDL.Interfaces;
 using DEMO.Models.DTO.ApplyLeave;
 using DEMO.Models.DTO.LeaveAppDetail;
 using DEMO.Models.DTO.LeaveApproval;
+using DEMO.Models.DTO.LeaveAuthorizeCancel;
 using DEMO.Models.DTO.LeaveDetail;
 using DEMO.Models.Generic;
 using Microsoft.AspNetCore.Mvc;
@@ -276,7 +277,7 @@ namespace DEMO.Models.BusinessDL.Classes
                 }
 
                 // Get the first DataTable from DataSet
-                DataTable dt = ds.Tables[1];
+                DataTable dt = ds.Tables[2];
 
                 // Initialize counters
                 int requestApproved = 0;
@@ -293,7 +294,7 @@ namespace DEMO.Models.BusinessDL.Classes
                     {
                         requestApproved++;
                     }
-                    else if (leaveStatus == "APPROVAL_REJECTED" || leaveStatus == "PENDING_APPROVAL")
+                    else if (leaveStatus == "APPROVAL_REJECTED" || leaveStatus == "CANCELLATION_REJECTED")
                     {
                         requestRejected++;
                     }
@@ -307,6 +308,47 @@ namespace DEMO.Models.BusinessDL.Classes
                 };
 
                 return ApiResponseHelper.SuccessResponse(result);
+            }
+            catch (Exception ex)
+            {
+                return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
+            }
+        }
+
+        public async Task<IActionResult> LeaveAuthorizeDetailAsync(Hashtable ht)
+        {
+            try
+            {
+                // Fetch data from database using DataSet
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_ADD_LEAVE_APPLICATION_MODIFY_AUTHORIZE_CANCEL", ht);
+
+                // Check if DataSet is null or contains no tables
+                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                {
+                    return ApiResponseHelper.ErrorResponse("No Record Found", "No leave application records found.");
+                }
+
+                // Get the first DataTable from DataSet
+                DataTable dt = ds.Tables[1];
+
+                // Initialize list to store leave details
+                List<LeaveData> leaveDetails = new List<LeaveData>();
+
+                // Loop through each row and populate list
+                foreach (DataRow row in dt.Rows)
+                {
+                    LeaveData leave = new LeaveData
+                    {
+                        LeaveTransactionNo = Convert.ToInt32(row["@returnValue"])
+                    };
+
+                    leaveDetails.Add(leave);
+                }
+
+                // Create response DTO
+                var response = new LeaveAuthorizeResponseDto { Leaves = leaveDetails };
+
+                return ApiResponseHelper.SuccessResponse(response);
             }
             catch (Exception ex)
             {

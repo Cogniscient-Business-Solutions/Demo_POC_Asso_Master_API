@@ -15,6 +15,7 @@ namespace DEMO.Models.BusinessDL.Interfaces
 
         Task<IActionResult> LeaveGrantRejectDetailAsync(Hashtable ht);
 
+        Task<IActionResult> LeaveAuthorizeDetailAsync(Hashtable ht);
 
     }
 }

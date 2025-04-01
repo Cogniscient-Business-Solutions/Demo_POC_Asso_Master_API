@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace DEMO.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("API/[controller]")]
     [ApiController]
     public class LeaveGrantRejectController : ControllerBase
     {
@@ -42,7 +42,7 @@ namespace DEMO.Controllers
                 }
 
                 // Extract required claims from token
-                if (!claims.TryGetValue("company", out string companyNo) ||
+                if (!claims.TryGetValue("company", out string companyNo)  ||
                     !claims.TryGetValue("location", out string locationNo) || !claims.TryGetValue("User_Id", out string User_Id) ||
                     !claims.TryGetValue("nameidentifier", out string empCode))
                 {

@@ -42,5 +42,10 @@
             get emp details by id.
             </summary>
         </member>
+        <member name="M:DEMO.Controllers.LeaveAuthorizeController.LeaveAuthorize(DEMO.Models.DTO.LeaveAuthorizeCancel.LeaveRequest)">
+            <summary>
+            Authorize Leave Api 
+            </summary>
+        </member>
     </members>
 </doc>

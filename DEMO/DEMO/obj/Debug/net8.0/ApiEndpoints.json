@@ -153,9 +153,25 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DEMO.Controllers.LeaveAuthorizeController",
+    "Method": "LeaveAuthorize",
+    "RelativePath": "api/LeaveAuthorize/LeaveAuthorize",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DEMO.Models.DTO.LeaveAuthorizeCancel.LeaveRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DEMO.Controllers.LeaveGrantRejectController",
     "Method": "LeaveGrantReject",
-    "RelativePath": "api/LeaveGrantReject/GetLeaveGrantRejectDetails",
+    "RelativePath": "API/LeaveGrantReject/GetLeaveGrantRejectDetails",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

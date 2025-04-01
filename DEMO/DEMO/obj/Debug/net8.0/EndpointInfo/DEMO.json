@@ -494,7 +494,72 @@
         }
       }
     },
-    "/api/LeaveGrantReject/GetLeaveGrantRejectDetails": {
+    "/api/LeaveAuthorize/LeaveAuthorize": {
+      "post": {
+        "tags": [
+          "LeaveAuthorize"
+        ],
+        "summary": "Authorize Leave Api",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/API/LeaveGrantReject/GetLeaveGrantRejectDetails": {
       "post": {
         "tags": [
           "LeaveGrantReject"
@@ -845,6 +910,44 @@
               "$ref": "#/components/schemas/LeaveDetail"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaveRequest": {
+        "type": "object",
+        "properties": {
+          "leaveType": {
+            "type": "string",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDateSession": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDateSession": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveTransactionNo": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
