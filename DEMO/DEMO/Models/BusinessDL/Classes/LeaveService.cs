@@ -345,8 +345,11 @@ namespace DEMO.Models.BusinessDL.Classes
                     leaveDetails.Add(leave);
                 }
 
-                // Create response DTO
-                var response = new LeaveAuthorizeResponseDto { Leaves = leaveDetails };
+                
+                var response = new
+                {
+                    leaveTransactionNo = leaveDetails.FirstOrDefault()?.LeaveTransactionNo
+                };
 
                 return ApiResponseHelper.SuccessResponse(response);
             }

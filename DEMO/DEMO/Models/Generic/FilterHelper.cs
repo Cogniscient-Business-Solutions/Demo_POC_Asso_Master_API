@@ -97,9 +97,9 @@ namespace DEMO.Models.Generic
         public static readonly Dictionary<string, string> LeaveActionMapping = new Dictionary<string, string>
         {
 
-         { "MODIFY", "1" },
-         { "CANCEL", "2" },
-         { "AUTHORIZE", "3" },
+         { "MODIFY", "0" },
+         { "CANCEL", "1" },
+         { "AUTHORIZE", "2" },
          
         };
 
