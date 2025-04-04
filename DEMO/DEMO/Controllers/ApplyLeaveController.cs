@@ -34,7 +34,7 @@ namespace DEMO.Controllers
 
 
         /// <summary>
-        /// Apply Leave Api 
+        /// THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATE
         /// </summary>
         [Authorize]
         [HttpPost("ApplyLeaveDetail")]

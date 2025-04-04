@@ -24,7 +24,10 @@ public class UserLoginController : ControllerBase
     }
 
 
-   
+
+    /// <summary>
+    ///  THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON LOGINNAME AND PASSWORD
+    /// </summary>
     [HttpPost("login")]
     [SwaggerRequestExample(typeof(LoginRequest), typeof(LoginExamples))]
     public async Task<IActionResult> Loginn([FromBody] LoginRequest request)
@@ -42,6 +45,11 @@ public class UserLoginController : ControllerBase
         return ApiResponseHelper.AuthErrorResponse("Invalid Data", "Invalid credentials", "The login name or password is incorrect.");
     }
 
+
+
+    /// <summary>
+    ///  THIS API IS USED TO DECODE THE TOKEN IN WHICH IT WILL EXTRACT NECESSARY INFORMATION FROM THE TOKEN. 
+    /// </summary>
     [HttpGet("decodeToken")]
     public IActionResult DecodeToken([FromQuery] string token)
     {

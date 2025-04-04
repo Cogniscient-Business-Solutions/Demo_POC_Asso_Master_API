@@ -32,6 +32,12 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
+
+
+
+        /// <summary>
+        ///  THIS API IS USED TO SEE THE LEAVE DETAIL
+        /// </summary>
         [Authorize]
         [HttpPost("GetLeaveAppDetails")]
         [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveAppDetailExamples))]

@@ -26,6 +26,11 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
+
+
+        /// <summary>
+        ///  THIS API IS USED FOR LEAVE GRANT , REJECT AND CANCEL .
+        /// </summary>
         [HttpPost("GetLeaveGrantRejectDetails")]
         [SwaggerRequestExample(typeof(LeaveGrantRejectRequest), typeof(LeaveGrantRejectExamples))]
         public async Task<IActionResult> LeaveGrantReject([FromBody] LeaveGrantRejectRequest request)

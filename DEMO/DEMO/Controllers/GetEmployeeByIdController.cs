@@ -34,7 +34,7 @@ namespace DEMO.Controllers
 
 
         /// <summary>
-        /// Retrieves employee details based on the given parameters.
+        /// IN THIS API WE ARE RETRIEVING ASSOCIATES DATA 
         /// </summary>
         /// <param name="ASSO_CODE">The employee association code.</param>
         /// <param name="COMPANY_NO">The company number.</param>

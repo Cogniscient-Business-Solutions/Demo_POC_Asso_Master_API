@@ -24,7 +24,12 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
-      
+
+
+
+        /// <summary>
+        /// THIS API IS USED TO CHECK THE LEAVE STATUS 
+        /// </summary>
         [HttpGet("GetLeaveStatusDetail")]
         public async Task<IActionResult> GetLeaveStatusDetail()
         {

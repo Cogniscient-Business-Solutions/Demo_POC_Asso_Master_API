@@ -26,6 +26,11 @@ namespace DEMO.Controllers
             _leaveService = leaveService;
         }
 
+
+
+        /// <summary>
+        ///  THIS API IS USED TO APPROVE THE APPLIED LEAVE BY THE ASSOCIATE 
+        /// </summary>
         [HttpPost("GetLeaveApprovalDetails")]
         [SwaggerRequestExample(typeof(LeaveRequestDto), typeof(LeaveApprovalDetailExamples))]
         public async Task<IActionResult> LeaveApprovalDetails([FromBody] LeaveRequestDto request)

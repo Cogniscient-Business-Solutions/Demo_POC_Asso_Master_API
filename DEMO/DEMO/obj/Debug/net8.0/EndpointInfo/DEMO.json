@@ -11,7 +11,7 @@
         "tags": [
           "ApplyLeave"
         ],
-        "summary": "Apply Leave Api",
+        "summary": "THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATE",
         "requestBody": {
           "content": {
             "application/json": {
@@ -94,7 +94,7 @@
         "tags": [
           "GetEmployeeById"
         ],
-        "summary": "Retrieves employee details based on the given parameters.",
+        "summary": "IN THIS API WE ARE RETRIEVING ASSOCIATES DATA",
         "parameters": [
           {
             "name": "ASSO_CODE",
@@ -310,6 +310,7 @@
         "tags": [
           "LeaveAppDetail"
         ],
+        "summary": "THIS API IS USED TO SEE THE LEAVE DETAIL",
         "requestBody": {
           "content": {
             "application/json": {
@@ -401,6 +402,7 @@
         "tags": [
           "LeaveApprovalDetails"
         ],
+        "summary": "THIS API IS USED TO APPROVE THE APPLIED LEAVE BY THE ASSOCIATE",
         "requestBody": {
           "content": {
             "application/json": {
@@ -483,7 +485,7 @@
         "tags": [
           "LeaveAuthorize"
         ],
-        "summary": "Authorize Leave Api",
+        "summary": "THIS API IS USED TO AUTHORIZE THE LEAVE",
         "requestBody": {
           "content": {
             "application/json": {
@@ -548,6 +550,7 @@
         "tags": [
           "LeaveGrantReject"
         ],
+        "summary": "THIS API IS USED FOR LEAVE GRANT , REJECT AND CANCEL .",
         "requestBody": {
           "content": {
             "application/json": {
@@ -612,6 +615,7 @@
         "tags": [
           "LeaveStatus"
         ],
+        "summary": "THIS API IS USED TO CHECK THE LEAVE STATUS",
         "responses": {
           "200": {
             "description": "OK"
@@ -624,6 +628,7 @@
         "tags": [
           "OrgChart"
         ],
+        "summary": "THIS IS ORGANISATION CHART API BASICALLY WE CAN SEE EMPLOYEES AND THEIR CORRESPONDING UPPER AND LOWER LEVEL EMPLOYEE DATA",
         "parameters": [
           {
             "name": "ASSO_CODE",
@@ -645,6 +650,7 @@
         "tags": [
           "UserLogin"
         ],
+        "summary": "THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON USERCODE AND PASSWORD",
         "requestBody": {
           "content": {
             "application/json": {
@@ -700,6 +706,7 @@
         "tags": [
           "UserLogin"
         ],
+        "summary": "THIS API IS USED TO DECODE THE TOKEN IN WHICH IT WILL EXTRACT NECESSARY INFORMATION FROM THE TOKEN.",
         "parameters": [
           {
             "name": "token",
