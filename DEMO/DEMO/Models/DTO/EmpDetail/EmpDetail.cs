@@ -10,6 +10,7 @@
 
         public string Email { get; set; }
         public string Mobile_No { get; set; }
+
         //public UserPicture UserPictureId { get; set; } = new UserPicture();
 
         public PersonDetail ReportingPerson { get; set; }

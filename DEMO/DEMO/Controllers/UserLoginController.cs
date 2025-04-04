@@ -35,7 +35,7 @@ public class UserLoginController : ControllerBase
         {
             var token = _tokenService.GenerateToken(user);
 
-            return ApiResponseHelper.SuccessResponse(new LoginResponseDto { Status = "success", Token = token });
+            return ApiResponseHelper.SuccessResponse( token);
 
         }
 

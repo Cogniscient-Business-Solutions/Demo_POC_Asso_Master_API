@@ -2,13 +2,7 @@
 
 namespace DEMO.Models.DTO.OrgChartDetails
 {
-    public class OrgChartResponse
-    {
-        public string Status { get; set; } = "SUCCESS";
-        public OrgChartData Data { get; set; }
-        public ErrorDetails Error { get; set; }
-        public bool Success { get; internal set; }
-    }
+  
 
     public class OrgChartData
     {
@@ -26,8 +20,6 @@ namespace DEMO.Models.DTO.OrgChartDetails
         public string Status { get; set; }
 
         //public UserPicture UserPictureId { get; set; } = new UserPicture();
-        public string EmailId { get; set; }
-        public string ContactNo { get; set; }
     }
     public class EmployeeDetails
     {
@@ -52,16 +44,4 @@ namespace DEMO.Models.DTO.OrgChartDetails
         public int Level { get; set; }
     }
 
-    public class ErrorResponse
-    {
-        public string Status { get; set; } = "FAIL";
-        public ErrorDetails Error { get; set; }
-    }
-
-    public class ErrorDetails
-    {
-        public string Code { get; set; }
-        public string Message { get; set; }
-        public string Details { get; set; }
-    }
 }

@@ -5,9 +5,6 @@ using DEMO.Models.DTO.EmpDetail;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-
-
-
 using static DEMO.Models.BusinessDL.GetEmployeeByIdService;
 using Swashbuckle.AspNetCore.Filters;
 using DEMO.SwaggerExamples;
@@ -49,7 +46,7 @@ namespace DEMO.Controllers
         /// <response code="500">Internal server error.</response>
         [Produces("application/json")]
         [HttpGet("EmpDetail")]
-        public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
+        public async Task<IActionResult> EmployeeDetail(string ASSO_CODE)
         {
             try
             {
@@ -62,20 +59,20 @@ namespace DEMO.Controllers
                     return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
                 }
 
-                // Assign company and location from claims if not provided
-                COMPANY_NO ??= claims.GetValueOrDefault("company");
-                LOCATION_NO ??= claims.GetValueOrDefault("location");
+                //// Assign company and location from claims if not provided
+                //COMPANY_NO ??= claims.GetValueOrDefault("company");
+                //LOCATION_NO ??= claims.GetValueOrDefault("location");
 
-                if (string.IsNullOrWhiteSpace(COMPANY_NO) || string.IsNullOrWhiteSpace(LOCATION_NO))
-                {
-                    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
-                }
+                //if (string.IsNullOrWhiteSpace(COMPANY_NO) || string.IsNullOrWhiteSpace(LOCATION_NO))
+                //{
+                //    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
+                //}
 
                 // Prepare parameters for the service call
                 objht.Clear();
                 objht["ASSO_CODE"] = ASSO_CODE ?? "";
-                objht["COMPANY_NO"] = COMPANY_NO;
-                objht["LOCATION_NO"] = LOCATION_NO;
+                //objht["COMPANY_NO"] = COMPANY_NO;
+                //objht["LOCATION_NO"] = LOCATION_NO;
 
                 _GetEmployeeByIdService.ht = objht;
 

@@ -59,16 +59,6 @@
         "Name": "ASSO_CODE",
         "Type": "System.String",
         "IsRequired": false
-      },
-      {
-        "Name": "COMPANY_NO",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "LOCATION_NO",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -196,7 +186,7 @@
   },
   {
     "ContainingType": "DEMO.Controllers.OrgChartController",
-    "Method": "EmployeeDetail",
+    "Method": "EmployeeOrgDetail",
     "RelativePath": "api/OrgChart/OrgChartData",
     "HttpMethod": "GET",
     "IsController": true,
@@ -204,16 +194,6 @@
     "Parameters": [
       {
         "Name": "ASSO_CODE",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "COMPANY_NO",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "LOCATION_NO",
         "Type": "System.String",
         "IsRequired": false
       }

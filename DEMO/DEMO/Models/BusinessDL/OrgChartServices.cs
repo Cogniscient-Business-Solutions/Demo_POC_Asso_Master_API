@@ -16,17 +16,15 @@ namespace DEMO.Models.BusinessDL
     public class OrgChartServices
     {
         private readonly IData _dataLayer;
-        private readonly string _connectionString;
-        private readonly ILogger<OrgChartServices> _logger;
 
-        public OrgChartServices(IData dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
+        
+
+        public OrgChartServices(IData dataLayer)
         {
             _dataLayer = dataLayer;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-            _logger = logger;
         }
 
-        public async Task<IActionResult> GetEmpDetailAsync(Hashtable parameters)
+        public async Task<IActionResult> GetEmpOrganisationDetailAsync(Hashtable parameters)
         {
             try
             {
@@ -36,11 +34,7 @@ namespace DEMO.Models.BusinessDL
                 // Ensure the dataset contains at least 3 tables
                 if (ds.Tables.Count < 3 || ds.Tables[0].Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse(
-                        "USER_NOT_FOUND",
-                        "The employee ID provided does not exist in the system.",
-                        "Please check the employee ID and try again."
-                    );
+                    return ApiResponseHelper.ErrorResponse("USER_NOT_FOUND", "The employee ID provided does not exist in the system.", "Please check the employee ID and try again.");
                 }
 
                 // Extract tables
@@ -58,7 +52,8 @@ namespace DEMO.Models.BusinessDL
                         Designation = empTable.Rows[0]["Designation"].ToString().Trim(),
                         Department = empTable.Rows[0]["Department"].ToString().Trim(),
                         Status = empTable.Rows[0]["Status"].ToString().Trim()
-                        
+                       
+
                     } : new SelectedUserDetails(),
 
                     Reportees = reporteeTable.AsEnumerable().Select(row => new EmployeeDetails
@@ -88,11 +83,7 @@ namespace DEMO.Models.BusinessDL
             catch (Exception ex)
             {
 
-                return ApiResponseHelper.ErrorResponse(
-                    "INTERNAL_ERROR",
-                    "An error occurred while fetching data.",
-                    ex.Message
-                );
+                return ApiResponseHelper.ErrorResponse("INTERNAL_ERROR", "An error occurred while fetching data.", ex.Message );
             }
         }
 

@@ -9,7 +9,7 @@
             Apply Leave Api 
             </summary>
         </member>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String,System.String,System.String)">
+        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String)">
             <summary>
             Retrieves employee details based on the given parameters.
             </summary>
