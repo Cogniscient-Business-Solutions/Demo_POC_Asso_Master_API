@@ -89,7 +89,7 @@ builder.Services.AddSwaggerGen(options =>
     options.ExampleFilters();
 });
 
-builder.Services.AddSwaggerExamplesFromAssemblyOf<EmployeeMultipleExamples>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<ApplyLeaveExamples>();
 
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();

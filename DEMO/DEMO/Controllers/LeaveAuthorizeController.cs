@@ -32,7 +32,7 @@ namespace DEMO.Controllers
 
 
         /// <summary>
-        /// THIS API IS USED TO AUTHORIZE THE LEAVE  
+        /// THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER. 
         /// </summary>
         [Authorize]
         [HttpPost("LeaveAuthorize")]

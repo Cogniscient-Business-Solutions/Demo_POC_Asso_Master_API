@@ -6,7 +6,7 @@
     <members>
         <member name="M:DEMO.Controllers.ApplyLeaveController.ApplyLeaveDetail(DEMO.Models.DTO.ApplyLeave.ApplyLeaveRequestDto)">
             <summary>
-            THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATE
+            THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATES. 
             </summary>
         </member>
         <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String)">
@@ -14,33 +14,11 @@
             IN THIS API WE ARE RETRIEVING ASSOCIATES DATA 
             </summary>
             <param name="ASSO_CODE">The employee association code.</param>
-            <param name="COMPANY_NO">The company number.</param>
-            <param name="LOCATION_NO">The location number.</param>
             <returns>Returns employee details if found, otherwise an error response.</returns>
             <response code="200">Employee details retrieved successfully.</response>
             <response code="401">Unauthorized - Invalid or missing JWT token.</response>
             <response code="404">Employee not found.</response>
             <response code="500">Internal server error.</response>
-        </member>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.AddEmployee(DEMO.Models.DTO.EmpDetail.EmployeeRequestModel)">
-            <summary>
-            Add Employee Resource.
-            </summary>
-            <remarks>
-            You can send different payloads for adding employees.
-            </remarks>
-            <param name="model">Employee request model</param>
-            <returns>Success or error message</returns>
-        </member>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.GetEmployees">
-            <summary>
-            get emp details.
-            </summary>
-        </member>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetailById(System.Int32)">
-            <summary>
-            get emp details by id.
-            </summary>
         </member>
         <member name="M:DEMO.Controllers.LeaveAppDetailController.GetLeaveAppDetails(DEMO.Models.DTO.LeaveAppDetail.GetLeaveRequestDto)">
             <summary>
@@ -54,7 +32,7 @@
         </member>
         <member name="M:DEMO.Controllers.LeaveAuthorizeController.LeaveAuthorize(DEMO.Models.DTO.LeaveAuthorizeCancel.LeaveRequest)">
             <summary>
-            THIS API IS USED TO AUTHORIZE THE LEAVE  
+            THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER. 
             </summary>
         </member>
         <member name="M:DEMO.Controllers.LeaveGrantRejectController.LeaveGrantReject(DEMO.Models.DTO.LeaveGrantReject.LeaveGrantReject.LeaveGrantRejectRequest)">
@@ -74,7 +52,7 @@
         </member>
         <member name="M:UserLoginController.Loginn(DEMO.Models.DTO.UserLogin.UserLoginInfo.LoginRequest)">
             <summary>
-             THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON USERCODE AND PASSWORD
+             THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON LOGINNAME AND PASSWORD
             </summary>
         </member>
         <member name="M:UserLoginController.DecodeToken(System.String)">

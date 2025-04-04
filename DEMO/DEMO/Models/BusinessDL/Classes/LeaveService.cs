@@ -63,8 +63,6 @@ namespace DEMO.Models.BusinessDL.Classes
                 return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred.", ex.Message);
             }
         }
-
-
       
         public async Task<IActionResult> GetLeaveAppDetailAsync(Hashtable ht)
         {
@@ -159,8 +157,6 @@ namespace DEMO.Models.BusinessDL.Classes
                 return ApiResponseHelper.ErrorResponse("500", "An unexpected error occurred", ex.Message);
             }
         }
-
-        
 
         public async Task<IActionResult> GetEmployeeLeaveApprovalDetailsAsync(Hashtable parameters)
         {

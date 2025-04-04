@@ -11,7 +11,7 @@
         "tags": [
           "ApplyLeave"
         ],
-        "summary": "THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATE",
+        "summary": "THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATES.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -117,190 +117,6 @@
           },
           "500": {
             "description": "Internal server error."
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/AddEmployee": {
-      "post": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "summary": "Add Employee Resource.",
-        "description": "You can send different payloads for adding employees.",
-        "requestBody": {
-          "description": "Employee request model",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/GetEmployees": {
-      "get": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "summary": "get emp details.",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/EmpDetailById/{employeeId}": {
-      "get": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "summary": "get emp details by id.",
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/UpdateEmployee/{id}": {
-      "put": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
-              },
-              "examples": {
-                "Example 1": {
-                  "value": {"employeeId":1,"assO_CODE":"ABC123","companY_NO":"COMP001","locatioN_NO":"LOC789","emP_NAME":"John Doe","emP_EMAIL":"john.doe@example.com","emP_PHONE":"1234567890"}
-                },
-                "Example 2": {
-                  "value": {"employeeId":2,"assO_CODE":"XYZ456","companY_NO":"COMP002","locatioN_NO":"LOC123","emP_NAME":"Jane Smith","emP_EMAIL":"jane.smith@example.com","emP_PHONE":"9876543210"}
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/DeleteEmployee/{id}": {
-      "delete": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -485,7 +301,7 @@
         "tags": [
           "LeaveAuthorize"
         ],
-        "summary": "THIS API IS USED TO AUTHORIZE THE LEAVE",
+        "summary": "THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -650,7 +466,7 @@
         "tags": [
           "UserLogin"
         ],
-        "summary": "THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON USERCODE AND PASSWORD",
+        "summary": "THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON LOGINNAME AND PASSWORD",
         "requestBody": {
           "content": {
             "application/json": {
@@ -779,40 +595,6 @@
             "nullable": true
           },
           "toDate": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EmployeeRequestModel": {
-        "type": "object",
-        "properties": {
-          "employeeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assO_CODE": {
-            "type": "string",
-            "nullable": true
-          },
-          "companY_NO": {
-            "type": "string",
-            "nullable": true
-          },
-          "locatioN_NO": {
-            "type": "string",
-            "nullable": true
-          },
-          "emP_NAME": {
-            "type": "string",
-            "nullable": true
-          },
-          "emP_EMAIL": {
-            "type": "string",
-            "nullable": true
-          },
-          "emP_PHONE": {
             "type": "string",
             "nullable": true
           }
