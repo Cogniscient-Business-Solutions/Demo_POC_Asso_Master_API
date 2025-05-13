@@ -1,4 +1,7 @@
+using DEMO.Models;
 using DEMO.Models.BusinessDL;
+using DEMO.Models.BusinessDL.Classes;
+using DEMO.Models.BusinessDL.Interfaces;
 using DEMO.Models.DataDL.Classes;
 using DEMO.Models.DataDL.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,6 +9,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
+using Swashbuckle.AspNetCore.Filters;
+using DEMO.SwaggerExamples;
+using System.Text.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +35,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 builder.Services.AddSingleton<TokenService>();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -72,11 +86,20 @@ builder.Services.AddSwaggerGen(options =>
             new string[] {}
         }
     });
+    options.ExampleFilters();
 });
+
+builder.Services.AddSwaggerExamplesFromAssemblyOf<ApplyLeaveExamples>();
 
 builder.Services.AddScoped<IData, SQLData>();
 builder.Services.AddScoped<GetEmployeeByIdService>();
 builder.Services.AddScoped<OrgChartServices>();
+
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<IUserInterface, UserLogin>();
+
+builder.Services.AddScoped<ILeaveService, LeaveService>();
+
 
 
 

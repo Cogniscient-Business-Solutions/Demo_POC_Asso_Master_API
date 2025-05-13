@@ -32,9 +32,12 @@ namespace DEMO.Controllers
 
 
 
+        /// <summary>
+        ///  THIS IS ORGANISATION CHART API BASICALLY WE CAN SEE EMPLOYEES AND THEIR CORRESPONDING UPPER AND LOWER LEVEL EMPLOYEE DATA 
+        /// </summary>
         [Authorize]
         [HttpGet("OrgChartData")]
-        public async Task<IActionResult> EmployeeDetail(string ASSO_CODE, string COMPANY_NO = null, string LOCATION_NO = null)
+        public async Task<IActionResult> EmployeeOrgDetail(string ASSO_CODE)
         {
             try
             {
@@ -43,26 +46,26 @@ namespace DEMO.Controllers
 
                 if (claims == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
                 }
 
-                COMPANY_NO ??= claims.GetValueOrDefault("company");
-                LOCATION_NO ??= claims.GetValueOrDefault("location");
+                //COMPANY_NO ??= claims.GetValueOrDefault("company");
+                //LOCATION_NO ??= claims.GetValueOrDefault("location");
 
-                if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
-                {
-                    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
-                }
+                //if (string.IsNullOrEmpty(COMPANY_NO) || string.IsNullOrEmpty(LOCATION_NO))
+                //{
+                //    return ApiResponseHelper.ErrorResponse("BAD_REQUEST", "Company and Location are required.");
+                //}
 
                 var parameters = new Hashtable
         {
-            { "ASSO_CODE", ASSO_CODE },
-            { "COMPANY_NO", COMPANY_NO },
-            { "LOCATION_NO", LOCATION_NO }
+            { "ASSO_CODE", ASSO_CODE }
+            //{ "COMPANY_NO", COMPANY_NO } ,
+            //{ "LOCATION_NO", LOCATION_NO }
         };
 
                 // Call the service method that returns IActionResult
-                IActionResult response = await _OrgChart.GetEmpDetailAsync(parameters);
+                IActionResult response = await _OrgChart.GetEmpOrganisationDetailAsync(parameters);
 
                 return response;
             }

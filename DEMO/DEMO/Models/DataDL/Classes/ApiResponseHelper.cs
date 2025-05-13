@@ -22,13 +22,35 @@ namespace DEMO.Models.DataDL.Classes
                 error = new
                 {
                     code = errorCode,
+                    details,
                     message = errorMessage,
-                    details
+                    
                 }
             };
             return new ObjectResult(response) { StatusCode = 404 };
         }
 
-        
+
+        public static IActionResult AuthErrorResponse(string errorCode, string errorMessage, string details = "")
+        {
+
+            string expirationTime = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+
+            var response = new
+            {
+                status = "FAIL",
+                error = new
+                {
+                    code = errorCode,
+                    details = $"Token expired at: {expirationTime}. Please obtain a new token.",
+                    message = errorMessage
+                    
+                }
+            };
+
+            return new ObjectResult(response) { StatusCode = 401 }; 
+        }
+
+
     }
 }

@@ -17,5 +17,9 @@ namespace DEMO.Models.DataDL.Interfaces
 
         public decimal ValidateData(string procedureName, Hashtable rec);
 
+        string[] data_procStringTwoOutput(string procedureName, Hashtable rec);
+
+
+
     }
 }

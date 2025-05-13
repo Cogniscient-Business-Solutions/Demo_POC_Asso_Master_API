@@ -16,31 +16,25 @@ namespace DEMO.Models.BusinessDL
     public class OrgChartServices
     {
         private readonly IData _dataLayer;
-        private readonly string _connectionString;
-        private readonly ILogger<OrgChartServices> _logger;
 
-        public OrgChartServices(IData dataLayer, IConfiguration configuration, ILogger<OrgChartServices> logger)
+        
+
+        public OrgChartServices(IData dataLayer)
         {
             _dataLayer = dataLayer;
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-            _logger = logger;
         }
 
-        public async Task<IActionResult> GetEmpDetailAsync(Hashtable parameters)
+        public async Task<IActionResult> GetEmpOrganisationDetailAsync(Hashtable parameters)
         {
             try
             {
                 // Fetch data from stored procedure
-                DataSet ds = await _dataLayer.GetDataSetAsync("Organisation_Chart_RTR", parameters);
+                DataSet ds = await _dataLayer.GetDataSetAsync("CBS_HR_Organisation_Chart_RTR", parameters);
 
                 // Ensure the dataset contains at least 3 tables
                 if (ds.Tables.Count < 3 || ds.Tables[0].Rows.Count == 0)
                 {
-                    return ApiResponseHelper.ErrorResponse(
-                        "USER_NOT_FOUND",
-                        "The employee ID provided does not exist in the system.",
-                        "Please check the employee ID and try again."
-                    );
+                    return ApiResponseHelper.ErrorResponse("USER_NOT_FOUND", "The employee ID provided does not exist in the system.", "Please check the employee ID and try again.");
                 }
 
                 // Extract tables
@@ -51,20 +45,25 @@ namespace DEMO.Models.BusinessDL
                 // Create response object
                 var responseData = new OrgChartData
                 {
-                    SelectedUser = empTable.Rows.Count > 0 ? new EmployeeDetails
+                    SelectedUser = empTable.Rows.Count > 0 ? new SelectedUserDetails
                     {
                         UserName = empTable.Rows[0]["Name"].ToString().Trim(),
                         UserId = empTable.Rows[0]["Asso_Code"].ToString().Trim(),
                         Designation = empTable.Rows[0]["Designation"].ToString().Trim(),
-                        Department = empTable.Rows[0]["Department"].ToString().Trim()
-                    } : new EmployeeDetails(),
+                        Department = empTable.Rows[0]["Department"].ToString().Trim(),
+                        Status = empTable.Rows[0]["Status"].ToString().Trim()
+                       
+
+                    } : new SelectedUserDetails(),
 
                     Reportees = reporteeTable.AsEnumerable().Select(row => new EmployeeDetails
                     {
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
-                        Department = row["Department"].ToString().Trim()
+                        Department = row["Department"].ToString().Trim(),
+                        Status = row["Status"].ToString().Trim(),
+                        Reportees = row["ReportingPerson_No"].ToString().Trim()
                     }).ToList(),
 
                     Managers = managerTable.AsEnumerable().Select((row, index) => new ManagerDetails
@@ -73,6 +72,8 @@ namespace DEMO.Models.BusinessDL
                         UserId = row["Asso_Code"].ToString().Trim(),
                         Designation = row["Designation"].ToString().Trim(),
                         Department = row["Department"].ToString().Trim(),
+                        Status = row["Status"].ToString().Trim(),
+                        Reportees = row["ManagerList_No"].ToString().Trim(),
                         Level = index + 1
                     }).ToList()
                 };
@@ -82,11 +83,7 @@ namespace DEMO.Models.BusinessDL
             catch (Exception ex)
             {
 
-                return ApiResponseHelper.ErrorResponse(
-                    "INTERNAL_ERROR",
-                    "An error occurred while fetching data.",
-                    ex.Message
-                );
+                return ApiResponseHelper.ErrorResponse("INTERNAL_ERROR", "An error occurred while fetching data.", ex.Message );
             }
         }
 

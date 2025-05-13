@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
+using static DEMO.Models.DTO.UserLogin.UserLoginInfo;
 
 public class TokenService
 {
@@ -14,18 +15,20 @@ public class TokenService
         _configuration = configuration;
     }
 
-    public string GenerateToken(string userId, string company, string location)
+    public string GenerateToken(User user)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userId),
-            new Claim("company", company),
-            new Claim("location", location),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // Unique identifier
-        };
+        new Claim(JwtRegisteredClaimNames.Sub, user.ASSO_CODE),
+        new Claim("company", user.Company),
+        new Claim("location", user.Location),
+        new Claim("User_Id", user.User_Id),
+        new Claim("role", user.Role),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // Unique identifier
+    };
 
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
@@ -62,10 +65,10 @@ public class TokenService
             if (principal == null) return null;
 
             var claims = principal.Claims
-                .Where(c => c.Type == ClaimTypes.NameIdentifier || c.Type == "company" || c.Type == "location")
+                .Where(c => c.Type == ClaimTypes.NameIdentifier || c.Type == "company" || c.Type == "location" || c.Type == "User_Id" || c.Type == "role")
                 .ToDictionary(c => c.Type switch
                 {
-                    ClaimTypes.NameIdentifier => "nameidentifier", 
+                    ClaimTypes.NameIdentifier => "nameidentifier",
                     _ => c.Type
                 }, c => c.Value);
 

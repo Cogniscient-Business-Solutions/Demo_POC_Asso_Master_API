@@ -6,33 +6,100 @@
     "version": "v1"
   },
   "paths": {
+    "/api/ApplyLeave/ApplyLeaveDetail": {
+      "post": {
+        "tags": [
+          "ApplyLeave"
+        ],
+        "summary": "THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATES.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplyLeaveRequestDto"
+              },
+              "examples": {
+                "FRESH CL": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "PENDING APPROVAL": {
+                  "value": {"leaveType":"SPL","leaveStatus":"PENDING_APPROVAL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"WHOLE_DAY","toDateSession":"WHOLE_DAY","employeeReason":"DUE TO ......."}
+                },
+                "FRESH Half CL [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"FRESH","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "GRANTED [ERROR]": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                },
+                "PENDING CANCELLATION": {
+                  "value": {"leaveType":"CL","leaveStatus":"GRANTED","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"FIRST_HALF","toDateSession":"FIRST_HALF","employeeReason":"DUE TO ......."}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/GetEmployeeById/EmpDetail": {
       "get": {
         "tags": [
           "GetEmployeeById"
         ],
-        "summary": "Retrieves employee details based on the given parameters.",
+        "summary": "IN THIS API WE ARE RETRIEVING ASSOCIATES DATA",
         "parameters": [
           {
             "name": "ASSO_CODE",
             "in": "query",
             "description": "The employee association code.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "COMPANY_NO",
-            "in": "query",
-            "description": "The company number.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "LOCATION_NO",
-            "in": "query",
-            "description": "The location number.",
             "schema": {
               "type": "string"
             }
@@ -54,27 +121,87 @@
         }
       }
     },
-    "/api/GetEmployeeById/AddEmployee": {
+    "/api/LeaveAppDetail/GetLeaveAppDetails": {
       "post": {
         "tags": [
-          "GetEmployeeById"
+          "LeaveAppDetail"
         ],
-        "summary": "add emp resource.",
+        "summary": "THIS API IS USED TO SEE THE LEAVE DETAIL",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
+                },
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
+                },
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
+                },
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
+                },
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
+                },
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
+                },
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
+                },
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
+                },
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/GetLeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - FRESH": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["FRESH"]}
+                },
+                "LEAVE - LEAVE_CANCELLED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["LEAVE_CANCELLED"]}
+                },
+                "LEAVE - PENDING_APPROVAL": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_APPROVAL"]}
+                },
+                "LEAVE - GRANTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["GRANTED"]}
+                },
+                "LEAVE - APPROVAL_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["APPROVAL_REJECTED"]}
+                },
+                "LEAVE - PENDING_CANCELLATION": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"leaveStatus":["PENDING_CANCELLATION"]}
+                }
               }
             }
           }
@@ -86,72 +213,78 @@
         }
       }
     },
-    "/api/GetEmployeeById/GetEmployees": {
-      "get": {
+    "/api/LeaveApprovalDetails/GetLeaveApprovalDetails": {
+      "post": {
         "tags": [
-          "GetEmployeeById"
+          "LeaveApprovalDetails"
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/EmpDetailById/{employeeId}": {
-      "get": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/GetEmployeeById/UpdateEmployee/{id}": {
-      "put": {
-        "tags": [
-          "GetEmployeeById"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "summary": "THIS API IS USED TO APPROVE THE APPLIED LEAVE BY THE ASSOCIATE",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeRequestModel"
+                "$ref": "#/components/schemas/LeaveRequestDto"
+              },
+              "examples": {
+                "LEAVE - APPROVAL_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["APPROVAL_REQUEST"]}
+                },
+                "LEAVE - DIRECT": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["DIRECT"]}
+                },
+                "LEAVE - CANCELLATION_REQUEST": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["CANCELLATION_REQUEST"]}
+                },
+                "LEAVE - ALREADY_REJECTED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_REJECTED"]}
+                },
+                "LEAVE - ALREADY_APPROVED": {
+                  "value": {"dateRange":{"fromDate":"2020-01-01","toDate":"2025-03-20"},"filters":["ALREADY_APPROVED"]}
+                }
               }
             }
           }
@@ -163,22 +296,64 @@
         }
       }
     },
-    "/api/GetEmployeeById/DeleteEmployee/{id}": {
-      "delete": {
+    "/api/LeaveAuthorize/LeaveAuthorize": {
+      "post": {
         "tags": [
-          "GetEmployeeById"
+          "LeaveAuthorize"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "summary": "THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveRequest"
+              },
+              "examples": {
+                "MODIFY LEAVE": {
+                  "value": {"leaveType":"CL","action":"MODIFY","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "CANCEL LEAVE": {
+                  "value": {"leaveType":"SPL","action":"CANCEL","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"W","toDateSession":"W","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                },
+                "AUTHORIZE LEAVE": {
+                  "value": {"leaveType":"CL","action":"AUTHORIZE","fromDate":"2025-03-21","toDate":"2025-03-21","fromDateSession":"F","toDateSession":"F","employeeReason":"DUE TO .......","leaveTransactionNo":1}
+                }
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -186,41 +361,64 @@
         }
       }
     },
-    "/api/Login": {
-      "get": {
+    "/API/LeaveGrantReject/GetLeaveGrantRejectDetails": {
+      "post": {
         "tags": [
-          "Login"
+          "LeaveGrantReject"
         ],
-        "parameters": [
-          {
-            "name": "company",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "location",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "summary": "THIS API IS USED FOR LEAVE GRANT , REJECT AND CANCEL .",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
+                },
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
+                },
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
+                },
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
+                },
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeaveGrantRejectRequest"
+              },
+              "examples": {
+                "LEAVES LIST FOR LEAVE CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT125","leaveStatus":"GRANTED","leaveTransactionNo":13,"approvalReason":"Cancellation not permitted after approval."},{"userId":"DT125","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":12,"approvalReason":"Leave cancelled due to project urgency."}]}
+                },
+                "LEAVES LIST FOR APPROVAL REJECTED AND GRANTED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."}]}
+                },
+                "LEAVES LIST FOR GRANTED AND LEAVE_CANCELLED": {
+                  "value": {"leaves":[{"userId":"DT124","leaveStatus":"GRANTED","leaveTransactionNo":4,"approvalReason":"Leave granted as per company policy."},{"userId":"DT124","leaveStatus":"APPROVAL_REJECTED","leaveTransactionNo":5,"approvalReason":"Rejected due to insufficient leave balance."},{"userId":"DT124","leaveStatus":"LEAVE_CANCELLED","leaveTransactionNo":4,"approvalReason":"Leave cancelled due to project urgency."}]}
+                }
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -228,20 +426,12 @@
         }
       }
     },
-    "/api/Login/decodeToken": {
+    "/api/LeaveStatus/GetLeaveStatusDetail": {
       "get": {
         "tags": [
-          "Login"
+          "LeaveStatus"
         ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "THIS API IS USED TO CHECK THE LEAVE STATUS",
         "responses": {
           "200": {
             "description": "OK"
@@ -254,6 +444,7 @@
         "tags": [
           "OrgChart"
         ],
+        "summary": "THIS IS ORGANISATION CHART API BASICALLY WE CAN SEE EMPLOYEES AND THEIR CORRESPONDING UPPER AND LOWER LEVEL EMPLOYEE DATA",
         "parameters": [
           {
             "name": "ASSO_CODE",
@@ -261,16 +452,80 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "COMPANY_NO",
-            "in": "query",
-            "schema": {
-              "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserLogin/login": {
+      "post": {
+        "tags": [
+          "UserLogin"
+        ],
+        "summary": "THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON LOGINNAME AND PASSWORD",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "examples": {
+                "LOGIN USER 1": {
+                  "value": {"logiN_NAME":"Admin","password":"abcdc"}
+                },
+                "LOGIN USER 2": {
+                  "value": {"logiN_NAME":"dt1037","password":"tyuio"}
+                }
+              }
             }
-          },
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserLogin/decodeToken": {
+      "get": {
+        "tags": [
+          "UserLogin"
+        ],
+        "summary": "THIS API IS USED TO DECODE THE TOKEN IN WHICH IT WILL EXTRACT NECESSARY INFORMATION FROM THE TOKEN.",
+        "parameters": [
           {
-            "name": "LOCATION_NO",
+            "name": "token",
             "in": "query",
             "schema": {
               "type": "string"
@@ -287,39 +542,212 @@
   },
   "components": {
     "schemas": {
-      "EmployeeRequestModel": {
+      "ApplyLeaveRequestDto": {
         "type": "object",
         "properties": {
-          "employeeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assO_CODE": {
+          "leaveType": {
             "type": "string",
             "nullable": true
           },
-          "companY_NO": {
+          "leaveStatus": {
+            "$ref": "#/components/schemas/LeaveAppDetailEnum"
+          },
+          "fromDate": {
             "type": "string",
             "nullable": true
           },
-          "locatioN_NO": {
+          "toDate": {
             "type": "string",
             "nullable": true
           },
-          "emP_NAME": {
-            "type": "string",
-            "nullable": true
+          "fromDateSession": {
+            "$ref": "#/components/schemas/SessionEnum"
           },
-          "emP_EMAIL": {
-            "type": "string",
-            "nullable": true
+          "toDateSession": {
+            "$ref": "#/components/schemas/SessionEnum"
           },
-          "emP_PHONE": {
+          "employeeReason": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "DateRange": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateRangeDto": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetLeaveRequestDto": {
+        "type": "object",
+        "properties": {
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRange"
+          },
+          "leaveStatus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaveAppDetailEnum"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaveAppDetailEnum": {
+        "enum": [
+          "FRESH",
+          "LEAVE_CANCELLED",
+          "PENDING_APPROVAL",
+          "GRANTED",
+          "APPROVAL_REJECTED",
+          "PENDING_CANCELLATION"
+        ],
+        "type": "string"
+      },
+      "LeaveApprovalEnum": {
+        "enum": [
+          "APPROVAL_REQUEST",
+          "DIRECT",
+          "CANCELLATION_REQUEST",
+          "ALREADY_REJECTED",
+          "ALREADY_APPROVED"
+        ],
+        "type": "string"
+      },
+      "LeaveDetail": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveTransactionNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "approvalReason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaveGrantRejectRequest": {
+        "type": "object",
+        "properties": {
+          "leaves": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaveDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaveRequest": {
+        "type": "object",
+        "properties": {
+          "leaveType": {
+            "type": "string",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromDateSession": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDateSession": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveTransactionNo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaveRequestDto": {
+        "type": "object",
+        "properties": {
+          "dateRange": {
+            "$ref": "#/components/schemas/DateRangeDto"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeaveApprovalEnum"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "logiN_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionEnum": {
+        "enum": [
+          "WHOLE_DAY",
+          "FIRST_HALF",
+          "SECOND_HALF"
+        ],
+        "type": "string"
       }
     },
     "securitySchemes": {

@@ -4,22 +4,60 @@
         <name>DEMO</name>
     </assembly>
     <members>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String,System.String,System.String)">
+        <member name="M:DEMO.Controllers.ApplyLeaveController.ApplyLeaveDetail(DEMO.Models.DTO.ApplyLeave.ApplyLeaveRequestDto)">
             <summary>
-            Retrieves employee details based on the given parameters.
+            THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATES. 
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.GetEmployeeByIdController.EmployeeDetail(System.String)">
+            <summary>
+            IN THIS API WE ARE RETRIEVING ASSOCIATES DATA 
             </summary>
             <param name="ASSO_CODE">The employee association code.</param>
-            <param name="COMPANY_NO">The company number.</param>
-            <param name="LOCATION_NO">The location number.</param>
             <returns>Returns employee details if found, otherwise an error response.</returns>
             <response code="200">Employee details retrieved successfully.</response>
             <response code="401">Unauthorized - Invalid or missing JWT token.</response>
             <response code="404">Employee not found.</response>
             <response code="500">Internal server error.</response>
         </member>
-        <member name="M:DEMO.Controllers.GetEmployeeByIdController.AddEmployee(DEMO.Models.DTO.EmpDetail.EmployeeRequestModel)">
+        <member name="M:DEMO.Controllers.LeaveAppDetailController.GetLeaveAppDetails(DEMO.Models.DTO.LeaveAppDetail.GetLeaveRequestDto)">
             <summary>
-            add emp resource.
+             THIS API IS USED TO SEE THE LEAVE DETAIL
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.LeaveApprovalDetailsController.LeaveApprovalDetails(DEMO.Models.DTO.LeaveApproval.LeaveRequestDto)">
+            <summary>
+             THIS API IS USED TO APPROVE THE APPLIED LEAVE BY THE ASSOCIATE 
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.LeaveAuthorizeController.LeaveAuthorize(DEMO.Models.DTO.LeaveAuthorizeCancel.LeaveRequest)">
+            <summary>
+            THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER. 
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.LeaveGrantRejectController.LeaveGrantReject(DEMO.Models.DTO.LeaveGrantReject.LeaveGrantReject.LeaveGrantRejectRequest)">
+            <summary>
+             THIS API IS USED FOR LEAVE GRANT , REJECT AND CANCEL .
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.LeaveStatusController.GetLeaveStatusDetail">
+            <summary>
+            THIS API IS USED TO CHECK THE LEAVE STATUS 
+            </summary>
+        </member>
+        <member name="M:DEMO.Controllers.OrgChartController.EmployeeOrgDetail(System.String)">
+            <summary>
+             THIS IS ORGANISATION CHART API BASICALLY WE CAN SEE EMPLOYEES AND THEIR CORRESPONDING UPPER AND LOWER LEVEL EMPLOYEE DATA 
+            </summary>
+        </member>
+        <member name="M:UserLoginController.Loginn(DEMO.Models.DTO.UserLogin.UserLoginInfo.LoginRequest)">
+            <summary>
+             THIS IS A LOGIN API FOR THE ASSOCIATE IN WHICH WE GENERATE A TOKEN BASED ON LOGINNAME AND PASSWORD
+            </summary>
+        </member>
+        <member name="M:UserLoginController.DecodeToken(System.String)">
+            <summary>
+             THIS API IS USED TO DECODE THE TOKEN IN WHICH IT WILL EXTRACT NECESSARY INFORMATION FROM THE TOKEN. 
             </summary>
         </member>
     </members>
