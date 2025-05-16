@@ -34,7 +34,7 @@ namespace DEMO.Controllers
         /// <summary>
         /// THIS API IS USED TO AUTHORIZE THE LEAVE BY THE MANAGER. 
         /// </summary>
-        [Authorize]
+       
         [HttpPost("LeaveAuthorize")]
         [SwaggerRequestExample(typeof(LeaveRequest), typeof(LeaveAuthorizeExamples))]
         public async Task<IActionResult> LeaveAuthorize([FromBody] LeaveRequest request)
@@ -50,10 +50,10 @@ namespace DEMO.Controllers
                 var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                 var claims = _tokenService.DecodeToken(token);
 
-                //if (claims == null || claims.Count == 0)
-                //{
-                //    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
-                //}
+                if (claims == null || claims.Count == 0)
+                {
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
+                }
 
                 // Extract required claims from token
                 if (!claims.TryGetValue("company", out string companyNo) ||

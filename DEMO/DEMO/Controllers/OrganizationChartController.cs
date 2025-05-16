@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace DEMO.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class OrgChartController : ControllerBase
@@ -35,7 +35,7 @@ namespace DEMO.Controllers
         /// <summary>
         ///  THIS IS ORGANISATION CHART API BASICALLY WE CAN SEE EMPLOYEES AND THEIR CORRESPONDING UPPER AND LOWER LEVEL EMPLOYEE DATA 
         /// </summary>
-        [Authorize]
+       
         [HttpGet("OrgChartData")]
         public async Task<IActionResult> EmployeeOrgDetail(string ASSO_CODE)
         {

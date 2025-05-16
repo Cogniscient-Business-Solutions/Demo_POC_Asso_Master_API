@@ -38,7 +38,7 @@ namespace DEMO.Controllers
         /// <summary>
         ///  THIS API IS USED TO SEE THE LEAVE DETAIL
         /// </summary>
-        [Authorize]
+        
         [HttpPost("GetLeaveAppDetails")]
         [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveAppDetailExamples))]
         public async Task<IActionResult> GetLeaveAppDetails([FromBody] GetLeaveRequestDto request)

@@ -42,7 +42,7 @@ public class UserLoginController : ControllerBase
 
         }
 
-        return ApiResponseHelper.AuthErrorResponse("Invalid Data", "Invalid credentials", "The login name or password is incorrect.");
+        return ApiResponseHelper.ErrorResponse("Invalid Data", "Invalid credentials", "The login name or password is incorrect.");
     }
 
 

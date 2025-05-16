@@ -60,7 +60,7 @@ namespace DEMO.Models.BusinessDL
                         Mobile_No = row["Mobile_No"].ToString().Trim(),
 
                         ReportingPerson = reportingTable.AsEnumerable()
-                            .Where(r => r["Asso_Code"].ToString().Trim() == reportingPersonCode)
+                            .Where(r => r["Asso_Code"].ToString().Trim().ToUpper() == reportingPersonCode.ToUpper())
                             .Select(r => new PersonDetail
                             {
                                 Name = r["Name"].ToString().Trim(),

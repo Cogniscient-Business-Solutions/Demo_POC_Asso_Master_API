@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\DEMO.csproj": {}
+    "D:\\Data Repository Team Wise\\Abhay Tomar\\DEMO API UPDATED\\DEMO\\DEMO\\DEMO.csproj": {}
   },
   "projects": {
-    "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\DEMO.csproj": {
+    "D:\\Data Repository Team Wise\\Abhay Tomar\\DEMO API UPDATED\\DEMO\\DEMO\\DEMO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\DEMO.csproj",
+        "projectUniqueName": "D:\\Data Repository Team Wise\\Abhay Tomar\\DEMO API UPDATED\\DEMO\\DEMO\\DEMO.csproj",
         "projectName": "DEMO",
-        "projectPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\DEMO.csproj",
+        "projectPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\DEMO API UPDATED\\DEMO\\DEMO\\DEMO.csproj",
         "packagesPath": "C:\\Users\\Abhay\\.nuget\\packages\\",
-        "outputPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\Demo_POC_Asso_Master_API\\DEMO\\DEMO\\obj\\",
+        "outputPath": "D:\\Data Repository Team Wise\\Abhay Tomar\\DEMO API UPDATED\\DEMO\\DEMO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

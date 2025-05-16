@@ -43,7 +43,7 @@ namespace DEMO.Controllers
 
                 if (claims == null || claims.Count == 0)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("Invalid token", "Unauthorized access. Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
                 }
 
                 // Extract required claims from token
