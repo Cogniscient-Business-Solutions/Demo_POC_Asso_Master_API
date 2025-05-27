@@ -89,7 +89,8 @@ namespace DEMO.Models.BusinessDL.Classes
                     {
                         LeaveType = row["leaveType"].ToString().Trim(),
                         NoOfDays = Convert.ToInt32(row["noOfDays"]),
-                        LeaveStatus = row["LeaveStatus"].ToString().Trim(),
+                        //LeaveStatus = row["LeaveStatus"].ToString().Trim(),
+                        LeaveStatus = FilterHelper.GetLeaveStatusName(row["LeaveStatus"]),
                         LeaveTransactionNo = Convert.ToInt32(row["leaveTransactionNo"]),
                         FromDate = row["fromDate"].ToString().Trim(),
                         ToDate = row["toDate"].ToString().Trim(),

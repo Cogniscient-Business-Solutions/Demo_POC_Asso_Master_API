@@ -53,7 +53,7 @@ namespace DEMO.Controllers
 
                 if (claims == null)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
+                    return ApiResponseHelper.AuthErrorResponse("401", "Your session has expired. Please log in again.");
                 }
 
                 //// Assign company and location from claims if not provided
