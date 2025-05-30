@@ -42,7 +42,7 @@ public class UserLoginController : ControllerBase
 
         }
 
-        return ApiResponseHelper.AuthErrorResponse("Invalid Data", "Invalid credentials", "The login name or password is incorrect.");
+        return ApiResponseHelper.ErrorResponse("Invalid Data", "Invalid credentials", "The login name or password is incorrect.");
     }
 
 
@@ -57,7 +57,7 @@ public class UserLoginController : ControllerBase
 
         if (claims == null)
         {
-            return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
+            return ApiResponseHelper.AuthErrorResponse("401", "Your session has expired. Please log in again.");
         }
 
         return ApiResponseHelper.SuccessResponse(new { claims });

@@ -7,6 +7,19 @@ namespace DEMO.Models.Generic
 {
     public static class FilterHelper
     {
+        public static string GetLeaveStatusName(object statusObj)
+        {
+            if (statusObj == DBNull.Value || statusObj == null)
+                return "UNKNOWN";
+
+            if (int.TryParse(statusObj.ToString(), out int statusValue) &&
+                Enum.IsDefined(typeof(LeaveAppDetailEnum), statusValue))
+            {
+                return Enum.GetName(typeof(LeaveAppDetailEnum), statusValue);
+            }
+
+            return "UNKNOWN";
+        }
 
         //public static int convertstatustonumber2(LeaveStatusEnum status)
         //{
@@ -84,6 +97,8 @@ namespace DEMO.Models.Generic
         //    }
         //    return "UNKNOWN_STATUS"; 
         //}
+
+
 
         public static readonly Dictionary<string, string> LeaveStatusMapping = new Dictionary<string, string>
         {

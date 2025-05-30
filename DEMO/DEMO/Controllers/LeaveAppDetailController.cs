@@ -38,7 +38,7 @@ namespace DEMO.Controllers
         /// <summary>
         ///  THIS API IS USED TO SEE THE LEAVE DETAIL
         /// </summary>
-        [Authorize]
+        
         [HttpPost("GetLeaveAppDetails")]
         [SwaggerRequestExample(typeof(GetLeaveRequestDto), typeof(LeaveAppDetailExamples))]
         public async Task<IActionResult> GetLeaveAppDetails([FromBody] GetLeaveRequestDto request)
@@ -51,7 +51,7 @@ namespace DEMO.Controllers
 
                 if (claims == null || claims.Count == 0)
                 {
-                    return ApiResponseHelper.AuthErrorResponse("TOKEN_EXPIRED", "Your session has expired. Please log in again.");
+                    return ApiResponseHelper.AuthErrorResponse("401", "Your session has expired. Please log in again.");
                 }
 
                 // Extract required claims from token

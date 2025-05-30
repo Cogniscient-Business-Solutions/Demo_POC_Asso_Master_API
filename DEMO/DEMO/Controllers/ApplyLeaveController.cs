@@ -36,7 +36,7 @@ namespace DEMO.Controllers
         /// <summary>
         /// THIS API IS USED TO APPLY THE LEAVE BY ASSOCIATES. 
         /// </summary>
-        [Authorize]
+        
         [HttpPost("ApplyLeaveDetail")]
         [SwaggerRequestExample(typeof(ApplyLeaveRequestDto), typeof(ApplyLeaveExamples))]
         public async Task<IActionResult> ApplyLeaveDetail([FromBody] ApplyLeaveRequestDto request)
@@ -52,10 +52,10 @@ namespace DEMO.Controllers
                 var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
                 var claims = _tokenService.DecodeToken(token);
 
-                //if (claims == null || claims.Count == 0)
-                //{
-                //    return ApiResponseHelper.AuthErrorResponse("401", "Unauthorized access. Invalid token.");
-                //}
+                if (claims == null || claims.Count == 0)
+                {
+                    return ApiResponseHelper.AuthErrorResponse("401", "Your session has expired. Please log in again.");
+                }
 
                 // Extract required claims from token
                 if (!claims.TryGetValue("company", out string companyNo) ||

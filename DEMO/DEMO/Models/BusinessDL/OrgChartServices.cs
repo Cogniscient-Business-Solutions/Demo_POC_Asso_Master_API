@@ -66,7 +66,7 @@ namespace DEMO.Models.BusinessDL
                         Reportees = row["ReportingPerson_No"].ToString().Trim()
                     }).ToList(),
 
-                    Managers = managerTable.AsEnumerable().Select((row, index) => new ManagerDetails
+                    Managers = managerTable.AsEnumerable().Select(row => new ManagerDetails
                     {
                         UserName = row["Name"].ToString().Trim(),
                         UserId = row["Asso_Code"].ToString().Trim(),
@@ -74,7 +74,7 @@ namespace DEMO.Models.BusinessDL
                         Department = row["Department"].ToString().Trim(),
                         Status = row["Status"].ToString().Trim(),
                         Reportees = row["ManagerList_No"].ToString().Trim(),
-                        Level = index + 1
+                        Level = row["Level"].ToString().Trim(),
                     }).ToList()
                 };
 

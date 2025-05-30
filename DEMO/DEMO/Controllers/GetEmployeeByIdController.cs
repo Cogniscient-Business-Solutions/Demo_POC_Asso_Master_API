@@ -12,7 +12,7 @@ using DEMO.SwaggerExamples;
 
 namespace DEMO.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class GetEmployeeByIdController : ControllerBase
@@ -53,7 +53,7 @@ namespace DEMO.Controllers
 
                 if (claims == null)
                 {
-                    return ApiResponseHelper.ErrorResponse("UNAUTHORIZED", "Invalid token.");
+                    return ApiResponseHelper.AuthErrorResponse("401", "Your session has expired. Please log in again.");
                 }
 
                 //// Assign company and location from claims if not provided

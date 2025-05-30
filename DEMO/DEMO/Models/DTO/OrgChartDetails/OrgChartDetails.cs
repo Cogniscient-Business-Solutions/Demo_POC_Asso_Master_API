@@ -41,7 +41,7 @@ namespace DEMO.Models.DTO.OrgChartDetails
 
     public class ManagerDetails : EmployeeDetails
     {
-        public int Level { get; set; }
+        public string Level { get; set; }
     }
 
 }
